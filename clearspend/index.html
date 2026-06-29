@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClearSpend — See where your money goes.</title>
+<meta name="description" content="A local-first expense tracker. Log spending in 3 taps, see it in a beautiful spending wheel, and stay on budget. No account, no bank login, no subscription trap.">
+<style>
+  :root {
+    --amber:#F59E0B; --amber2:#7A4B00; --amber-light:#FFF8EC; --amber-mid:#FBBF24;
+    --ink:#0B0B0F; --muted:#5A5E66; --bg:#fff;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:var(--bg); }
+  a { color:var(--amber2); }
+
+  /* ── Hero ── */
+  .hero {
+    background:linear-gradient(150deg, #1A1200 0%, #2D1E00 100%);
+    color:#fff; text-align:center; padding:80px 24px 96px;
+    position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse at 50% 28%, rgba(245,158,11,.20) 0%, transparent 62%);
+    pointer-events:none;
+  }
+  .hero img.icon {
+    width:112px; height:112px; border-radius:26px;
+    box-shadow:0 16px 48px rgba(0,0,0,.45);
+    position:relative; z-index:1;
+  }
+  .hero h1 { font-size:44px; margin:20px 0 8px; font-weight:800; position:relative; z-index:1; }
+  .hero p.tagline {
+    font-size:20px; opacity:.93; max-width:540px; margin:0 auto 32px;
+    position:relative; z-index:1;
+  }
+  .badge {
+    display:inline-block; background:#000; color:#fff;
+    padding:13px 26px; border-radius:13px; text-decoration:none;
+    font-weight:700; font-size:16px; position:relative; z-index:1;
+  }
+
+  /* ── Privacy badge ── */
+  .privacy-banner {
+    background:var(--amber-light); border:1.5px solid #FDE7BD;
+    border-radius:18px; padding:28px 32px; margin:48px auto 0;
+    max-width:680px; text-align:center;
+  }
+  .privacy-banner .label {
+    display:inline-block; background:var(--amber); color:#1A1200;
+    font-weight:700; font-size:13px; letter-spacing:.06em; text-transform:uppercase;
+    padding:5px 14px; border-radius:999px; margin-bottom:12px;
+  }
+  .privacy-banner h2 { font-size:22px; margin:0 0 8px; }
+  .privacy-banner p { margin:0; color:var(--muted); font-size:15px; }
+
+  /* ── Content ── */
+  .wrap { max-width:860px; margin:0 auto; padding:0 24px; }
+  h2 { font-size:28px; margin:64px 0 18px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; }
+  .card {
+    border:1px solid #F3F4F6; border-radius:18px; padding:22px 24px;
+    background:#FAFAFA;
+  }
+  .card .emoji { font-size:28px; margin-bottom:10px; }
+  .card h3 { margin:0 0 6px; font-size:17px; }
+  .card p { margin:0; color:var(--muted); font-size:15px; }
+
+  /* ── Pricing ── */
+  .pricing-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:600px){ .pricing-grid { grid-template-columns:1fr; } }
+  .price-card {
+    border-radius:18px; padding:28px 26px; background:var(--amber-light);
+    border:1.5px solid #FDE7BD;
+  }
+  .price-card.pro { background:linear-gradient(135deg,#1A1200,#2D1E00); color:#fff; border:none; }
+  .price-card .tag {
+    font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+    opacity:.7; margin-bottom:8px;
+  }
+  .price-card h3 { margin:0 0 6px; font-size:22px; font-weight:800; }
+  .price-card.pro h3 { color:var(--amber-mid); }
+  .price-card p { margin:4px 0 0; font-size:14px; opacity:.8; }
+  .price-card ul { margin:16px 0 0; padding:0 0 0 18px; font-size:14px; }
+  .price-card li { margin-bottom:4px; }
+
+  /* ── Wheel preview ── */
+  .wheel-preview {
+    display:flex; align-items:center; justify-content:center;
+    margin:48px auto; max-width:320px;
+  }
+  .wheel-svg { width:100%; height:auto; }
+
+  /* ── Footer ── */
+  footer {
+    text-align:center; padding:56px 24px 40px;
+    color:var(--muted); font-size:14px;
+    border-top:1px solid #F3F4F6; margin-top:72px;
+  }
+  .cta {
+    background:var(--amber); color:#1A1200; font-weight:700;
+    padding:14px 28px; border-radius:999px; text-decoration:none;
+    display:inline-block; margin-bottom:20px;
+  }
+  .disclaimer {
+    background:var(--amber-light); border:1px solid #FDE7BD; border-radius:12px;
+    padding:16px 20px; margin:24px auto 0; max-width:680px;
+    font-size:13px; color:var(--muted); text-align:left;
+  }
+  details { border-bottom:1px solid #F3F4F6; padding:14px 0; }
+  summary { font-weight:600; cursor:pointer; }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <img class="icon" src="icon.png" alt="ClearSpend app icon">
+    <h1>ClearSpend</h1>
+    <p class="tagline">See where your money goes. No account. No bank login. Pay once.</p>
+    <a class="badge" href="#" title="Coming soon to the App Store">Download on the App Store</a>
+  </header>
+
+  <main class="wrap">
+
+    <!-- Privacy badge -->
+    <div class="privacy-banner">
+      <div class="label">App Store Privacy Label</div>
+      <h2>Data Not Collected</h2>
+      <p>ClearSpend has no backend and no account. Your transactions stay on your device
+         &mdash; or in your private, end-to-end encrypted iCloud account if you choose.
+         We never link to your bank and never see your numbers.</p>
+    </div>
+
+    <!-- Spending wheel preview -->
+    <div class="wheel-preview" aria-label="Spending wheel illustration">
+      <svg class="wheel-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke-width="26" stroke-linecap="round">
+          <!-- arcs sized by share of spend, starting at top (12 o'clock) -->
+          <circle cx="150" cy="150" r="115" stroke="#1E2433" stroke-width="26"/>
+          <path d="M150 35 A115 115 0 0 1 257 195" stroke="#F59E0B"/>      <!-- Food -->
+          <path d="M257 195 A115 115 0 0 1 196 256" stroke="#3B82F6"/>     <!-- Transport -->
+          <path d="M196 256 A115 115 0 0 1 92 250"  stroke="#8B5CF6"/>     <!-- Shopping -->
+          <path d="M92 250 A115 115 0 0 1 44 188"   stroke="#10B981"/>     <!-- Health -->
+          <path d="M44 188 A115 115 0 0 1 150 35"   stroke="#F43F5E" opacity=".85"/> <!-- rest -->
+        </g>
+        <text x="150" y="142" text-anchor="middle" font-size="40" font-weight="800" fill="#F59E0B" font-family="-apple-system,sans-serif">81%</text>
+        <text x="150" y="168" text-anchor="middle" font-size="13" fill="#5A5E66" font-family="-apple-system,sans-serif">of budget used</text>
+      </svg>
+    </div>
+
+    <h2>Why ClearSpend</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="emoji">&#x1F300;</div>
+        <h3>The Spending Wheel</h3>
+        <p>Each category is an arc, sized by spend. Understand your whole month in three seconds.</p>
+      </div>
+      <div class="card">
+        <div class="emoji">&#x26A1;</div>
+        <h3>Log in 3 taps</h3>
+        <p>Amount, category, done. The keypad is waiting the moment you tap add.</p>
+      </div>
+      <div class="card">
+        <div class="emoji">&#x1F512;</div>
+        <h3>100% on-device</h3>
+        <p>No account, no cloud unless you opt in. Nothing leaves your phone.</p>
+      </div>
+      <div class="card">
+        <div class="emoji">&#x1F3E6;</div>
+        <h3>No bank login</h3>
+        <p>Manual-first by design. Log cash and anything else &mdash; nothing to link.</p>
+      </div>
+      <div class="card">
+        <div class="emoji">&#x1F3AF;</div>
+        <h3>Budgets that help</h3>
+        <p>Set a monthly limit per category and get a heads-up before you go over.</p>
+      </div>
+      <div class="card">
+        <div class="emoji">&#x1F50D;</div>
+        <h3>Searchable history</h3>
+        <p>Find any expense by keyword, category, or date. Export to CSV any time.</p>
+      </div>
+    </div>
+
+    <h2>Honest pricing</h2>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="tag">Free Forever</div>
+        <h3>Core Tracking</h3>
+        <p>No credit card, no trial expiry.</p>
+        <ul>
+          <li>The Spending Wheel</li>
+          <li>3-tap Quick-Add logging</li>
+          <li>Up to 3 categories &amp; 60 days of history</li>
+          <li>Monthly summary card &amp; wallets</li>
+        </ul>
+      </div>
+      <div class="price-card pro">
+        <div class="tag">Pro</div>
+        <h3>$29.99 once &nbsp;or&nbsp; $19.99/yr</h3>
+        <p>No subscription required &mdash; pay once and own it.</p>
+        <ul>
+          <li>Unlimited categories &amp; history</li>
+          <li>Per-category budgets &amp; alerts</li>
+          <li>Recurring transactions &amp; widgets</li>
+          <li>iCloud sync &amp; CSV / JSON export</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Support &amp; FAQ</h2>
+    <p>Questions or feedback? Email <a href="mailto:dark2torch@gmail.com">dark2torch@gmail.com</a> — usually replied to within a day or two.</p>
+    <details><summary>Is my data really private?</summary>
+      <p>Yes. ClearSpend has no backend server. Your data lives in Apple's on-device
+         SwiftData database. If you enable iCloud sync, it travels through your own
+         private iCloud account (Apple's CloudKit with end-to-end encryption). We never
+         receive a copy. See our <a href="privacy.html">Privacy Policy</a> for full
+         technical detail.</p>
+    </details>
+    <details><summary>Do I have to connect my bank?</summary>
+      <p>No &mdash; and you can't. ClearSpend never links to a bank and never asks for
+         bank credentials. You log spending yourself, including cash, so there's nothing
+         for anyone to access.</p>
+    </details>
+    <details><summary>Does it work offline?</summary>
+      <p>Yes, completely. ClearSpend is fully functional with no network connection.
+         All computation runs on-device.</p>
+    </details>
+    <details><summary>Is there a subscription?</summary>
+      <p>Only if you want one. Pro is a one-time lifetime unlock, or an optional low
+         yearly price if you'd rather. The free tier is genuinely useful and never
+         expires.</p>
+    </details>
+
+  </main>
+
+  <footer>
+    <a class="cta" href="#" title="Coming soon to the App Store">Get ClearSpend</a>
+    <p><a href="privacy.html">Privacy Policy</a></p>
+    <div class="disclaimer">
+      <strong>A note on financial guidance:</strong> ClearSpend is a personal budgeting
+      and expense-tracking tool for general awareness. It is not financial, investment,
+      or tax advice. Consult a qualified professional for guidance specific to your
+      situation.
+    </div>
+    <p style="margin-top:24px;">&copy; 2026 Moath Othman</p>
+    <p style="margin-top:16px"><a href="../" style="color:var(--muted)">← All apps</a></p>
+  </footer>
+
+</body>
+</html>
