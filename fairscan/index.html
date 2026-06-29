@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FairScan — The scanner that doesn't scam you</title>
+<meta name="description" content="PDF scanner with on-device OCR. $19.99 once — no subscription, no account, no watermarks. Your documents never leave your phone.">
+<style>
+  :root {
+    --accent: #2563eb;
+    --accent2: #1d4ed8;
+    --dark: #0f172a;
+    --ink: #0f172a;
+    --muted: #475569;
+    --bg: #fff;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--bg); }
+  a { color: var(--accent); }
+
+  /* ── Hero ─────────────────────────────────────────────────── */
+  .hero {
+    background: linear-gradient(160deg, #1d4ed8, #0f172a);
+    color: #fff;
+    text-align: center;
+    padding: 80px 24px 88px;
+  }
+  .hero img { width: 104px; height: 104px; border-radius: 24px; box-shadow: 0 12px 40px rgba(0,0,0,.35); }
+  .hero h1 { font-size: 44px; margin: 20px 0 8px; letter-spacing: -0.5px; }
+  .hero .tagline { font-size: 20px; opacity: .92; margin: 0 auto 32px; max-width: 520px; line-height: 1.4; }
+  .badge {
+    display: inline-block;
+    background: #fff;
+    color: var(--dark);
+    padding: 14px 28px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 17px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.18);
+  }
+
+  /* ── Price comparison ─────────────────────────────────────── */
+  .price-banner {
+    background: #EFF6FF;
+    border-top: 3px solid #2563eb;
+    border-bottom: 3px solid #2563eb;
+    text-align: center;
+    padding: 36px 24px;
+  }
+  .price-banner .compare {
+    display: inline-flex;
+    gap: 32px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .price-box { background: #fff; border-radius: 16px; padding: 20px 28px; min-width: 160px; }
+  .price-box .label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+  .price-box .price { font-size: 36px; font-weight: 800; margin: 4px 0; }
+  .price-box .freq { font-size: 14px; color: var(--muted); }
+  .price-box.them .price { color: #dc2626; text-decoration: line-through; }
+  .price-box.us .price { color: var(--accent); }
+  .vs { font-size: 28px; font-weight: 800; color: var(--muted); }
+
+  /* ── How it works ─────────────────────────────────────────── */
+  .wrap { max-width: 840px; margin: 0 auto; padding: 0 24px; }
+  h2 { font-size: 28px; margin: 64px 0 20px; letter-spacing: -0.3px; }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    counter-reset: steps;
+  }
+  .step {
+    border: 1.5px solid #E2E8F0;
+    border-radius: 18px;
+    padding: 24px;
+    position: relative;
+    counter-increment: steps;
+  }
+  .step::before {
+    content: counter(steps);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 800;
+    font-size: 18px;
+    border-radius: 50%;
+    margin-bottom: 12px;
+  }
+  .step h3 { margin: 0 0 6px; font-size: 17px; }
+  .step p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  /* ── Privacy badge ────────────────────────────────────────── */
+  .privacy-badge {
+    background: var(--dark);
+    color: #fff;
+    border-radius: 20px;
+    padding: 36px 40px;
+    margin: 64px 0;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .privacy-badge .icon { font-size: 48px; flex-shrink: 0; }
+  .privacy-badge h2 { margin: 0 0 8px; font-size: 24px; color: #fff; }
+  .privacy-badge p { margin: 0; color: #94a3b8; font-size: 16px; }
+
+  /* ── Features ─────────────────────────────────────────────── */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .feature { background: #F8FAFC; border-radius: 14px; padding: 20px 22px; }
+  .feature .icon { font-size: 28px; margin-bottom: 8px; }
+  .feature h3 { margin: 0 0 4px; font-size: 16px; }
+  .feature p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  /* ── Pricing block ────────────────────────────────────────── */
+  .pricing { background: #EFF6FF; border: 1.5px solid #BFDBFE; border-radius: 20px; padding: 28px 32px; margin: 48px 0; }
+  .pricing strong { color: var(--accent); }
+
+  /* ── FAQ ──────────────────────────────────────────────────── */
+  details { border-bottom: 1px solid #E2E8F0; padding: 16px 0; }
+  summary { font-weight: 700; cursor: pointer; font-size: 16px; }
+  details p { margin: 10px 0 0; color: var(--muted); }
+
+  footer { text-align: center; padding: 56px 24px; color: var(--muted); font-size: 14px; }
+  .cta { background: var(--accent); color: #fff; font-weight: 700; padding: 14px 28px; border-radius: 999px; text-decoration: none; display: inline-block; font-size: 16px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="icon.png" alt="FairScan icon">
+  <h1>FairScan</h1>
+  <p class="tagline">The scanner that doesn't scam you.<br>$19.99 once — not $9.99/week.</p>
+  <a class="badge" href="#" title="Coming soon to the App Store">Download on the App Store</a>
+</header>
+
+<section class="price-banner">
+  <div class="compare">
+    <div class="price-box them">
+      <div class="label">Them (iScanner)</div>
+      <div class="price">$9.99</div>
+      <div class="freq">per week = $519/year</div>
+    </div>
+    <div class="vs">vs</div>
+    <div class="price-box us">
+      <div class="label">FairScan</div>
+      <div class="price">$19.99</div>
+      <div class="freq">once. Yours forever.</div>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <h2>Scan to Files in 3 taps</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>Aim the camera</h3>
+      <p>FairScan auto-detects document edges in real time. No manual crop needed.</p>
+    </div>
+    <div class="step">
+      <h3>Capture</h3>
+      <p>Tap the shutter. Perspective correction and brightness adjustment happen on-device in under a second.</p>
+    </div>
+    <div class="step">
+      <h3>Save to Files</h3>
+      <p>Your PDF lands directly in the Files app — iCloud Drive or on-device. No "export" step, no lock-in.</p>
+    </div>
+  </div>
+
+  <div class="privacy-badge">
+    <div class="icon">&#x1F512;</div>
+    <div>
+      <h2>100% on-device. No account required.</h2>
+      <p>Your documents never travel to any server — not ours, not anyone's.
+      OCR runs using Apple's Vision framework, entirely on your device.
+      There is no sign-up, no cloud storage account, and nothing to breach.
+      See our <a href="privacy.html" style="color:#60a5fa">Privacy Policy</a>.</p>
+    </div>
+  </div>
+
+  <h2>Everything you need</h2>
+  <div class="features">
+    <div class="feature">
+      <div class="icon">&#x1F4C4;</div>
+      <h3>Multi-page PDFs</h3>
+      <p>Scan a full contract or report as a single searchable PDF.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F50D;</div>
+      <h3>On-device OCR</h3>
+      <p>Search inside any scan, copy text, share as a searchable PDF. Runs 100% locally.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F4C1;</div>
+      <h3>Folders</h3>
+      <p>Organise scans into named folders. Find anything in seconds.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F4E4;</div>
+      <h3>Export anywhere</h3>
+      <p>Share to Files, iCloud Drive, Mail, Dropbox — any app via the Share sheet.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x270F;&#xFE0F;</div>
+      <h3>Annotate &amp; sign</h3>
+      <p>Draw, highlight, or add a signature with Apple Pencil or your finger.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F4B0;</div>
+      <h3>One-time price</h3>
+      <p>$19.99. Once. No subscription renewal. No dark patterns.</p>
+    </div>
+  </div>
+
+  <h2>Honest pricing</h2>
+  <div class="pricing">
+    <p>Scan up to <strong>three pages free</strong> — no account, no trial clock, no credit card.
+    FairScan Pro unlocks unlimited scanning, multi-page PDFs, and OCR for
+    <strong>$19.99 one time</strong>. No dark patterns. No weekly surprises.</p>
+  </div>
+
+  <h2>FAQ</h2>
+  <p>Email <a href="mailto:dark2torch@gmail.com">dark2torch@gmail.com</a> for anything not covered below.</p>
+
+  <details>
+    <summary>Is my data safe?</summary>
+    <p>Yes. FairScan has no servers and requires no account. Scans are saved on your device or in your personal iCloud Drive — controlled by you and Apple, not by us. On-device OCR uses Apple's Vision framework and never sends text to any server. <a href="privacy.html">Read the full Privacy Policy.</a></p>
+  </details>
+  <details>
+    <summary>What about e-sign?</summary>
+    <p>FairScan includes basic annotation and finger/Pencil signature support for personal use. For legally binding e-signatures (DocuSign-level audit trails), you will need a dedicated signing service. FairScan is a document scanner, not a legal execution platform.</p>
+  </details>
+  <details>
+    <summary>Why one-time pricing instead of a subscription?</summary>
+    <p>Because scanning a document is a simple utility task, not a service. You do not subscribe to scissors. $19.99 once reflects what it costs to build and maintain the app fairly — without relying on customers forgetting to cancel.</p>
+  </details>
+  <details>
+    <summary>Does it work offline?</summary>
+    <p>Entirely. Scanning, OCR, folder management, and PDF creation all work offline. An internet connection is only used if you choose to export to a cloud service like Dropbox.</p>
+  </details>
+  <details>
+    <summary>Can I get a refund?</summary>
+    <p>Refunds are handled by Apple — visit reportaproblem.apple.com. We have no mechanism to issue refunds directly, and we do not want unhappy customers to pay for something that did not work for them.</p>
+  </details>
+
+</main>
+
+<footer>
+  <a class="cta" href="#" title="Coming soon to the App Store">Get FairScan</a>
+  <p style="margin-top:24px"><a href="privacy.html">Privacy Policy</a></p>
+  <p>&copy; 2026 Moath Othman</p>
+  <p style="margin-top:16px"><a href="../" style="color:var(--muted)">← All apps</a></p>
+  </footer>
+
+</body>
+</html>

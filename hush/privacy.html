@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Hush</title>
+  <style>
+    :root {
+      --teal:     #0D9488;
+      --teal-dk:  #042f2e;
+      --teal-lt:  #14b8a6;
+      --white:    #ffffff;
+      --text-sec: rgba(255,255,255,0.70);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--teal-dk);
+      color: var(--white);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    header {
+      padding: 48px 24px 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+    }
+
+    header a {
+      color: var(--teal-lt);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    header h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-top: 16px;
+    }
+
+    header p {
+      font-size: 14px;
+      color: var(--text-sec);
+      margin-top: 8px;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--teal-lt);
+      margin-top: 48px;
+      margin-bottom: 12px;
+    }
+
+    p, li {
+      font-size: 16px;
+      color: var(--text-sec);
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    li { margin-bottom: 6px; }
+
+    .highlight {
+      background: rgba(13,148,136,0.12);
+      border: 1px solid rgba(13,148,136,0.30);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-top: 32px;
+    }
+
+    .highlight p {
+      color: var(--white);
+      font-weight: 600;
+      font-size: 17px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.30);
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    footer a { color: var(--teal-lt); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html">&larr; Back to Hush</a>
+    <h1>Privacy Policy</h1>
+    <p>Effective date: June 13, 2026 &bull; Last updated: June 13, 2026</p>
+  </header>
+
+  <main>
+
+    <div class="highlight">
+      <p>The short version: Hush collects no data about you. Everything stays on your device. There is nothing to see here.</p>
+    </div>
+
+    <h2>No account required</h2>
+    <p>Hush does not ask you to create an account, provide an email address, or sign in with any third-party service. You open the app and use it — no registration, no onboarding gate, no identity.</p>
+
+    <h2>No data collected</h2>
+    <p>Hush does not collect, transmit, or store any personal information. This includes:</p>
+    <ul>
+      <li>No name, email address, or contact information</li>
+      <li>No location data</li>
+      <li>No usage analytics or session tracking</li>
+      <li>No crash reporting sent to any third party</li>
+      <li>No device identifiers shared externally</li>
+    </ul>
+
+    <h2>All audio processing is on-device</h2>
+    <p>Every sound in Hush is a local audio file bundled with the app. Playback, mixing, and volume control happen entirely on your iPhone using AVAudioEngine. No audio is streamed from a server, and no audio data is ever sent anywhere.</p>
+
+    <h2>Sleep timer is local-only</h2>
+    <p>The sleep timer is a local countdown. It is not synced to any server, not logged, and not reported anywhere. When the timer fires, AVAudioSession simply stops — nothing else happens.</p>
+
+    <h2>No analytics SDK</h2>
+    <p>Hush contains no third-party analytics library (no Firebase, no Mixpanel, no Amplitude, no Sentry, no Facebook SDK, no Google SDK). There is one networking call in the entire app: the App Store receipt validation that Apple handles natively when you restore a purchase — this is Apple's infrastructure, not ours.</p>
+
+    <h2>In-app purchases</h2>
+    <p>Purchase transactions are handled entirely by Apple's StoreKit framework. Hush never sees your payment information. Apple's privacy policy governs that transaction.</p>
+
+    <h2>Children</h2>
+    <p>Hush is suitable for all ages and specifically designed to be safe for households with infants and young children. Because no data is collected at all, there is nothing age-gating is needed to protect.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If the privacy practices of Hush ever change, we will update this page and revise the effective date. Given the nature of the app (no data collection), we do not anticipate changes.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy: <a href="mailto:dark2torch@gmail.com" style="color: #14b8a6;">dark2torch@gmail.com</a></p>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 ExploringIdeas &bull; <a href="index.html">Hush</a></p>
+  </footer>
+
+</body>
+</html>

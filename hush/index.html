@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hush — White Noise &amp; Sleep Sounds</title>
+  <style>
+    :root {
+      --teal:     #0D9488;
+      --teal-dk:  #042f2e;
+      --teal-lt:  #14b8a6;
+      --white:    #ffffff;
+      --off-white:#e2fffe;
+      --text-sec: rgba(255,255,255,0.70);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--teal-dk);
+      color: var(--white);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px 64px;
+      background: radial-gradient(ellipse at 50% 40%, #0D9488 0%, #042f2e 70%);
+    }
+
+    .hero__icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 27px;
+      background: linear-gradient(145deg, #1DB5A8, #042f2e);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+
+    .hero__icon svg { width: 68px; height: 68px; }
+
+    .hero__eyebrow {
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal-lt);
+      margin-bottom: 16px;
+    }
+
+    .hero__title {
+      font-size: clamp(36px, 7vw, 72px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+
+    .hero__sub {
+      font-size: clamp(17px, 2.5vw, 22px);
+      color: var(--text-sec);
+      max-width: 520px;
+      margin-bottom: 48px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--white);
+      color: var(--teal-dk);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: opacity .18s;
+    }
+    .badge:hover { opacity: .88; }
+
+    /* ── Section wrapper ── */
+    section { padding: 96px 24px; }
+    .container { max-width: 960px; margin: 0 auto; }
+
+    .section-title {
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    /* ── Feature grid ── */
+    .features {
+      background: rgba(255,255,255,0.04);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 20px;
+      padding: 32px 24px;
+    }
+
+    .card__icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .card__title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .card__body {
+      font-size: 15px;
+      color: var(--text-sec);
+    }
+
+    /* ── Pricing ── */
+    .pricing { background: var(--teal-dk); }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 0;
+    }
+
+    .plan {
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .plan--featured {
+      border-color: var(--teal);
+      background: rgba(13,148,136,0.12);
+    }
+
+    .plan__name {
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal-lt);
+      margin-bottom: 12px;
+    }
+
+    .plan__price {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 4px;
+    }
+
+    .plan__cadence {
+      font-size: 14px;
+      color: var(--text-sec);
+      margin-bottom: 24px;
+    }
+
+    .plan__features {
+      list-style: none;
+      text-align: left;
+      font-size: 15px;
+      color: var(--text-sec);
+    }
+
+    .plan__features li { padding: 6px 0; }
+    .plan__features li::before { content: "✓  "; color: var(--teal-lt); }
+
+    /* ── FAQ ── */
+    .faq { background: rgba(255,255,255,0.03); }
+
+    .faq-list { max-width: 680px; margin: 0 auto; }
+
+    details {
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      padding: 20px 0;
+    }
+
+    summary {
+      font-weight: 600;
+      font-size: 17px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-size: 22px; color: var(--teal-lt); }
+    details[open] summary::after { content: "−"; }
+
+    details p {
+      padding-top: 14px;
+      font-size: 15px;
+      color: var(--text-sec);
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 48px 24px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.35);
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    footer a { color: var(--teal-lt); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero__icon">
+      <svg viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Three stacked sine-wave lines -->
+        <path d="M8 20 Q14 12 20 20 Q26 28 32 20 Q38 12 44 20 Q50 28 56 20 Q62 12 68 20"
+              stroke="white" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.35"/>
+        <path d="M4 28 Q10 18 16 28 Q22 38 28 28 Q34 18 40 28 Q46 38 52 28 Q58 18 64 28"
+              stroke="white" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <path d="M8 36 Q14 28 20 36 Q26 44 32 36 Q38 28 44 36 Q50 44 56 36 Q62 28 68 36"
+              stroke="white" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.55"/>
+        <!-- Crescent moon -->
+        <path d="M37 52 a9 9 0 1 0 0-10 6.5 6.5 0 1 1 0 10z"
+              fill="white" opacity="0.90"/>
+      </svg>
+    </div>
+    <p class="hero__eyebrow">Hush for iPhone</p>
+    <h1 class="hero__title">Mix your perfect sleep sound.</h1>
+    <p class="hero__sub">
+      10 sounds free. Layer them. Set a timer. Let Hush carry you off.
+      No account, no subscription required.
+    </p>
+    <a class="badge" href="#">Download on the App Store</a>
+  </div>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Everything you need to sleep well.</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card__icon">10</div>
+          <div class="card__title">10 Sounds Free — Forever</div>
+          <div class="card__body">Brown noise, white noise, rain, ocean, fan, fireplace, and more. No 7-day trial.</div>
+        </div>
+        <div class="card">
+          <div class="card__icon">~</div>
+          <div class="card__title">4-Layer Mixer</div>
+          <div class="card__body">Stack up to 4 sounds and control each volume independently. Your mix, saved automatically.</div>
+        </div>
+        <div class="card">
+          <div class="card__icon">&#9790;</div>
+          <div class="card__title">Sleep Timer</div>
+          <div class="card__body">15 min to 8 hours. Hush fades out gently — no jarring cutoff to wake you back up.</div>
+        </div>
+        <div class="card">
+          <div class="card__icon">&#9679;</div>
+          <div class="card__title">Background Audio</div>
+          <div class="card__body">Lock your screen. Hush keeps playing. No need to keep the app open all night.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing">
+    <div class="container">
+      <h2 class="section-title">Simple, honest pricing.</h2>
+      <div class="pricing-grid">
+        <div class="plan">
+          <div class="plan__name">Free</div>
+          <div class="plan__price">$0</div>
+          <div class="plan__cadence">forever</div>
+          <ul class="plan__features">
+            <li>All 10 sounds</li>
+            <li>Single-sound playback</li>
+            <li>Background audio</li>
+          </ul>
+        </div>
+        <div class="plan plan--featured">
+          <div class="plan__name">Pro — Best Value</div>
+          <div class="plan__price">$9.99</div>
+          <div class="plan__cadence">once, yours forever</div>
+          <ul class="plan__features">
+            <li>4-layer mixer</li>
+            <li>Sleep timer (15 min–8 hr)</li>
+            <li>All future sounds included</li>
+            <li>No subscription, ever</li>
+          </ul>
+        </div>
+        <div class="plan">
+          <div class="plan__name">Pro — Yearly</div>
+          <div class="plan__price">$5.99</div>
+          <div class="plan__cadence">per year, cancel anytime</div>
+          <ul class="plan__features">
+            <li>4-layer mixer</li>
+            <li>Sleep timer</li>
+            <li>Cancel anytime</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <h2 class="section-title">Questions &amp; answers.</h2>
+      <div class="faq-list">
+        <details>
+          <summary>Do I need an account?</summary>
+          <p>No. Hush requires no account, no sign-in, and no email address. Open it and play.</p>
+        </details>
+        <details>
+          <summary>Does it really play with the screen locked?</summary>
+          <p>Yes. Hush uses iOS background audio so it continues playing when you lock your phone, switch apps, or put the phone face-down.</p>
+        </details>
+        <details>
+          <summary>Is the free tier actually free forever?</summary>
+          <p>Yes. There is no trial clock. All 10 sounds are free to play individually, forever. Pro adds the 4-layer mixer and sleep timer.</p>
+        </details>
+        <details>
+          <summary>Will it help with tinnitus?</summary>
+          <p>Many people find white, pink, or brown noise helpful for masking tinnitus. Hush is not a medical device and this is not medical advice — please consult a doctor for tinnitus concerns.</p>
+        </details>
+        <details>
+          <summary>What happens to my lifetime purchase if I get a new phone?</summary>
+          <p>Pro is tied to your Apple ID via App Store. Sign into the same Apple ID on your new device, open Hush, and tap Restore Purchases.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 ExploringIdeas &bull; <a href="privacy.html">Privacy Policy</a> &bull; <a href="mailto:dark2torch@gmail.com">Support</a></p>
+    <p style="margin-top:8px;">Not medical advice. If you have a sleep disorder, please speak to a qualified medical professional.</p>
+    <p style="margin-top:16px"><a href="../" style="color:var(--muted)">← All apps</a></p>
+  </footer>
+
+</body>
+</html>

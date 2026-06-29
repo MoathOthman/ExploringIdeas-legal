@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luna Local — Privacy Policy</title>
+<style>
+  :root { --rose:#E11D48; --rose2:#4C0519; --rose-light:#FFF1F2; --ink:#0B0B0F; --muted:#5A5E66; --bg:#fff; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:var(--bg); }
+  .wrap { max-width:720px; margin:0 auto; padding:48px 24px 80px; }
+  h1 { font-size:36px; margin:0 0 4px; font-weight:800; }
+  h2 { font-size:20px; margin:40px 0 10px; color:var(--rose2); }
+  .muted { color:var(--muted); }
+  a { color:var(--rose); }
+  .summary-card {
+    background:var(--rose-light); border:1.5px solid #FECDD3;
+    border-radius:16px; padding:20px 24px; margin:28px 0;
+  }
+  .summary-card strong { color:var(--rose2); }
+  .badge {
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--rose); color:#fff;
+    font-weight:700; font-size:13px; padding:7px 16px; border-radius:999px;
+    margin-bottom:12px;
+  }
+  .medical-disclaimer {
+    background:#FFF1F2; border:1.5px solid #FECDD3;
+    border-radius:14px; padding:20px 24px; margin:40px 0 0;
+  }
+  .medical-disclaimer h2 { margin-top:0; }
+  footer { margin-top:48px; padding-top:24px; border-top:1px solid #F3F4F6; font-size:13px; color:var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p><a href="index.html">&larr; Luna Local</a></p>
+  <h1>Privacy Policy</h1>
+  <p class="muted">Last updated: 13 June 2026 &mdash; Luna Local v1.0</p>
+
+  <div class="summary-card">
+    <span class="badge">App Store label: Data Not Collected</span><br>
+    <strong>The short version:</strong> Luna Local has no backend. Your cycle data is stored
+    only on your device (CoreData) or in your own private iCloud account if you enable sync.
+    We have no server to breach, no database to subpoena, and no business model that
+    involves your health data. We do not collect, transmit, sell, or share anything.
+  </div>
+
+  <h2>1. What Luna Local stores</h2>
+  <p>All data you enter — period dates, cycle length, symptoms, mood, flow, and notes —
+  is saved locally using Apple's CoreData framework on your device. This storage is
+  encrypted by iOS at rest (requires device passcode / Face ID to access). We never
+  receive a copy of this data.</p>
+
+  <h2>2. iCloud sync (optional, opt-in)</h2>
+  <p>If you enable iCloud sync in Luna Local's settings, your data is synced through
+  Apple's CloudKit private database. This is your own personal iCloud account; the data
+  is end-to-end encrypted by Apple where the platform supports it and is accessible only
+  to you on your signed-in devices. Luna Local has no access to your CloudKit data —
+  Apple's servers route the sync without exposing the content to us.</p>
+  <p>You can disable iCloud sync at any time in iOS Settings &rsaquo; Apple ID &rsaquo;
+  iCloud &rsaquo; Luna Local. Disabling sync does not delete local data.</p>
+
+  <h2>3. HealthKit (optional, permission-gated)</h2>
+  <p>If you grant HealthKit access, Luna Local can read and write menstrual cycle data
+  (period start dates, cycle length) to Apple Health. This access is governed by Apple's
+  HealthKit privacy framework:</p>
+  <ul>
+    <li>Luna Local requests only the specific data types it reads or writes — nothing else.</li>
+    <li>HealthKit data is never transmitted off-device by Luna Local.</li>
+    <li>You can revoke HealthKit permission at any time in iOS Settings &rsaquo; Privacy &amp;
+        Security &rsaquo; Health &rsaquo; Luna Local.</li>
+  </ul>
+
+  <h2>4. Analytics and crash reporting</h2>
+  <p>Luna Local contains <strong>no analytics SDK</strong> (no Amplitude, Mixpanel, Firebase,
+  Segment, or equivalent). It contains <strong>no crash reporting service</strong> (no Sentry,
+  Crashlytics, or equivalent). Zero network requests are made for observability purposes.</p>
+  <p>If you choose to submit a crash report via Apple's standard iOS crash reporter dialog,
+  that report goes to Apple and is governed by Apple's privacy policy. We may receive
+  anonymised, aggregated crash data from Apple's App Store Connect dashboard; this never
+  identifies you and contains no cycle data.</p>
+
+  <h2>5. Advertising</h2>
+  <p>Luna Local contains no advertising SDK and shows no ads. We do not use Apple's
+  App Tracking Transparency (ATT) framework because we have nothing to track.</p>
+
+  <h2>6. Purchases</h2>
+  <p>Optional Pro purchases (one-time or yearly subscription) are processed entirely by
+  Apple through the App Store using StoreKit 2. We never see your payment details, card
+  number, or Apple ID email. Apple's privacy policy governs payment processing.</p>
+
+  <h2>7. Notifications</h2>
+  <p>If you grant notification permission, Luna Local schedules <em>local</em> notifications
+  on-device (e.g., period reminders). No notification content is sent to any server.
+  Scheduling happens on your device only. You can revoke notification permission at any time
+  in iOS Settings &rsaquo; Notifications &rsaquo; Luna Local.</p>
+
+  <h2>8. Device identifiers</h2>
+  <p>Luna Local does not read, store, or transmit any device identifier —
+  not IDFA, not IDFV, not the device serial number. There is no identifier to associate
+  with your logs.</p>
+
+  <h2>9. Children</h2>
+  <p>Luna Local is not directed at children under 13. The App Store age rating reflects
+  the health/medical category and the mature nature of the subject matter. Luna Local
+  collects no personal data from any user.</p>
+
+  <h2>10. Data retention and deletion</h2>
+  <p>Because we hold no data, there is nothing for us to delete on request. All your data
+  lives on your devices. To delete it:</p>
+  <ul>
+    <li><strong>On-device data:</strong> delete the Luna Local app from your device. iOS
+        will remove all associated CoreData storage.</li>
+    <li><strong>iCloud data:</strong> delete the app and also go to iOS Settings &rsaquo;
+        Apple ID &rsaquo; iCloud &rsaquo; Manage Account Storage and delete Luna Local's
+        iCloud data.</li>
+    <li><strong>HealthKit data:</strong> open Apple Health, navigate to your data, and
+        delete any entries sourced from Luna Local.</li>
+  </ul>
+
+  <h2>11. Third-party services</h2>
+  <p>Luna Local integrates with no third-party services beyond Apple's own frameworks
+  (CloudKit, HealthKit, StoreKit, CoreData, UserNotifications). All of Apple's own data
+  handling is governed by the <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy Policy</a>.</p>
+
+  <h2>12. Changes to this policy</h2>
+  <p>If this policy ever changes, the date above will be updated and the changes will be
+  noted in the app's release notes. A material change that increases data collection would
+  also require your explicit consent before taking effect — though we intend never to
+  collect data at all.</p>
+
+  <h2>13. Contact</h2>
+  <p>Questions about this policy? Email
+  <a href="mailto:dark2torch@gmail.com">dark2torch@gmail.com</a>. We aim to respond
+  within two business days.</p>
+
+  <!-- Medical disclaimer — bottom of page, always visible -->
+  <div class="medical-disclaimer">
+    <h2>Medical disclaimer</h2>
+    <p>Luna Local provides cycle estimates for general awareness only. The app is not a
+    medical device, does not provide medical advice, and is not intended to diagnose,
+    treat, cure, or prevent any condition. Cycle predictions are estimates only and should
+    <strong>not</strong> be used for contraception or any medical decision.</p>
+    <p>Consult a qualified healthcare provider for medical guidance, contraception advice,
+    fertility treatment, or any health concern related to your menstrual cycle.</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Moath Othman &middot; <a href="index.html">Back to Luna Local</a></p>
+  </footer>
+</div>
+</body>
+</html>

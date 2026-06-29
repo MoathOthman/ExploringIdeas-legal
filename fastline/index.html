@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FastLine — Fasting timer on your Lock Screen</title>
+<meta name="description" content="A clean intermittent-fasting timer with a Live Activity, Home Screen widget, and honest pricing. Free timer, history and stats forever.">
+<style>
+  :root { --accent:#F59E0B; --accent2:#F97316; --ink:#0B0B0F; --muted:#5A5E66; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--ink); }
+  a { color:var(--accent2); }
+  .wrap { max-width:840px; margin:0 auto; padding:0 24px; }
+  .hero { background:linear-gradient(160deg,#FBBF24,#F97316); color:#fff; text-align:center; padding:72px 24px 80px; }
+  .hero img { width:104px; height:104px; border-radius:24px; box-shadow:0 12px 40px rgba(0,0,0,.25); }
+  .hero h1 { font-size:40px; margin:20px 0 6px; }
+  .hero p { font-size:19px; opacity:.95; margin:0 auto; max-width:520px; }
+  .badge { display:inline-block; margin-top:26px; background:#000; color:#fff; padding:12px 22px; border-radius:12px; text-decoration:none; font-weight:600; }
+  h2 { font-size:26px; margin:56px 0 16px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+  .card { border:1px solid #eee; border-radius:16px; padding:20px 22px; }
+  .card h3 { margin:0 0 6px; font-size:17px; }
+  .card p { margin:0; color:var(--muted); font-size:15px; }
+  .price { background:#FFF7ED; border:1px solid #FDE3C0; border-radius:16px; padding:24px; }
+  .muted { color:var(--muted); }
+  details { border-bottom:1px solid #eee; padding:14px 0; }
+  summary { font-weight:600; cursor:pointer; }
+  footer { text-align:center; padding:48px 24px; color:var(--muted); font-size:14px; }
+  .cta { background:var(--accent); color:#000; font-weight:700; padding:12px 22px; border-radius:999px; text-decoration:none; display:inline-block; }
+</style>
+</head>
+<body>
+  <header class="hero">
+    <img src="icon.png" alt="FastLine icon">
+    <h1>FastLine</h1>
+    <p>The intermittent-fasting timer that lives on your Lock Screen and Dynamic Island — with honest pricing.</p>
+    <a class="badge" href="#" title="Coming soon to the App Store">Download on the App Store</a>
+  </header>
+
+  <main class="wrap">
+    <h2>What you get, free</h2>
+    <div class="grid">
+      <div class="card"><h3>Count-up ring</h3><p>Elapsed time, current stage and time to your goal — at a glance.</p></div>
+      <div class="card"><h3>Live Activity</h3><p>Your fast on the Lock Screen and Dynamic Island, always visible.</p></div>
+      <div class="card"><h3>Home Screen widget</h3><p>Check your progress without opening the app.</p></div>
+      <div class="card"><h3>History &amp; stats</h3><p>Streaks, averages and a 14-day chart — free, forever.</p></div>
+    </div>
+
+    <h2>Honest pricing</h2>
+    <div class="price">
+      <p>The timer, fasting stages, history and stats are <strong>free forever</strong>.
+      Pro is optional — <strong>$19.99/year</strong> (21-day free trial) or a
+      <strong>$29.99</strong> lifetime unlock. Not a $70 subscription for a countdown.</p>
+      <p class="muted">Pro adds: custom fasting goals, mood &amp; energy notes, a weight trend from Apple Health, and CSV export.</p>
+    </div>
+
+    <h2>Support &amp; FAQ</h2>
+    <p>Need help? Email <a href="mailto:dark2torch@gmail.com">dark2torch@gmail.com</a> — we usually reply within a day or two.</p>
+    <details><summary>Is my data private?</summary><p>Yes. No account, no servers. Everything stays on your device. See our <a href="privacy.html">Privacy Policy</a>.</p></details>
+    <details><summary>Does it use Apple Health?</summary><p>Only if you turn on the weight trend, and only to <em>read</em> your weight — FastLine never writes to Health.</p></details>
+    <details><summary>Do I have to pay?</summary><p>No. The timer and all stats are free forever. Pro is optional.</p></details>
+    <details><summary>Is fasting safe?</summary><p>FastLine is an educational tracking tool, not medical advice. Fasting isn't right for everyone — talk to a doctor before making changes.</p></details>
+  </main>
+
+  <footer>
+    <a class="cta" href="#" title="Coming soon to the App Store">Get FastLine</a>
+    <p><a href="privacy.html">Privacy Policy</a> · Educational content only — not medical advice.</p>
+    <p style="margin-top:16px"><a href="../" style="color:var(--muted)">← All apps</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Ritual</title>
+  <style>
+    :root {
+      --green-950: #052e16;
+      --green-900: #14532d;
+      --green-600: #16a34a;
+      --green-400: #4ade80;
+      --text-main: #ecfdf5;
+      --text-dim:  #86efac;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--green-950);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Helvetica, Arial, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 48px;
+      border-bottom: 1px solid rgba(74, 222, 128, 0.12);
+    }
+    .nav-logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--green-400); }
+    nav a.back {
+      color: var(--green-400);
+      text-decoration: none;
+      font-size: 15px;
+    }
+    nav a.back:hover { text-decoration: underline; }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 32px 120px;
+    }
+
+    .eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green-400);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .updated {
+      font-size: 14px;
+      color: var(--text-dim);
+      margin-bottom: 64px;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-top: 56px;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    p {
+      font-size: 16px;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+
+    ul {
+      margin: 8px 0 16px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    li {
+      font-size: 16px;
+      color: var(--text-dim);
+      padding: 6px 0;
+    }
+    li::before { content: "- "; color: var(--green-400); font-weight: 700; }
+
+    .highlight-box {
+      background: rgba(22, 163, 74, 0.08);
+      border: 1px solid rgba(74, 222, 128, 0.20);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin: 40px 0;
+    }
+    .highlight-box p {
+      font-size: 17px;
+      color: var(--text-main);
+      font-weight: 500;
+      margin: 0;
+    }
+
+    a { color: var(--green-400); }
+    a:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      padding: 48px 24px;
+      border-top: 1px solid rgba(74, 222, 128, 0.10);
+      font-size: 14px;
+      color: var(--text-dim);
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 20px 24px; }
+      .container { padding: 56px 24px 80px; }
+      h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Ritual<span>.</span></a>
+  <a href="index.html" class="back">← Back to Ritual</a>
+</nav>
+
+<div class="container">
+  <div class="eyebrow">Legal</div>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: June 2026</p>
+
+  <div class="highlight-box">
+    <p>The short version: Ritual never sees your data. No account required. No analytics SDK. All your habits stay on your device.</p>
+  </div>
+
+  <h2>No account required</h2>
+  <p>Ritual does not require you to create an account or sign in with any service. You can use the app immediately after download without providing any personal information.</p>
+
+  <h2>Data stored on your device</h2>
+  <p>All habits, streaks, completion history, and settings are stored locally on your iPhone using SwiftData. We never receive, access, or transmit this data to any server.</p>
+  <ul>
+    <li>Habit names and descriptions</li>
+    <li>Completion history and streak counts</li>
+    <li>App preferences and theme settings</li>
+    <li>Widget and notification configuration</li>
+  </ul>
+
+  <h2>iCloud sync (optional)</h2>
+  <p>If you enable iCloud sync in Settings, your habits are backed up and synced across your own Apple devices via Apple's CloudKit infrastructure. This sync is entirely private to your Apple ID — it goes from your device to Apple's servers to your other devices. ExploringIdeas has no access to your iCloud data at any point.</p>
+  <p>iCloud sync is disabled by default. You opt in if you want it.</p>
+
+  <h2>Analytics and crash reporting</h2>
+  <p>Ritual uses no third-party analytics SDK (no Firebase, no Mixpanel, no Amplitude). We collect only Apple's standard privacy-safe aggregate metrics that Apple provides to all App Store developers: App Store impressions, downloads, and retention cohorts. These aggregates contain no personally identifiable information.</p>
+  <p>If the app crashes, Apple may collect an anonymised crash report subject to your iOS privacy settings (Settings > Privacy & Security > Analytics & Improvements). We receive only aggregated, de-identified crash information.</p>
+
+  <h2>Purchases</h2>
+  <p>In-app purchases (Ritual Pro) are processed entirely by Apple's StoreKit. We never see your payment information. Apple handles billing, receipts, and refunds.</p>
+
+  <h2>Notifications</h2>
+  <p>Ritual may request permission to send you local notifications (habit reminders). These are generated entirely on-device and are never routed through an external push notification server. No notification payload is sent to us.</p>
+
+  <h2>Apple Watch and Widgets</h2>
+  <p>The Apple Watch app and home screen widget read your habit data directly from your device using the same local SwiftData store. No additional data leaves your device as a result of using these features.</p>
+
+  <h2>Children</h2>
+  <p>Ritual does not knowingly collect data from children under 13. Because we collect no personal data from any user, there is no additional risk category for younger users. The app has no social features, chat, or user-generated content shared with others.</p>
+
+  <h2>Data retention and deletion</h2>
+  <p>Because all data is stored on your device, you control its retention. To delete all Ritual data, delete the app from your iPhone. If iCloud sync was enabled, delete Ritual's iCloud data from Settings > [Your Name] > iCloud > Manage Account Storage.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If we make material changes to this policy, we will update the date at the top of this page and, where appropriate, note the change in the app's release notes. Continued use of Ritual after changes are posted constitutes acceptance.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about privacy? Email us at <a href="mailto:dark2torch@gmail.com">dark2torch@gmail.com</a>. We will respond within 5 business days.</p>
+
+  <h2>Governing law</h2>
+  <p>This policy is governed by the laws of the jurisdiction in which ExploringIdeas operates. Any disputes shall be resolved in the appropriate courts of that jurisdiction.</p>
+</div>
+
+<footer>
+  <p>&copy; 2026 ExploringIdeas &nbsp;|&nbsp; <a href="index.html">Home</a> &nbsp;|&nbsp; <a href="mailto:dark2torch@gmail.com">Support</a></p>
+</footer>
+
+</body>
+</html>

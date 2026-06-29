@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ritual — Habit Tracker & Streaks</title>
+  <style>
+    :root {
+      --green-950: #052e16;
+      --green-900: #14532d;
+      --green-800: #166534;
+      --green-600: #16a34a;
+      --green-400: #4ade80;
+      --green-200: #bbf7d0;
+      --white:     #ffffff;
+      --gray-100:  #f0fdf4;
+      --gray-400:  #86efac;
+      --text-main: #ecfdf5;
+      --text-dim:  #86efac;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--green-950);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 48px;
+      border-bottom: 1px solid rgba(74, 222, 128, 0.12);
+    }
+    .nav-logo {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--white);
+    }
+    .nav-logo span { color: var(--green-400); }
+    nav a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 15px;
+      margin-left: 32px;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--white); }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 120px 24px 96px;
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(22,163,74,0.28) 0%, transparent 70%);
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(74, 222, 128, 0.15);
+      border: 1px solid rgba(74, 222, 128, 0.30);
+      border-radius: 999px;
+      color: var(--green-400);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 6px 16px;
+      margin-bottom: 32px;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: clamp(42px, 8vw, 80px);
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      margin-bottom: 24px;
+      color: var(--white);
+    }
+    h1 em { font-style: normal; color: var(--green-400); }
+    .hero-sub {
+      font-size: 20px;
+      color: var(--text-dim);
+      max-width: 520px;
+      margin: 0 auto 48px;
+    }
+    .cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--green-600);
+      color: var(--white);
+      font-size: 17px;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 4px 24px rgba(22,163,74,0.40);
+    }
+    .btn-primary:hover { background: #15803d; transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-block;
+      border: 1.5px solid rgba(74, 222, 128, 0.35);
+      color: var(--green-400);
+      font-size: 17px;
+      font-weight: 600;
+      padding: 16px 36px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--green-400); }
+
+    /* SECTION */
+    section { padding: 96px 48px; max-width: 1100px; margin: 0 auto; }
+    h2 {
+      font-size: clamp(28px, 5vw, 46px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 18px;
+      color: var(--text-dim);
+      margin-bottom: 64px;
+    }
+
+    /* FEATURES GRID */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .feature-card {
+      background: rgba(22, 163, 74, 0.07);
+      border: 1px solid rgba(74, 222, 128, 0.12);
+      border-radius: 20px;
+      padding: 32px 28px;
+      transition: border-color 0.2s;
+    }
+    .feature-card:hover { border-color: rgba(74, 222, 128, 0.30); }
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(74, 222, 128, 0.15);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .feature-card p { font-size: 15px; color: var(--text-dim); line-height: 1.55; }
+
+    /* PRICING */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    @media (max-width: 600px) { .pricing-grid { grid-template-columns: 1fr; } }
+    .plan {
+      border: 1.5px solid rgba(74, 222, 128, 0.18);
+      border-radius: 24px;
+      padding: 40px 32px;
+      position: relative;
+    }
+    .plan.featured {
+      border-color: var(--green-600);
+      background: rgba(22, 163, 74, 0.08);
+    }
+    .plan-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--green-600);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+    }
+    .plan-name { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+    .plan-price {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -2px;
+      color: var(--green-400);
+      margin-bottom: 4px;
+    }
+    .plan-period { font-size: 14px; color: var(--text-dim); margin-bottom: 28px; }
+    .plan ul { list-style: none; }
+    .plan li {
+      font-size: 15px;
+      color: var(--text-dim);
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(74, 222, 128, 0.08);
+    }
+    .plan li:last-child { border-bottom: none; }
+    .plan li::before { content: "+ "; color: var(--green-400); font-weight: 700; }
+
+    /* FAQ */
+    .faq { max-width: 720px; margin: 0 auto; }
+    details {
+      border-bottom: 1px solid rgba(74, 222, 128, 0.12);
+      padding: 24px 0;
+    }
+    summary {
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--green-400); font-size: 22px; }
+    details[open] summary::after { content: "−"; }
+    details p { font-size: 16px; color: var(--text-dim); margin-top: 16px; line-height: 1.65; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 64px 24px;
+      border-top: 1px solid rgba(74, 222, 128, 0.10);
+      font-size: 14px;
+      color: var(--text-dim);
+    }
+    footer a { color: var(--green-400); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      nav .nav-links { display: none; }
+      section { padding: 64px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Ritual<span>.</span></div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="badge">Coming December 2026</div>
+  <h1>Build habits<br>that <em>actually stick.</em></h1>
+  <p class="hero-sub">Unlimited habits, an interactive home screen widget, and a Watch app that works. Free.</p>
+  <div class="cta-group">
+    <a href="#" class="btn-primary">Download on the App Store</a>
+    <a href="#pricing" class="btn-ghost">See Pricing</a>
+  </div>
+</div>
+
+<section id="features">
+  <h2>Everything you need.</h2>
+  <p class="section-sub">No paywalls on the basics. No habit limits. No nonsense.</p>
+  <div class="features">
+    <div class="feature-card">
+      <div class="feature-icon">checkmark</div>
+      <h3>Unlimited Habits — Free</h3>
+      <p>Track every habit you care about without hitting a wall. The free tier is genuinely unlimited.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">widget</div>
+      <h3>Interactive Widget</h3>
+      <p>Check off habits straight from your home screen. No app required. Tap — done.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">watch</div>
+      <h3>Apple Watch App</h3>
+      <p>Native watchOS app. One tap on your wrist, instant sync. Built to last a workout.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">heatmap</div>
+      <h3>Year Heatmap</h3>
+      <p>A GitHub-style contribution grid for every habit. See your whole year at a glance — the best motivation there is.</p>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <h2 style="text-align:center">Honest pricing.</h2>
+  <p class="section-sub" style="text-align:center">Core features are free forever. Pro unlocks power-user extras.</p>
+  <div class="pricing-grid">
+    <div class="plan">
+      <div class="plan-name">Free</div>
+      <div class="plan-price">$0</div>
+      <div class="plan-period">forever</div>
+      <ul>
+        <li>Unlimited habits</li>
+        <li>Streak tracking</li>
+        <li>Interactive widget</li>
+        <li>Apple Watch app</li>
+        <li>Basic heatmap</li>
+      </ul>
+    </div>
+    <div class="plan featured">
+      <div class="plan-badge">Pro</div>
+      <div class="plan-name">Ritual Pro</div>
+      <div class="plan-price">$24.99</div>
+      <div class="plan-period">one-time &nbsp;|&nbsp; or $14.99/yr (14-day trial)</div>
+      <ul>
+        <li>Everything in Free</li>
+        <li>Advanced analytics</li>
+        <li>Custom habit icons</li>
+        <li>Themes</li>
+        <li>Early feature access</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <h2>Questions.</h2>
+  <p class="section-sub">Answers.</p>
+  <div class="faq">
+    <details>
+      <summary>Is it really free with unlimited habits?</summary>
+      <p>Yes. We believe habit tracking only works when you can track everything. The free tier has no habit cap, ever. Pro unlocks analytics, themes, and custom icons — extras for power users who want to go deeper.</p>
+    </details>
+    <details>
+      <summary>Does the widget work without opening the app?</summary>
+      <p>Yes. Ritual uses WidgetKit interactive widgets (iOS 17+), so you can tap a habit directly on your home screen and it marks complete — no app launch required.</p>
+    </details>
+    <details>
+      <summary>What Apple Watch features are included free?</summary>
+      <p>The full Watch app is free: view your habits, mark them complete, and see today's progress — all from your wrist. One tap, instant sync to your iPhone.</p>
+    </details>
+    <details>
+      <summary>Does Ritual sync across devices?</summary>
+      <p>Habits are stored locally using SwiftData. Optional iCloud sync keeps your devices in step — entirely private to you, with no server in the middle.</p>
+    </details>
+    <details>
+      <summary>What data do you collect?</summary>
+      <p>Nothing personal. No account required, no analytics SDK, no data sold. All habits live on-device. See our <a href="privacy.html">privacy policy</a> for full details.</p>
+    </details>
+    <details>
+      <summary>Is Ritual a medical or clinical tool?</summary>
+      <p>No. Ritual is a personal productivity app for habit tracking. It is not a medical or clinical tool. Always consult a qualified healthcare professional for health, mental health, or behavioral guidance.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <p style="margin-bottom:12px">
+    &copy; 2026 ExploringIdeas &nbsp;|&nbsp;
+    <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
+    <a href="mailto:dark2torch@gmail.com">Support</a>
+  </p>
+  <p>Ritual is not a medical or clinical tool. Not medical advice. Talk to your doctor.</p>
+  <p style="margin-top:16px"><a href="../" style="color:var(--muted)">← All apps</a></p>
+  </footer>
+
+</body>
+</html>

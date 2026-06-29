@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luna Local — Cycle Tracker. Privately Yours.</title>
+<meta name="description" content="Track your cycle without an account or cloud. Luna Local keeps everything on your device — private by design, not by policy.">
+<style>
+  :root {
+    --rose:#E11D48; --rose2:#4C0519; --rose-light:#FFF1F2; --rose-mid:#FB7185;
+    --ink:#0B0B0F; --muted:#5A5E66; --bg:#fff;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:var(--bg); }
+  a { color:var(--rose); }
+
+  /* ── Hero ── */
+  .hero {
+    background:linear-gradient(150deg, var(--rose) 0%, var(--rose2) 100%);
+    color:#fff; text-align:center; padding:80px 24px 96px;
+    position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse at 40% 30%, rgba(255,255,255,.10) 0%, transparent 65%);
+    pointer-events:none;
+  }
+  .hero img.icon {
+    width:112px; height:112px; border-radius:26px;
+    box-shadow:0 16px 48px rgba(0,0,0,.30);
+    position:relative; z-index:1;
+  }
+  .hero h1 { font-size:44px; margin:20px 0 8px; font-weight:800; position:relative; z-index:1; }
+  .hero p.tagline {
+    font-size:20px; opacity:.93; max-width:540px; margin:0 auto 32px;
+    position:relative; z-index:1;
+  }
+  .badge {
+    display:inline-block; background:#000; color:#fff;
+    padding:13px 26px; border-radius:13px; text-decoration:none;
+    font-weight:700; font-size:16px; position:relative; z-index:1;
+  }
+
+  /* ── Privacy badge ── */
+  .privacy-banner {
+    background:var(--rose-light); border:1.5px solid #FECDD3;
+    border-radius:18px; padding:28px 32px; margin:48px auto 0;
+    max-width:680px; text-align:center;
+  }
+  .privacy-banner .label {
+    display:inline-block; background:var(--rose); color:#fff;
+    font-weight:700; font-size:13px; letter-spacing:.06em; text-transform:uppercase;
+    padding:5px 14px; border-radius:999px; margin-bottom:12px;
+  }
+  .privacy-banner h2 { font-size:22px; margin:0 0 8px; }
+  .privacy-banner p { margin:0; color:var(--muted); font-size:15px; }
+
+  /* ── Content ── */
+  .wrap { max-width:860px; margin:0 auto; padding:0 24px; }
+  h2 { font-size:28px; margin:64px 0 18px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; }
+  .card {
+    border:1px solid #F3F4F6; border-radius:18px; padding:22px 24px;
+    background:#FAFAFA;
+  }
+  .card .emoji { font-size:28px; margin-bottom:10px; }
+  .card h3 { margin:0 0 6px; font-size:17px; }
+  .card p { margin:0; color:var(--muted); font-size:15px; }
+
+  /* ── Pricing ── */
+  .pricing-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:600px){ .pricing-grid { grid-template-columns:1fr; } }
+  .price-card {
+    border-radius:18px; padding:28px 26px; background:#FFF1F2;
+    border:1.5px solid #FECDD3;
+  }
+  .price-card.pro { background:linear-gradient(135deg,var(--rose),var(--rose2)); color:#fff; }
+  .price-card .tag {
+    font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+    opacity:.7; margin-bottom:8px;
+  }
+  .price-card h3 { margin:0 0 6px; font-size:22px; font-weight:800; }
+  .price-card p { margin:4px 0 0; font-size:14px; opacity:.8; }
+  .price-card ul { margin:16px 0 0; padding:0 0 0 18px; font-size:14px; }
+  .price-card li { margin-bottom:4px; }
+
+  /* ── Wheel preview placeholder ── */
+  .wheel-preview {
+    display:flex; align-items:center; justify-content:center;
+    margin:48px auto; max-width:320px;
+  }
+  .wheel-svg { width:100%; height:auto; }
+
+  /* ── Footer ── */
+  footer {
+    text-align:center; padding:56px 24px 40px;
+    color:var(--muted); font-size:14px;
+    border-top:1px solid #F3F4F6; margin-top:72px;
+  }
+  .cta {
+    background:var(--rose); color:#fff; font-weight:700;
+    padding:14px 28px; border-radius:999px; text-decoration:none;
+    display:inline-block; margin-bottom:20px;
+  }
+  .disclaimer {
+    background:#FFF1F2; border:1px solid #FECDD3; border-radius:12px;
+    padding:16px 20px; margin:24px auto 0; max-width:680px;
+    font-size:13px; color:var(--muted); text-align:left;
+  }
+  details { border-bottom:1px solid #F3F4F6; padding:14px 0; }
+  summary { font-weight:600; cursor:pointer; }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <img class="icon" src="icon.png" alt="Luna Local app icon">
+    <h1>Luna Local</h1>
+    <p class="tagline">Your cycle. Privately yours. No account. No cloud. No exceptions.</p>
+    <a class="badge" href="#" title="Coming soon to the App Store">Download on the App Store</a>
+  </header>
+
+  <main class="wrap">
+
+    <!-- Privacy badge -->
+    <div class="privacy-banner">
+      <div class="label">App Store Privacy Label</div>
+      <h2>Data Not Collected</h2>
+      <p>Luna Local does not collect, transmit, or share any data. Your cycle logs stay on your
+         device — or in your private, end-to-end encrypted iCloud account if you choose.
+         We never see them.</p>
+    </div>
+
+    <!-- Cycle wheel preview -->
+    <div class="wheel-preview" aria-label="Cycle wheel illustration">
+      <svg class="wheel-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="150" cy="150" r="135" fill="#FFF1F2" stroke="#FECDD3" stroke-width="2"/>
+        <!-- Phase arcs -->
+        <path d="M150 150 L150 20 A130 130 0 0 1 280 150 Z" fill="#FECDD3" opacity=".6"/>
+        <path d="M150 150 L280 150 A130 130 0 0 1 200 265 Z" fill="#FDA4AF" opacity=".5"/>
+        <path d="M150 150 L200 265 A130 130 0 0 1 100 265 Z" fill="#FB7185" opacity=".5"/>
+        <path d="M150 150 L100 265 A130 130 0 0 1 20 150 Z" fill="#F43F5E" opacity=".55"/>
+        <path d="M150 150 L20 150 A130 130 0 0 1 150 20 Z" fill="#FECDD3" opacity=".35"/>
+        <!-- Inner ring -->
+        <circle cx="150" cy="150" r="88" fill="#fff"/>
+        <circle cx="150" cy="150" r="88" fill="none" stroke="#FECDD3" stroke-width="1.5"/>
+        <!-- Day dots around ring -->
+        <g fill="#E11D48" opacity=".7">
+          <circle cx="150" cy="22" r="4"/>
+          <circle cx="206" cy="35" r="3"/>
+          <circle cx="248" cy="76" r="3"/>
+          <circle cx="265" cy="138" r="4"/>
+          <circle cx="248" cy="199" r="3"/>
+          <circle cx="206" cy="240" r="3"/>
+          <circle cx="150" cy="258" r="4"/>
+          <circle cx="94" cy="240" r="3"/>
+          <circle cx="52" cy="199" r="3"/>
+          <circle cx="35" cy="138" r="4"/>
+          <circle cx="52" cy="76" r="3"/>
+          <circle cx="94" cy="35" r="3"/>
+        </g>
+        <!-- Centre text -->
+        <text x="150" y="145" text-anchor="middle" font-size="28" font-weight="800" fill="#E11D48" font-family="-apple-system,sans-serif">Day 14</text>
+        <text x="150" y="170" text-anchor="middle" font-size="13" fill="#5A5E66" font-family="-apple-system,sans-serif">Fertile window</text>
+      </svg>
+    </div>
+
+    <h2>What you get, free</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="emoji">&#x1F512;</div>
+        <h3>100% on-device</h3>
+        <p>No account, no cloud sync unless you opt in. Logs live in your device's encrypted storage.</p>
+      </div>
+      <div class="card">
+        <div class="emoji">&#x23F1;</div>
+        <h3>30-second setup</h3>
+        <p>Enter your last period date. Luna Local starts predicting immediately — no questionnaire.</p>
+      </div>
+      <div class="card">
+        <div class="emoji">&#x1F4C5;</div>
+        <h3>Cycle wheel</h3>
+        <p>A rotating visual calendar shows period days, fertile window, and luteal phase at a glance.</p>
+      </div>
+      <div class="card">
+        <div class="emoji">&#x1F311;</div>
+        <h3>Discreet mode</h3>
+        <p>Switch to a neutral icon and generic notification text. Nothing reveals the app's purpose.</p>
+      </div>
+      <div class="card">
+        <div class="emoji">&#x2764;&#xFE0F;</div>
+        <h3>HealthKit sync</h3>
+        <p>Optionally sync cycle data to Apple Health. Permission required; revocable any time.</p>
+      </div>
+      <div class="card">
+        <div class="emoji">&#x1F4CA;</div>
+        <h3>Honest predictions</h3>
+        <p>Forecasts show a ±2 day range — not a false single date. Accuracy improves as you log.</p>
+      </div>
+    </div>
+
+    <h2>Honest pricing</h2>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="tag">Free Forever</div>
+        <h3>Core Tracking</h3>
+        <p>No credit card, no trial expiry.</p>
+        <ul>
+          <li>Cycle wheel &amp; calendar</li>
+          <li>Period &amp; symptom logging</li>
+          <li>Predictions with ±2 day range</li>
+          <li>Discreet mode</li>
+        </ul>
+      </div>
+      <div class="price-card pro">
+        <div class="tag">Pro</div>
+        <h3>$24.99 once &nbsp;or&nbsp; $14.99/yr</h3>
+        <p>21-day free trial, no charge until trial ends.</p>
+        <ul>
+          <li>Everything in free</li>
+          <li>Unlimited cycle history export</li>
+          <li>Detailed cycle insights</li>
+          <li>Custom symptom tags</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Support &amp; FAQ</h2>
+    <p>Questions or feedback? Email <a href="mailto:dark2torch@gmail.com">dark2torch@gmail.com</a> — usually replied to within a day or two.</p>
+    <details><summary>Is my data really private?</summary>
+      <p>Yes. Luna Local has no backend server. Your data lives in Apple's on-device CoreData
+         database. If you enable iCloud sync, it travels through your own private iCloud account
+         (Apple's CloudKit with end-to-end encryption). We never receive a copy. See our
+         <a href="privacy.html">Privacy Policy</a> for full technical detail.</p>
+    </details>
+    <details><summary>Does it work offline?</summary>
+      <p>Yes, completely. Luna Local is fully functional with no network connection. All
+         computation runs on-device.</p>
+    </details>
+    <details><summary>Can it be used for contraception?</summary>
+      <p>No. Luna Local provides general cycle awareness estimates only. It is not a
+         contraceptive tool and should not be used as one. Consult a healthcare provider
+         for contraception guidance.</p>
+    </details>
+    <details><summary>Can I switch to the discreet icon without losing my data?</summary>
+      <p>Yes. Discreet mode only changes the home screen icon and notification text.
+         All your logs and settings are untouched.</p>
+    </details>
+
+  </main>
+
+  <footer>
+    <a class="cta" href="#" title="Coming soon to the App Store">Get Luna Local</a>
+    <p><a href="privacy.html">Privacy Policy</a></p>
+    <div class="disclaimer">
+      <strong>Medical disclaimer:</strong> Luna Local provides cycle estimates for general
+      awareness only. It is not a medical tool and should not be used for contraception or
+      medical decisions. Consult a healthcare provider for medical guidance.
+    </div>
+    <p style="margin-top:24px;">&copy; 2026 Moath Othman</p>
+    <p style="margin-top:16px"><a href="../" style="color:var(--muted)">← All apps</a></p>
+  </footer>
+
+</body>
+</html>
