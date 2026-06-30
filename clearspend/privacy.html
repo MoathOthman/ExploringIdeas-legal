@@ -11,8 +11,12 @@
   .wrap { max-width:720px; margin:0 auto; padding:48px 24px 80px; }
   h1 { font-size:36px; margin:0 0 4px; font-weight:800; }
   h2 { font-size:20px; margin:40px 0 10px; color:var(--amber2); }
+  h3 { font-size:16px; margin:24px 0 6px; }
   .muted { color:var(--muted); }
   a { color:var(--amber2); }
+  table { border-collapse:collapse; width:100%; margin:16px 0; font-size:14px; }
+  th, td { border:1px solid #F0E3CC; padding:9px 12px; text-align:left; vertical-align:top; }
+  th { background:var(--amber-light); color:var(--amber2); font-weight:700; }
   .summary-card {
     background:var(--amber-light); border:1.5px solid #FDE7BD;
     border-radius:16px; padding:20px 24px; margin:28px 0;
@@ -36,114 +40,240 @@
 <div class="wrap">
   <p><a href="index.html">&larr; ClearSpend</a></p>
   <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: 30 June 2026 &mdash; ClearSpend v1.0</p>
+  <p class="muted">Last updated: 30 June 2026 &mdash; ClearSpend v1.1 (Shared Wallet)</p>
 
   <div class="summary-card">
-    <span class="badge">App Store label: Data Not Collected</span><br>
-    <strong>The short version:</strong> ClearSpend has no backend and no account.
-    Your transactions, budgets, categories, and wallets are stored only on your device
-    &mdash; or in your own private iCloud account if you turn on sync. We never link to
-    your bank, never see your numbers, and have no server to breach or subpoena. We do
-    not collect, transmit, sell, or share anything.
+    <span class="badge">Local-first by default. Sharing is your choice.</span><br>
+    <strong>The short version:</strong> If you use ClearSpend on your own, nothing changes
+    and nothing is collected &mdash; you create no account and your transactions, budgets,
+    categories, and wallets live only on your device (or in your own private iCloud).
+    <strong>Shared Wallet is a separate, opt-in feature.</strong> Only when you choose to
+    share a wallet with another person do we sync <em>that one wallet's</em> records to a
+    secure cloud database so you and your invited member can both see and edit it. Your
+    personal wallets stay 100% on your device even then. We never link to your bank, never
+    sell your data, never run ads, and never track you.
   </div>
 
-  <h2>1. What ClearSpend stores</h2>
-  <p>Everything you enter &mdash; transaction amounts, categories, notes, wallets,
-  budgets, and savings goals &mdash; is saved locally using Apple's SwiftData framework
-  on your device. This storage is encrypted by iOS at rest (it requires your device
-  passcode / Face ID / Touch ID to access). We never receive a copy of this data.</p>
+  <h2>1. Two ways to use ClearSpend</h2>
+  <p>ClearSpend has two distinct modes, and they have very different privacy profiles.
+  Read the section that applies to you.</p>
+  <table>
+    <tr>
+      <th>Mode</th><th>Account?</th><th>Where your data lives</th><th>Who can see it</th>
+    </tr>
+    <tr>
+      <td><strong>Solo (the default)</strong></td>
+      <td>None</td>
+      <td>Only on your device (optionally your own private iCloud)</td>
+      <td>Only you</td>
+    </tr>
+    <tr>
+      <td><strong>Shared Wallet (opt-in)</strong></td>
+      <td>Sign in with Apple (or Google / email)</td>
+      <td>The shared wallet's records sync to a cloud database (Google Firebase);
+          your personal wallets stay on-device</td>
+      <td>You and the one member you invite</td>
+    </tr>
+  </table>
+  <p>You are in <strong>Solo</strong> mode unless and until <em>you</em> deliberately turn
+  on Shared Wallet. There is no background switch and no default sharing.</p>
 
-  <h2>2. No bank linking, ever</h2>
-  <p>ClearSpend is manual-first by design. It does <strong>not</strong> connect to your
-  bank, does not use Plaid or any aggregation service, and never asks for bank
-  credentials. You log spending by hand &mdash; including cash &mdash; so there is no
-  financial-institution login for us, or anyone, to access.</p>
-
-  <h2>3. iCloud sync (optional, opt-in, Pro)</h2>
-  <p>If you enable iCloud sync, your data is synced through Apple's CloudKit private
-  database. This is your own personal iCloud account; the data is end-to-end encrypted
-  by Apple where the platform supports it and is accessible only to you on your
-  signed-in devices. ClearSpend has no access to your CloudKit data &mdash; Apple's
-  servers route the sync without exposing the content to us.</p>
-  <p>You can disable iCloud sync at any time in iOS Settings &rsaquo; Apple ID &rsaquo;
-  iCloud &rsaquo; ClearSpend. Disabling sync does not delete local data.</p>
-
-  <h2>4. Analytics and crash reporting</h2>
-  <p>ClearSpend contains <strong>no analytics SDK</strong> (no Amplitude, Mixpanel,
-  Firebase Analytics, Segment, or equivalent) and <strong>no crash reporting
-  service</strong> (no Sentry, Crashlytics, or equivalent). Zero network requests are
-  made for observability purposes.</p>
-  <p>If you choose to submit a crash report via Apple's standard iOS crash reporter
-  dialog, that report goes to Apple and is governed by Apple's privacy policy. We may
-  receive anonymised, aggregated crash data from Apple's App Store Connect dashboard;
-  this never identifies you and contains none of your financial data.</p>
-
-  <h2>5. Advertising</h2>
-  <p>ClearSpend contains no advertising SDK and shows no ads. We do not use Apple's
-  App Tracking Transparency (ATT) framework because we have nothing to track.</p>
-
-  <h2>6. Purchases</h2>
-  <p>Optional Pro purchases (a one-time lifetime unlock or a yearly subscription) are
-  processed entirely by Apple through the App Store using StoreKit 2. We never see your
-  payment details, card number, or Apple ID email. Apple's privacy policy governs
-  payment processing.</p>
-
-  <h2>7. Notifications</h2>
-  <p>If you grant notification permission, ClearSpend schedules <em>local</em>
-  notifications on-device (e.g., budget alerts or a daily logging reminder). No
-  notification content is sent to any server. Scheduling happens on your device only.
-  You can revoke notification permission at any time in iOS Settings &rsaquo;
-  Notifications &rsaquo; ClearSpend.</p>
-
-  <h2>8. Device identifiers</h2>
-  <p>ClearSpend does not read, store, or transmit any device identifier &mdash; not
-  IDFA, not IDFV, not the device serial number. There is no identifier to associate
-  with your data.</p>
-
-  <h2>9. Children</h2>
-  <p>ClearSpend is rated 4+ and is not directed at children under 13. It collects no
-  personal data from any user.</p>
-
-  <h2>10. Data retention and deletion</h2>
-  <p>Because we hold no data, there is nothing for us to delete on request. All your
-  data lives on your devices. To delete it:</p>
+  <h2>2. Solo mode &mdash; no account, nothing collected</h2>
+  <p>If you never open a Shared Wallet, ClearSpend behaves exactly as a fully local app:</p>
   <ul>
-    <li><strong>On-device data:</strong> delete the ClearSpend app from your device.
-        iOS will remove all associated SwiftData storage.</li>
-    <li><strong>iCloud data:</strong> delete the app and also go to iOS Settings
-        &rsaquo; Apple ID &rsaquo; iCloud &rsaquo; Manage Account Storage and delete
-        ClearSpend's iCloud data.</li>
-    <li><strong>Exported files:</strong> any CSV/JSON you exported lives wherever you
-        saved it (Files, email, etc.) and is yours to manage.</li>
+    <li><strong>No account, no sign-in.</strong> The app opens straight to your data.</li>
+    <li><strong>On-device storage.</strong> Everything you enter &mdash; amounts,
+        categories, notes, wallets, budgets, savings goals &mdash; is saved locally using
+        Apple's SwiftData framework, encrypted at rest by iOS (it requires your device
+        passcode / Face ID / Touch ID).</li>
+    <li><strong>We receive nothing.</strong> No copy of your data is sent to us or to any
+        server. The cloud components below are never initialised for a solo user.</li>
+    <li><strong>Optional iCloud sync (Pro).</strong> If you enable it, your data syncs
+        through Apple's CloudKit <em>private</em> database &mdash; your own iCloud account,
+        end-to-end encrypted by Apple where the platform supports it, accessible only to
+        you on your signed-in devices. ClearSpend cannot read your CloudKit data.</li>
   </ul>
 
-  <h2>11. Third-party services</h2>
-  <p>ClearSpend integrates with no third-party services beyond Apple's own frameworks
-  (SwiftData, CloudKit, StoreKit, UserNotifications). All of Apple's own data handling
-  is governed by the <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy Policy</a>.</p>
+  <h2>3. No bank linking, ever &mdash; in either mode</h2>
+  <p>ClearSpend is manual-first by design. It does <strong>not</strong> connect to your
+  bank, does not use Plaid or any aggregation service, and never asks for bank
+  credentials &mdash; not for solo wallets and not for shared wallets. You log spending by
+  hand, including cash, so there is no financial-institution login for us, or anyone, to
+  access.</p>
 
-  <h2>12. Changes to this policy</h2>
-  <p>If this policy ever changes, the date above will be updated and the changes will be
-  noted in the app's release notes. A material change that increases data collection
-  would also require your explicit consent before taking effect &mdash; though we intend
-  never to collect data at all.</p>
+  <h2>4. Shared Wallet (opt-in) &mdash; what changes</h2>
+  <p>Shared Wallet lets you and one other person (a partner, household member, or
+  roommate) co-manage <em>one</em> set of finances on the same live records. Making this
+  work requires an account and a cloud database. We keep that footprint as small and
+  honest as possible: only the wallet you choose to share is involved, and only while you
+  choose to share it.</p>
 
-  <h2>13. Contact</h2>
-  <p>Questions about this policy? Email
-  <a href="mailto:dark2torch@gmail.com">dark2torch@gmail.com</a>. We aim to respond
-  within two business days.</p>
+  <h3>4.1 Sign in with Apple (and other sign-in options)</h3>
+  <p>To create or join a Shared Wallet you must sign in, because there are two real people
+  who need a stable identity to be paired together. We use <strong>Firebase
+  Authentication</strong> (a Google service). On iOS the primary option is
+  <strong>Sign in with Apple</strong>; Sign in with Google and email/password are also
+  available. If you use Sign in with Apple, you can choose Apple's <em>Hide My Email</em>
+  relay so we never see your real address. We receive only what the sign-in provider
+  returns &mdash; a user identifier and, depending on your choice, an email address and
+  display name &mdash; which we use solely to authenticate you and connect you to your
+  shared wallet. <strong>Account creation happens only when you start or accept a share.
+  Solo users never see a sign-in screen.</strong></p>
+
+  <h3>4.2 What gets synced to the cloud</h3>
+  <p>When you share a wallet, and only for that wallet, the following is stored in
+  <strong>Google Firebase / Cloud Firestore</strong> so both members can see and edit it:</p>
+  <ul>
+    <li>The shared wallet's <strong>transactions</strong> (amount, note, date, income/expense
+        flag), <strong>categories</strong>, <strong>budgets</strong>, and
+        <strong>goals</strong> scoped to that wallet, plus the wallet's name, emoji, and
+        colour.</li>
+    <li>A <strong>member record</strong> for each person in the share: your account-derived
+        user identifier, your role (owner or member), and a display name, used to manage
+        who belongs to the wallet.</li>
+    <li>If you opt in to notifications, a device push token so we can tell you "your partner
+        added a transaction." Notifications are off unless you turn them on.</li>
+  </ul>
+
+  <h3>4.3 What never leaves your device, even when you share</h3>
+  <ul>
+    <li><strong>Every personal wallet</strong> and all of its transactions, categories,
+        budgets, and goals. Personal data is never uploaded &mdash; even for a user who
+        also has a shared wallet.</li>
+    <li>App settings, onboarding state, streaks, and your purchase state.</li>
+    <li>Receipt photos (a later feature) stay on-device even for shared transactions in
+        this version.</li>
+  </ul>
+
+  <h3>4.4 Who can see shared data</h3>
+  <p>Only the wallet's members &mdash; you and the one person you invite &mdash; can read or
+  write a shared wallet. This is enforced by server-side security rules: a record under a
+  share is accessible only to accounts listed as that share's members, and a client cannot
+  add itself to a share (only our server-side invite logic can add a member you invited).
+  Invite links and codes are single-use and expire after 72 hours.</p>
+  <p><strong>Google as a processor.</strong> Because shared data lives on Google Firebase,
+  Google processes and stores it on our behalf as a sub-processor. Firebase encrypts data
+  in transit (TLS) and at rest (AES-256). Like essentially every finance app built on a
+  cloud database, Google can technically access data on its servers to operate the service;
+  we do not grant any other party access, we never sell or share it for advertising, and
+  we are exploring stronger end-to-end encryption for a future version. We are honest about
+  this rather than claiming a protection we do not yet provide.</p>
+
+  <h3>4.5 Leaving, removing, and deleting a share</h3>
+  <p>You are never locked in. The principle is: you can always walk away with a local copy
+  of anything you could see.</p>
+  <ul>
+    <li><strong>You leave a share:</strong> your app keeps a local, personal copy of the
+        shared records (it becomes an ordinary on-device wallet) and your membership is
+        removed server-side. You no longer receive updates.</li>
+    <li><strong>The owner removes you:</strong> your access is cut immediately by the
+        security rules; the records you had already synced remain as a local copy you can
+        keep or export.</li>
+    <li><strong>The owner deletes the shared wallet:</strong> both members are notified and
+        offered an export; the shared records are soft-deleted into a 30-day "recently
+        deleted" bin and then permanently removed from the cloud by a scheduled process.</li>
+    <li><strong>Your subscription lapses:</strong> the shared wallet becomes read-only and
+        exportable &mdash; never deleted, never held hostage. Re-subscribing restores
+        editing.</li>
+    <li><strong>Delete your account:</strong> in Settings, deleting your account removes
+        your user identifier from any shares; if you are the sole owner, the share is
+        scheduled for deletion after the 30-day grace period.</li>
+  </ul>
+
+  <h3>4.6 Retention</h3>
+  <p>Shared records persist in the cloud only while the share is active. Deleted records sit
+  in a 30-day recovery bin and are then permanently erased. Authentication records persist
+  while your account exists and are removed when you delete your account. We keep no
+  shared-wallet data after a share is deleted beyond the grace window.</p>
+
+  <h3>4.7 Export and portability</h3>
+  <p>Either member can export the shared wallet's records as CSV or JSON at any time, the
+  same as solo data. This satisfies your right to data portability.</p>
+
+  <h2>5. Analytics and crash reporting</h2>
+  <p>ClearSpend contains <strong>no analytics SDK</strong> (no Amplitude, Mixpanel, Firebase
+  Analytics, Segment, or equivalent) and <strong>no third-party crash reporting service</strong>
+  (no Sentry, Crashlytics, or equivalent). Enabling Shared Wallet does not turn on analytics
+  &mdash; the Firebase services we use are Authentication, Firestore, and (if you opt in)
+  messaging, not Analytics. If you submit a crash report through Apple's standard iOS dialog,
+  it goes to Apple under Apple's privacy policy and never contains your financial data.</p>
+
+  <h2>6. Advertising and tracking</h2>
+  <p>ClearSpend contains no advertising SDK and shows no ads. We do not use the App Tracking
+  Transparency framework because we do not track you across apps or websites, and we never
+  use your data for advertising &mdash; in either mode.</p>
+
+  <h2>7. Purchases</h2>
+  <p>Optional Pro purchases (a one-time lifetime unlock or a yearly subscription) and the
+  Household subscription that powers Shared Wallet are processed entirely by Apple through
+  the App Store using StoreKit 2, with RevenueCat managing entitlements. We never see your
+  payment details, card number, or Apple ID email. Apple's privacy policy governs payment
+  processing.</p>
+
+  <h2>8. Notifications</h2>
+  <p><strong>Solo:</strong> ClearSpend schedules <em>local</em> notifications on-device
+  (e.g., budget alerts or a daily reminder); no content is sent to any server.
+  <strong>Shared Wallet:</strong> if you opt in, you may receive push notifications when your
+  partner changes the shared wallet, delivered via Firebase Cloud Messaging. Notifications
+  are off until you enable them, and you can revoke permission at any time in iOS Settings
+  &rsaquo; Notifications &rsaquo; ClearSpend.</p>
+
+  <h2>9. Device identifiers</h2>
+  <p>ClearSpend does not read, store, or transmit advertising identifiers (no IDFA) and does
+  not use the device IDFV for tracking. The only identifier associated with cloud data is the
+  account user identifier created when you sign in for a Shared Wallet, used solely to
+  authenticate you and manage membership.</p>
+
+  <h2>10. Children</h2>
+  <p>ClearSpend is rated 4+ and is not directed at children under 13. Shared Wallet requires
+  signing in and is intended for adults managing a household; we do not knowingly collect data
+  from children.</p>
+
+  <h2>11. Legal bases (GDPR) and your rights</h2>
+  <p>Where the GDPR applies, our legal basis for processing shared-wallet data is the
+  performance of the service you requested when you chose to share a wallet (contract), and
+  your consent for optional notifications. For shared data we act as a data controller and
+  Google (Firebase) acts as our processor under Google's data processing terms. You have the
+  right to access, export, correct, and delete your data; the in-app export and account-/share-
+  deletion tools above provide these directly. Under the CCPA, we do not and will not sell or
+  share your personal information.</p>
+
+  <h2>12. Third-party services</h2>
+  <p>Solo mode integrates only with Apple's own frameworks (SwiftData, CloudKit, StoreKit,
+  UserNotifications). Shared Wallet additionally uses
+  <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Google
+  Firebase</a> (Authentication, Cloud Firestore, and optional Cloud Messaging), governed by the
+  <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy
+  Policy</a>, and RevenueCat for purchase entitlements. Apple's handling is governed by the
+  <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy
+  Policy</a>.</p>
+
+  <h2>13. Changes to this policy</h2>
+  <p>If this policy changes, the date above is updated and the change is noted in the app's
+  release notes. A change that would materially increase data collection requires your action
+  to take effect &mdash; for example, you must opt into Shared Wallet before any cloud
+  collection begins.</p>
+
+  <h2>14. Contact</h2>
+  <p>Questions about this policy or a data request? Email
+  <a href="mailto:dark2torch@gmail.com">dark2torch@gmail.com</a>. We aim to respond within
+  two business days.</p>
+
+  <p class="muted" style="margin-top:28px;">See also our
+  <a href="terms.html">Terms of Use</a>.</p>
 
   <!-- Financial disclaimer — bottom of page, always visible -->
   <div class="disclaimer">
     <h2>A note on financial guidance</h2>
-    <p>ClearSpend is a personal budgeting and expense-tracking tool for general
-    awareness. It is not financial, investment, accounting, or tax advice, and is not a
-    substitute for a qualified professional. For decisions specific to your situation,
-    consult a licensed financial advisor or accountant.</p>
+    <p>ClearSpend is a personal budgeting and expense-tracking tool for general awareness. It
+    is not financial, investment, accounting, or tax advice, and is not a substitute for a
+    qualified professional. For decisions specific to your situation, consult a licensed
+    financial advisor or accountant.</p>
   </div>
 
   <footer>
-    <p>&copy; 2026 Moath Othman &middot; <a href="index.html">Back to ClearSpend</a></p>
+    <p>&copy; 2026 Moath Othman &middot; <a href="index.html">Back to ClearSpend</a> &middot;
+    <a href="terms.html">Terms of Use</a></p>
   </footer>
 </div>
 </body>
