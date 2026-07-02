@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FairSweep — The photo cleaner that doesn't scam you</title>
+<meta name="description" content="Swipe your camera roll clean. $9.99 once — no subscription, no account, no cloud. Your photos never leave your phone.">
+<style>
+  :root {
+    --accent: #0d9488;
+    --accent2: #0f766e;
+    --dark: #0f172a;
+    --ink: #0f172a;
+    --muted: #475569;
+    --bg: #fff;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--bg); }
+  a { color: var(--accent); }
+
+  /* ── Hero ─────────────────────────────────────────────────── */
+  .hero {
+    background: linear-gradient(160deg, #0f766e, #0f172a);
+    color: #fff;
+    text-align: center;
+    padding: 80px 24px 88px;
+  }
+  .hero h1 { font-size: 44px; margin: 20px 0 8px; letter-spacing: -0.5px; }
+  .hero .tagline { font-size: 20px; opacity: .92; margin: 0 auto 32px; max-width: 520px; line-height: 1.4; }
+  .badge {
+    display: inline-block;
+    background: #fff;
+    color: var(--dark);
+    padding: 14px 28px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 17px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.18);
+  }
+
+  /* ── Price comparison ─────────────────────────────────────── */
+  .price-banner {
+    background: #F0FDFA;
+    border-top: 3px solid #0d9488;
+    border-bottom: 3px solid #0d9488;
+    text-align: center;
+    padding: 36px 24px;
+  }
+  .price-banner .compare {
+    display: inline-flex;
+    gap: 32px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .price-box { background: #fff; border-radius: 16px; padding: 20px 28px; min-width: 160px; }
+  .price-box .label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+  .price-box .price { font-size: 36px; font-weight: 800; margin: 4px 0; }
+  .price-box .freq { font-size: 14px; color: var(--muted); }
+  .price-box.them .price { color: #dc2626; text-decoration: line-through; }
+  .price-box.us .price { color: var(--accent); }
+  .vs { font-size: 28px; font-weight: 800; color: var(--muted); }
+
+  /* ── How it works ─────────────────────────────────────────── */
+  .wrap { max-width: 840px; margin: 0 auto; padding: 0 24px; }
+  h2 { font-size: 28px; margin: 64px 0 20px; letter-spacing: -0.3px; }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    counter-reset: steps;
+  }
+  .step {
+    border: 1.5px solid #E2E8F0;
+    border-radius: 18px;
+    padding: 24px;
+    position: relative;
+    counter-increment: steps;
+  }
+  .step::before {
+    content: counter(steps);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 800;
+    font-size: 18px;
+    border-radius: 50%;
+    margin-bottom: 12px;
+  }
+  .step h3 { margin: 0 0 6px; font-size: 17px; }
+  .step p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  /* ── Privacy badge ────────────────────────────────────────── */
+  .privacy-badge {
+    background: var(--dark);
+    color: #fff;
+    border-radius: 20px;
+    padding: 36px 40px;
+    margin: 64px 0;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .privacy-badge .icon { font-size: 48px; flex-shrink: 0; }
+  .privacy-badge h2 { margin: 0 0 8px; font-size: 24px; color: #fff; }
+  .privacy-badge p { margin: 0; color: #94a3b8; font-size: 16px; }
+
+  /* ── Features ─────────────────────────────────────────────── */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .feature { background: #F8FAFC; border-radius: 14px; padding: 20px 22px; }
+  .feature .icon { font-size: 28px; margin-bottom: 8px; }
+  .feature h3 { margin: 0 0 4px; font-size: 16px; }
+  .feature p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  /* ── Pricing block ────────────────────────────────────────── */
+  .pricing { background: #F0FDFA; border: 1.5px solid #99F6E4; border-radius: 20px; padding: 28px 32px; margin: 48px 0; }
+  .pricing strong { color: var(--accent); }
+
+  /* ── FAQ ──────────────────────────────────────────────────── */
+  details { border-bottom: 1px solid #E2E8F0; padding: 16px 0; }
+  summary { font-weight: 700; cursor: pointer; font-size: 16px; }
+  details p { margin: 10px 0 0; color: var(--muted); }
+
+  footer { text-align: center; padding: 56px 24px; color: var(--muted); font-size: 14px; }
+  .cta { background: var(--accent); color: #fff; font-weight: 700; padding: 14px 28px; border-radius: 999px; text-decoration: none; display: inline-block; font-size: 16px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>FairSweep</h1>
+  <p class="tagline">The photo cleaner that doesn't scam you.<br>$9.99 once — not $7.99/week.</p>
+  <a class="badge" href="#" title="Coming soon to the App Store">Download on the App Store</a>
+</header>
+
+<section class="price-banner">
+  <div class="compare">
+    <div class="price-box them">
+      <div class="label">Them (cleaner apps)</div>
+      <div class="price">$7.99</div>
+      <div class="freq">per week = $415/year</div>
+    </div>
+    <div class="vs">vs</div>
+    <div class="price-box us">
+      <div class="label">FairSweep</div>
+      <div class="price">$9.99</div>
+      <div class="freq">once. Yours forever.</div>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <h2>Free space in 3 steps</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>Pick a month</h3>
+      <p>Your camera roll, bucketed by month. Start with "June 2019" — the junk-drawer years.</p>
+    </div>
+    <div class="step">
+      <h3>Swipe</h3>
+      <p>Left to delete, right to keep. Duplicates and similar shots are grouped automatically, on-device. Undo anytime.</p>
+    </div>
+    <div class="step">
+      <h3>Review &amp; confirm</h3>
+      <p>One review screen shows everything before it goes. Nothing is deleted until you confirm — then watch the freed-GB counter climb.</p>
+    </div>
+  </div>
+
+  <div class="privacy-badge">
+    <div class="icon">&#x1F512;</div>
+    <div>
+      <h2>100% on-device. No account required.</h2>
+      <p>Your photos never travel to any server — not ours, not anyone's.
+      Duplicate detection runs with Apple's Vision framework, entirely on your device.
+      There is no sign-up, no cloud upload, and no photo database to breach.
+      See our <a href="privacy.html" style="color:#5eead4">Privacy Policy</a>.</p>
+    </div>
+  </div>
+
+  <h2>Everything you need</h2>
+  <div class="features">
+    <div class="feature">
+      <div class="icon">&#x1F4F1;</div>
+      <h3>Swipe deck</h3>
+      <p>Keep or delete a photo in a flick. Videos too. A month of photos in a 5-minute session.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F46F;</div>
+      <h3>Duplicates &amp; similars</h3>
+      <p>Bursts and near-identical shots grouped on-device. You pick the keeper — never an algorithm.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F6E1;&#xFE0F;</div>
+      <h3>Review before delete</h3>
+      <p>A staging tray plus the iOS system confirmation. Nothing is ever deleted behind your back.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F4CA;</div>
+      <h3>Freed-GB counter</h3>
+      <p>"You freed 2.3 GB." A running lifetime total of every gigabyte you got back.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F5BC;&#xFE0F;</div>
+      <h3>Screenshots deck</h3>
+      <p>All your screenshots in one dedicated deck. The fastest junk to clear.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F4B0;</div>
+      <h3>One-time price</h3>
+      <p>$9.99. Once. No subscription renewal. No dark patterns.</p>
+    </div>
+  </div>
+
+  <h2>Honest pricing</h2>
+  <div class="pricing">
+    <p>Clean <strong>100 swipes every day, free, forever</strong> — no account, no trial clock,
+    no credit card. FairSweep Pro unlocks unlimited swipes and every duplicate group for
+    <strong>$9.99 one time</strong>. No dark patterns. No weekly surprises.</p>
+  </div>
+
+  <h2>Support &amp; FAQ</h2>
+  <p>Need help? Email <a href="mailto:dark2torch@gmail.com">dark2torch@gmail.com</a> —
+  we aim to reply within two business days. Common questions below.</p>
+
+  <details>
+    <summary>Are my photos safe?</summary>
+    <p>Yes. FairSweep has no servers and requires no account. Photos are analyzed with Apple's Vision framework entirely on your device and are never uploaded anywhere. <a href="privacy.html">Read the full Privacy Policy.</a></p>
+  </details>
+  <details>
+    <summary>Where do deleted photos go?</summary>
+    <p>Into your Photos app's Recently Deleted album — an Apple safeguard FairSweep cannot bypass. iOS keeps them there for up to 30 days, so you can rescue anything. Your space frees automatically when they expire, or immediately if you empty Recently Deleted yourself (Photos &rsaquo; Albums &rsaquo; Recently Deleted).</p>
+  </details>
+  <details>
+    <summary>Can FairSweep delete something without asking?</summary>
+    <p>No. Swiping left only stages a photo inside the app. You then review the full list, and iOS itself shows a final system confirmation before anything is deleted. Three gates, every time.</p>
+  </details>
+  <details>
+    <summary>Why one-time pricing instead of a subscription?</summary>
+    <p>Because cleaning your camera roll is a utility, not a service. Some cleaner apps charge up to $7.99 per week for a delete button. $9.99 once reflects what it costs to build and maintain the app fairly — without relying on customers forgetting to cancel.</p>
+  </details>
+  <details>
+    <summary>Does it work offline?</summary>
+    <p>Entirely. Swiping, duplicate detection, and deleting all work offline. Your photos are processed on your device, so no connection is needed.</p>
+  </details>
+  <details>
+    <summary>Can I get a refund?</summary>
+    <p>Refunds are handled by Apple — visit reportaproblem.apple.com. We have no mechanism to issue refunds directly, and we do not want unhappy customers to pay for something that did not work for them.</p>
+  </details>
+
+</main>
+
+<footer>
+  <a class="cta" href="#" title="Coming soon to the App Store">Get FairSweep</a>
+  <p style="margin-top:24px"><a href="privacy.html">Privacy Policy</a></p>
+  <p>&copy; 2026 Moath Othman</p>
+  <p style="margin-top:16px"><a href="../" style="color:var(--muted)">← All apps</a></p>
+</footer>
+
+</body>
+</html>
