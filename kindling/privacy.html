@@ -35,26 +35,45 @@
   <p class="muted">Last updated: 3 July 2026</p>
 
   <div class="summary-card">
-    <strong>The short version:</strong> Kindling collects <strong>no data at all</strong>.
-    There is no account, no login, no analytics, and no tracking. Everything you do in
-    Kindling &mdash; your answers, your streak, your anniversaries, your history &mdash;
-    is stored only on your device and <strong>never leaves your phone</strong>. Nothing is
-    ever sent to us or to anyone else. The only thing that involves a third party is a
-    purchase, which is processed by Apple or Google, not by us.
+    <strong>The short version:</strong> Everything you write in Kindling &mdash; your answers,
+    your streak, your anniversaries, your history &mdash; is stored <strong>only on your device</strong>
+    and is <strong>never</strong> uploaded, synced, or shared. There is no account and no login.
+    Kindling does use Google Firebase Analytics and Crashlytics to collect <strong>anonymous</strong>
+    diagnostics &mdash; app crashes and aggregate usage events &mdash; so we can fix bugs and improve
+    the app. That diagnostic data is <strong>not linked to your identity</strong> and
+    <strong>never includes your answers or the question text</strong>. No ads, no cross-app tracking.
+    Purchases are processed by Apple or Google, not by us.
   </div>
 
-  <h2>Data we collect: none</h2>
-  <p>Kindling does not collect, transmit, or store any personal data on any server. There is
-  no Kindling account, no Kindling server, and no Kindling database. We have no way of knowing
-  who you are, that you use the app, or what you and your partner answer. To be explicit:</p>
+  <h2>Your content: stays on your device</h2>
+  <p>Everything you and your partner write and everything the app remembers about your ritual is
+  stored <strong>only on your device</strong>. It is never uploaded, synced, or shared. There is
+  no Kindling account and no Kindling database of your content. To be explicit, we do
+  <strong>not</strong>:</p>
   <ul>
-    <li>We do <strong>not</strong> require or ask for an email address, phone number, name, or any login.</li>
-    <li>We do <strong>not</strong> use any analytics or usage-tracking SDK.</li>
-    <li>We do <strong>not</strong> use crash-reporting tools that transmit data off your device.</li>
-    <li>We do <strong>not</strong> use advertising, ad networks, the advertising identifier (IDFA/GAID), or cross-app tracking.</li>
-    <li>We do <strong>not</strong> access your contacts, photos, location, microphone, camera, or health data.</li>
-    <li>We do <strong>not</strong> sell or share any data &mdash; there is nothing to sell or share.</li>
+    <li>collect, transmit, or store your <strong>answers</strong> or the <strong>question text</strong> anywhere off your device;</li>
+    <li>require or ask for an email address, phone number, name, or any login;</li>
+    <li>use advertising, ad networks, the advertising identifier (IDFA/GAID), or cross-app tracking (we do not use App Tracking Transparency);</li>
+    <li>access your contacts, photos, location, microphone, camera, or health data;</li>
+    <li>sell your data or share it with data brokers.</li>
   </ul>
+
+  <h2>Anonymous diagnostics we do collect</h2>
+  <p>To keep Kindling stable and to understand which parts of the app people find useful, Kindling
+  uses <strong>Google Firebase Analytics</strong> and <strong>Firebase Crashlytics</strong>. These
+  collect a limited set of <strong>anonymous</strong> diagnostics:</p>
+  <ul>
+    <li><strong>Crash reports</strong> &mdash; if the app crashes, technical details about the crash
+    (device model, operating-system version, and where in the code it happened) are sent so we can fix it.</li>
+    <li><strong>Aggregate usage events</strong> &mdash; anonymous events such as a screen being viewed,
+    which question pack was opened, or whether a purchase completed. These carry only counts, pack or
+    plan identifiers, and similar non-personal values.</li>
+  </ul>
+  <p>This diagnostic data is <strong>not linked to your identity</strong> and
+  <strong>never includes your answers, the question text, or anything you write</strong>. We use it
+  only in aggregate to fix bugs and improve the app &mdash; not to profile you and not for advertising.
+  Firebase's handling of this data is governed by
+  <a href="https://firebase.google.com/support/privacy">Google's Firebase privacy documentation</a>.</p>
 
   <h2>What stays on your device</h2>
   <p>Everything Kindling remembers lives only on the phone the app is installed on:</p>
@@ -65,13 +84,14 @@
     <li><strong>Your settings</strong> &mdash; appearance, reminder preference, and which packs you have.</li>
   </ul>
   <p>This information is saved using Apple's and Google's on-device storage and is never uploaded
-  anywhere. It is deleted when you delete Kindling or clear it yourself inside the app. Because
-  none of it exists on a server, there is no Kindling data of yours that could ever be breached.</p>
+  anywhere. It is deleted when you delete Kindling or clear it yourself inside the app. Because none
+  of your content exists on a server, there is no answer of yours that could ever be breached.</p>
 
-  <h2>No account, no cloud, no sync</h2>
-  <p>Kindling works entirely offline. There is no sign-up, no cloud backup managed by us, and no
-  syncing between devices. The nightly ritual happens on one shared phone, and your answers stay
-  on that phone.</p>
+  <h2>No account, no cloud sync</h2>
+  <p>There is no sign-up, no cloud backup of your content managed by us, and no syncing of your
+  answers between devices. The nightly ritual happens on one shared phone, and your answers stay
+  on that phone. The only data that ever leaves your device is the anonymous diagnostics described
+  above &mdash; never your answers.</p>
 
   <h2>Notifications</h2>
   <p>Kindling can send an optional gentle nightly reminder if &mdash; and only if &mdash; you turn
@@ -90,14 +110,13 @@
   check is handled by Apple/Google and does not create a Kindling account or reveal your identity to us.</p>
 
   <h2>Children</h2>
-  <p>Kindling is intended for couples and is not directed at children under 13. Because Kindling
-  collects no personal data from anyone of any age, no personal information is ever gathered from a
-  child either.</p>
+  <p>Kindling is intended for couples and is not directed at children under 13. Kindling does not
+  collect personal information that identifies anyone of any age &mdash; the only data collected is
+  anonymous diagnostics that are not linked to any identity.</p>
 
   <h2>Changes to this policy</h2>
-  <p>If this policy ever changes we will update the date at the top of this page. Because the app
-  collects nothing, any change would only ever narrow, not broaden, what we do. Material changes will
-  be noted in the App Store / Google Play release notes.</p>
+  <p>If this policy ever changes we will update the date at the top of this page. Material changes
+  will be noted in the App Store / Google Play release notes.</p>
 
   <h2>Contact</h2>
   <p>Questions about this privacy policy? Email
