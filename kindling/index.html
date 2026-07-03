@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kindling — Five minutes a night, closer every day</title>
+<meta name="description" content="A daily-questions app for couples. One shared phone, no accounts, no cloud. A curated question every day free, forever — one honest $29.99 lifetime unlock. Nothing ever leaves your phone.">
+<style>
+  :root { --accent:#E8590C; --accent2:#B23A00; --dark:#1A0F0A; --ink:#1A0F0A; --muted:#6B4A38; --bg:#fff; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:var(--bg); }
+  a { color:var(--accent); }
+  .hero { background:linear-gradient(160deg,#F97316,#B23A00 55%,#1A0F0A); color:#fff; text-align:center; padding:80px 24px 88px; }
+  .hero h1 { font-size:44px; margin:20px 0 8px; letter-spacing:-0.5px; }
+  .hero .tagline { font-size:20px; opacity:.94; margin:0 auto 32px; max-width:520px; line-height:1.4; }
+  .badge { display:inline-block; background:#fff; color:var(--dark); padding:14px 28px; border-radius:14px; text-decoration:none; font-weight:700; font-size:17px; box-shadow:0 4px 16px rgba(0,0,0,.18); }
+  .wrap { max-width:840px; margin:0 auto; padding:0 24px; }
+  h2 { font-size:28px; margin:64px 0 20px; letter-spacing:-0.3px; }
+  .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; counter-reset:steps; }
+  .step { border:1.5px solid #F0E4DC; border-radius:18px; padding:24px; position:relative; counter-increment:steps; }
+  .step::before { content:counter(steps); display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:var(--accent); color:#fff; font-weight:800; font-size:18px; border-radius:50%; margin-bottom:12px; }
+  .step h3 { margin:0 0 6px; font-size:17px; }
+  .step p { margin:0; color:var(--muted); font-size:15px; }
+  .privacy-badge { background:var(--dark); color:#fff; border-radius:20px; padding:36px 40px; margin:64px 0; display:flex; gap:24px; align-items:flex-start; flex-wrap:wrap; }
+  .privacy-badge .icon { font-size:48px; flex-shrink:0; }
+  .privacy-badge h2 { margin:0 0 8px; font-size:24px; color:#fff; }
+  .privacy-badge p { margin:0; color:#D9C2B4; font-size:16px; }
+  .pricing { background:#FFF6F0; border:1.5px solid #FCD9C4; border-radius:20px; padding:28px 32px; margin:48px 0; }
+  .pricing strong { color:var(--accent); }
+  footer { text-align:center; padding:56px 24px; color:var(--muted); font-size:14px; }
+  .cta { background:var(--accent); color:#fff; font-weight:700; padding:14px 28px; border-radius:999px; text-decoration:none; display:inline-block; font-size:16px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>Kindling</h1>
+  <p class="tagline">Five minutes a night, closer every day.<br>One shared phone. No accounts. Nothing leaves your phone.</p>
+  <a class="badge" href="#" title="Coming soon">Coming soon</a>
+</header>
+
+<main class="wrap">
+
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>Answer</h3>
+      <p>Open tonight's question. One of you taps in an answer &mdash; it stays hidden.</p>
+    </div>
+    <div class="step">
+      <h3>Hand over</h3>
+      <p>Pass the phone to your partner. They answer too, on the same device.</p>
+    </div>
+    <div class="step">
+      <h3>Flip</h3>
+      <p>Flip the card and both answers appear side by side. Your Kindling flame grows a little brighter.</p>
+    </div>
+  </div>
+
+  <div class="privacy-badge">
+    <div class="icon">&#x1F525;</div>
+    <div>
+      <h2>100% on your phone. No account. No tracking.</h2>
+      <p>Kindling collects nothing. Your answers, streaks, and anniversaries stay on your device and
+      never travel to any server &mdash; there is no sign-up, no analytics, and no cloud.
+      See our <a href="privacy.html" style="color:#FDBA8C">Privacy Policy</a>.</p>
+    </div>
+  </div>
+
+  <h2>Honest pricing</h2>
+  <div class="pricing">
+    <p>A curated question <strong>every day, free, forever</strong> &mdash; no account, no trial clock.
+    Kindling Pro unlocks all the packs, the bottomless question engine, full history, and more, from a
+    small monthly or yearly plan or <strong>one honest $29.99 lifetime unlock</strong>. No renting your
+    relationship software.</p>
+  </div>
+
+  <p>Questions or support? Email <a href="mailto:dark2torch@gmail.com">dark2torch@gmail.com</a>.</p>
+
+</main>
+
+<footer>
+  <a class="cta" href="#" title="Coming soon">Get Kindling</a>
+  <p style="margin-top:24px"><a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Use</a></p>
+  <p>&copy; 2026 Moath Othman</p>
+  <p style="margin-top:16px"><a href="../" style="color:var(--muted)">← All apps</a></p>
+</footer>
+
+</body>
+</html>
