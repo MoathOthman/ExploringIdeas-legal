@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StoryNest — Your child is the hero. Offline.</title>
+<meta name="description" content="A calm, illustrated, narrated choose-your-path story world for ages 6-8, where your child is the hero. Works 100% offline. No account, no ads, nothing collected. Free to start; one honest lifetime Family Unlock.">
+<style>
+  :root { --plum:#7C3AED; --plum2:#3B0764; --amber:#F59E0B; --dark:#1A1030; --ink:#1A1030; --muted:#5A5E66; --bg:#fff; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:var(--bg); }
+  a { color:var(--plum); }
+  .hero { background:linear-gradient(160deg,#7C3AED,#3B0764 55%,#F59E0B); color:#fff; text-align:center; padding:80px 24px 88px; }
+  .hero h1 { font-size:44px; margin:20px 0 8px; letter-spacing:-0.5px; }
+  .hero .tagline { font-size:20px; opacity:.95; margin:0 auto 32px; max-width:540px; line-height:1.4; }
+  .badge { display:inline-block; background:#fff; color:var(--dark); padding:14px 28px; border-radius:14px; text-decoration:none; font-weight:700; font-size:17px; box-shadow:0 4px 16px rgba(0,0,0,.18); }
+  .wrap { max-width:840px; margin:0 auto; padding:0 24px; }
+  h2 { font-size:28px; margin:64px 0 20px; letter-spacing:-0.3px; }
+  .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; counter-reset:steps; }
+  .step { border:1.5px solid #EDE9FE; border-radius:18px; padding:24px; position:relative; counter-increment:steps; }
+  .step::before { content:counter(steps); display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:var(--plum); color:#fff; font-weight:800; font-size:18px; border-radius:50%; margin-bottom:12px; }
+  .step h3 { margin:0 0 6px; font-size:17px; }
+  .step p { margin:0; color:var(--muted); font-size:15px; }
+  .privacy-badge { background:var(--dark); color:#fff; border-radius:20px; padding:36px 40px; margin:64px 0; display:flex; gap:24px; align-items:flex-start; flex-wrap:wrap; }
+  .privacy-badge .icon { font-size:48px; flex-shrink:0; }
+  .privacy-badge h2 { margin:0 0 8px; font-size:24px; color:#fff; }
+  .privacy-badge p { margin:0; color:#CFC6E8; font-size:16px; }
+  .pricing { background:#F5F3FF; border:1.5px solid #DDD6FE; border-radius:20px; padding:28px 32px; margin:48px 0; }
+  .pricing strong { color:var(--plum); }
+  footer { text-align:center; padding:56px 24px; color:var(--muted); font-size:14px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>StoryNest</h1>
+  <p class="tagline">Your child is the hero.<br>Calm, illustrated stories that work 100% offline. No ads. Nothing leaves the iPad.</p>
+  <a class="badge" href="#" title="Coming soon">Coming soon</a>
+</header>
+
+<main class="wrap">
+
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>Pick a hero</h3>
+      <p>Choose a character and give it a name &mdash; "Maya the Brave Fox" &mdash; and they star in every story.</p>
+    </div>
+    <div class="step">
+      <h3>Tap to choose</h3>
+      <p>A warm voice reads every line aloud. At each turning point, your child taps a big glowing choice.</p>
+    </div>
+    <div class="step">
+      <h3>Grow the world</h3>
+      <p>Finish a story and a new place lights up on the Story Map &mdash; a whole world that grows as they read.</p>
+    </div>
+  </div>
+
+  <div class="privacy-badge">
+    <div class="icon">🔒</div>
+    <div>
+      <h2>Private by default</h2>
+      <p>No account. No ads. No analytics. No location. StoryNest collects nothing &mdash; the App Store label is
+      "Data Not Collected." A real parental gate stands in front of anything that isn't a story.</p>
+    </div>
+  </div>
+
+  <div class="pricing">
+    <p><strong>Honest pricing.</strong> A genuinely useful library is free forever. One lifetime
+    <strong>Family Unlock</strong> opens the entire library, every future story, all heroes, and up to four
+    kid profiles &mdash; for the whole family, forever. Optional annual/monthly plans exist, but lifetime is
+    the better deal, and it's your call. No $15-a-month subscription required.</p>
+  </div>
+
+  <p><a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Use</a></p>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Moath Othman &middot; StoryNest</p>
+</footer>
+</body>
+</html>
