@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RepBook — The workout logger that stays on your phone</title>
+<meta name="description" content="Log every set in seconds. No account, no cloud, no subscription trap. Your training data never leaves your phone.">
+<style>
+  :root {
+    --accent: #0284c7;
+    --accent2: #0369a1;
+    --dark: #0f172a;
+    --ink: #0f172a;
+    --muted: #475569;
+    --bg: #fff;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--bg); }
+  a { color: var(--accent); }
+
+  /* ── Hero ─────────────────────────────────────────────────── */
+  .hero {
+    background: linear-gradient(160deg, #0284c7, #0f172a);
+    color: #fff;
+    text-align: center;
+    padding: 80px 24px 88px;
+  }
+  .hero h1 { font-size: 44px; margin: 20px 0 8px; letter-spacing: -0.5px; }
+  .hero .tagline { font-size: 20px; opacity: .92; margin: 0 auto 32px; max-width: 520px; line-height: 1.4; }
+  .badge {
+    display: inline-block;
+    background: #fff;
+    color: var(--dark);
+    padding: 14px 28px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 17px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.18);
+  }
+
+  /* ── How it works ─────────────────────────────────────────── */
+  .wrap { max-width: 840px; margin: 0 auto; padding: 0 24px; }
+  h2 { font-size: 28px; margin: 64px 0 20px; letter-spacing: -0.3px; }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    counter-reset: steps;
+  }
+  .step {
+    border: 1.5px solid #E2E8F0;
+    border-radius: 18px;
+    padding: 24px;
+    position: relative;
+    counter-increment: steps;
+  }
+  .step::before {
+    content: counter(steps);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 800;
+    font-size: 18px;
+    border-radius: 50%;
+    margin-bottom: 12px;
+  }
+  .step h3 { margin: 0 0 6px; font-size: 17px; }
+  .step p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  /* ── Privacy badge ────────────────────────────────────────── */
+  .privacy-badge {
+    background: var(--dark);
+    color: #fff;
+    border-radius: 20px;
+    padding: 36px 40px;
+    margin: 64px 0;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .privacy-badge .icon { font-size: 48px; flex-shrink: 0; }
+  .privacy-badge h2 { margin: 0 0 8px; font-size: 24px; color: #fff; }
+  .privacy-badge p { margin: 0; color: #94a3b8; font-size: 16px; }
+
+  /* ── Features ─────────────────────────────────────────────── */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .feature { background: #F8FAFC; border-radius: 14px; padding: 20px 22px; }
+  .feature .icon { font-size: 28px; margin-bottom: 8px; }
+  .feature h3 { margin: 0 0 4px; font-size: 16px; }
+  .feature p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  /* ── Pricing block ────────────────────────────────────────── */
+  .pricing { background: #F0F9FF; border: 1.5px solid #BAE6FD; border-radius: 20px; padding: 28px 32px; margin: 48px 0; }
+  .pricing strong { color: var(--accent); }
+
+  /* ── FAQ ──────────────────────────────────────────────────── */
+  details { border-bottom: 1px solid #E2E8F0; padding: 16px 0; }
+  summary { font-weight: 700; cursor: pointer; font-size: 16px; }
+  details p { margin: 10px 0 0; color: var(--muted); }
+
+  footer { text-align: center; padding: 56px 24px; color: var(--muted); font-size: 14px; }
+  .cta { background: var(--accent); color: #fff; font-weight: 700; padding: 14px 28px; border-radius: 999px; text-decoration: none; display: inline-block; font-size: 16px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>RepBook</h1>
+  <p class="tagline">The workout logger that stays on your phone.<br>No account. No cloud. No subscription trap.</p>
+  <a class="badge" href="#" title="Coming soon to the App Store">Download on the App Store</a>
+</header>
+
+<main class="wrap">
+
+  <h2>Log a set in 3 taps</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>Pick an exercise</h3>
+      <p>Build routines from a clean exercise library, or add your own. Bench, squat, deadlift, accessories &mdash; all yours.</p>
+    </div>
+    <div class="step">
+      <h3>Log the set</h3>
+      <p>Reps and weight in a couple of taps. Your last session is right there, so you always know what to beat.</p>
+    </div>
+    <div class="step">
+      <h3>Watch it add up</h3>
+      <p>Every set, routine, and bodyweight entry is saved on your device. Your training history, one tap away.</p>
+    </div>
+  </div>
+
+  <div class="privacy-badge">
+    <div class="icon">&#x1F512;</div>
+    <div>
+      <h2>100% on-device. No account required.</h2>
+      <p>Your workouts never travel to any server &mdash; not ours, not anyone's.
+      Every set, rep, weight, and routine is stored on your device with Apple's SwiftData.
+      There is no sign-up, no cloud upload, and no training database to breach.
+      See our <a href="privacy.html" style="color:#7dd3fc">Privacy Policy</a>.</p>
+    </div>
+  </div>
+
+  <h2>Everything you need</h2>
+  <div class="features">
+    <div class="feature">
+      <div class="icon">&#x1F3CB;&#xFE0F;</div>
+      <h3>Fast set logging</h3>
+      <p>Reps and weight in a couple of taps. Built to keep up with you between sets, not slow you down.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F4CB;</div>
+      <h3>Routines</h3>
+      <p>Save your push/pull/legs or 5&times;5 as reusable routines and start a session in one tap.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F4C8;</div>
+      <h3>History &amp; progress</h3>
+      <p>Every workout you've logged, kept forever on your device. See last session's numbers as you train.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x2696;&#xFE0F;</div>
+      <h3>Bodyweight tracking</h3>
+      <p>Log your bodyweight alongside your lifts to see the whole picture over time.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F512;</div>
+      <h3>No account, offline</h3>
+      <p>No sign-up, no login, no cloud. Everything works offline and stays on your phone.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F4B0;</div>
+      <h3>Honest pricing</h3>
+      <p>No weekly subscription surprises. No dark patterns hidden behind a delete button.</p>
+    </div>
+  </div>
+
+  <h2>Support &amp; FAQ</h2>
+  <p>Need help? Email <a href="mailto:dark2torch@gmail.com">dark2torch@gmail.com</a> &mdash;
+  we aim to reply within two business days. Common questions below.</p>
+
+  <details>
+    <summary>Is my training data safe?</summary>
+    <p>Yes. RepBook has no servers for your data and requires no account. Every set, rep, weight, and routine is stored on your device and is never uploaded anywhere. <a href="privacy.html">Read the full Privacy Policy.</a></p>
+  </details>
+  <details>
+    <summary>Does RepBook sync to the cloud?</summary>
+    <p>Not in this version. RepBook is local-first: your data lives on your phone. Because there is no cloud sync yet, we recommend keeping your own backup of anything important &mdash; uninstalling the app removes its data.</p>
+  </details>
+  <details>
+    <summary>Does it connect to Apple Health?</summary>
+    <p>Not in this version. RepBook does not use HealthKit today. It's something we may add later &mdash; if we do, we'll update our Privacy Policy first and explain exactly what health data is used.</p>
+  </details>
+  <details>
+    <summary>Does it work offline?</summary>
+    <p>Entirely. Logging, routines, history, and bodyweight all work offline. Your data is processed on your device, so no connection is needed.</p>
+  </details>
+  <details>
+    <summary>Can I get a refund?</summary>
+    <p>Refunds for any in-app purchase are handled by Apple &mdash; visit reportaproblem.apple.com. We have no mechanism to issue refunds directly.</p>
+  </details>
+
+</main>
+
+<footer>
+  <a class="cta" href="#" title="Coming soon to the App Store">Get RepBook</a>
+  <p style="margin-top:24px"><a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Use</a></p>
+  <p>&copy; 2026 Moath Othman</p>
+  <p style="margin-top:16px"><a href="../" style="color:var(--muted)">← All apps</a></p>
+</footer>
+
+</body>
+</html>
