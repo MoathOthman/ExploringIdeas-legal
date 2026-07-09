@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FairInvoice — The invoice maker that stays on your phone</title>
+<meta name="description" content="Send a professional invoice in under a minute. Unlimited invoices free forever, no account, no subscription trap. Your business data never leaves your device.">
+<style>
+  :root {
+    --accent: #059669;
+    --accent2: #047857;
+    --dark: #0f172a;
+    --ink: #0f172a;
+    --muted: #475569;
+    --bg: #fff;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--bg); }
+  a { color: var(--accent); }
+
+  /* ── Hero ─────────────────────────────────────────────────── */
+  .hero {
+    background: linear-gradient(160deg, #10B981, #0f172a);
+    color: #fff;
+    text-align: center;
+    padding: 80px 24px 88px;
+  }
+  .hero h1 { font-size: 44px; margin: 20px 0 8px; letter-spacing: -0.5px; }
+  .hero .tagline { font-size: 20px; opacity: .92; margin: 0 auto 32px; max-width: 520px; line-height: 1.4; }
+  .badge {
+    display: inline-block;
+    background: #fff;
+    color: var(--dark);
+    padding: 14px 28px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 17px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.18);
+  }
+
+  /* ── How it works ─────────────────────────────────────────── */
+  .wrap { max-width: 840px; margin: 0 auto; padding: 0 24px; }
+  h2 { font-size: 28px; margin: 64px 0 20px; letter-spacing: -0.3px; }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    counter-reset: steps;
+  }
+  .step {
+    border: 1.5px solid #E2E8F0;
+    border-radius: 18px;
+    padding: 24px;
+    position: relative;
+    counter-increment: steps;
+  }
+  .step::before {
+    content: counter(steps);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 800;
+    font-size: 18px;
+    border-radius: 50%;
+    margin-bottom: 12px;
+  }
+  .step h3 { margin: 0 0 6px; font-size: 17px; }
+  .step p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  /* ── Privacy badge ────────────────────────────────────────── */
+  .privacy-badge {
+    background: var(--dark);
+    color: #fff;
+    border-radius: 20px;
+    padding: 36px 40px;
+    margin: 64px 0;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .privacy-badge .icon { font-size: 48px; flex-shrink: 0; }
+  .privacy-badge h2 { margin: 0 0 8px; font-size: 24px; color: #fff; }
+  .privacy-badge p { margin: 0; color: #94a3b8; font-size: 16px; }
+
+  /* ── Features ─────────────────────────────────────────────── */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .feature { background: #F8FAFC; border-radius: 14px; padding: 20px 22px; }
+  .feature .icon { font-size: 28px; margin-bottom: 8px; }
+  .feature h3 { margin: 0 0 4px; font-size: 16px; }
+  .feature p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  /* ── Pricing block ────────────────────────────────────────── */
+  .pricing { background: #ECFDF5; border: 1.5px solid #A7F3D0; border-radius: 20px; padding: 28px 32px; margin: 48px 0; }
+  .pricing strong { color: var(--accent); }
+
+  /* ── FAQ ──────────────────────────────────────────────────── */
+  details { border-bottom: 1px solid #E2E8F0; padding: 16px 0; }
+  summary { font-weight: 700; cursor: pointer; font-size: 16px; }
+  details p { margin: 10px 0 0; color: var(--muted); }
+
+  footer { text-align: center; padding: 56px 24px; color: var(--muted); font-size: 14px; }
+  .cta { background: var(--accent); color: #fff; font-weight: 700; padding: 14px 28px; border-radius: 999px; text-decoration: none; display: inline-block; font-size: 16px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>FairInvoice</h1>
+  <p class="tagline">The invoice maker that stays on your phone.<br>Unlimited invoices free. No account. No subscription trap.</p>
+  <a class="badge" href="#" title="Coming soon to the App Store">Download on the App Store</a>
+</header>
+
+<main class="wrap">
+
+  <h2>An invoice in under a minute</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>Pick a client</h3>
+      <p>Choose from your client list or add one inline. Saved items fill line items in a tap &mdash; quantity, price, done.</p>
+    </div>
+    <div class="step">
+      <h3>Watch it build itself</h3>
+      <p>The finished PDF renders live as you type. On iPad it's side by side: form on the left, your invoice on the right.</p>
+    </div>
+    <div class="step">
+      <h3>Send it, get paid</h3>
+      <p>Share a clean PDF anywhere. The dashboard tracks who owes you, flags overdue invoices, and marks paid with a swipe.</p>
+    </div>
+  </div>
+
+  <div class="privacy-badge">
+    <div class="icon">&#x1F512;</div>
+    <div>
+      <h2>100% on-device. No account required.</h2>
+      <p>Your clients, prices, and paperwork never travel to any server &mdash; not ours, not anyone's.
+      Every document is stored on your device with Apple's SwiftData. There is no sign-up, no cloud
+      upload, and no business database to breach. This app collects no data at all.
+      See our <a href="privacy.html" style="color:#6ee7b7">Privacy Policy</a>.</p>
+    </div>
+  </div>
+
+  <h2>Everything you need</h2>
+  <div class="features">
+    <div class="feature">
+      <div class="icon">&#x1F4C4;</div>
+      <h3>Unlimited invoices, free</h3>
+      <p>No monthly cap, no "three free then pay" bait. Invoices and receipts are free forever.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x26A1;</div>
+      <h3>Live PDF preview</h3>
+      <p>What you see is exactly what your client gets &mdash; the real PDF, updating as you type.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F4B5;</div>
+      <h3>Who owes you</h3>
+      <p>Outstanding total, overdue with days-late badges, and a paid-per-month chart at a glance.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F4DD;</div>
+      <h3>Estimates &amp; receipts</h3>
+      <p>Win the job with an estimate, convert it to an invoice in one tap. Receipts for cash jobs in seconds.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F3A8;</div>
+      <h3>Look professional</h3>
+      <p>Clean templates, your logo, your payment instructions &mdash; localized currency and dates, RTL included.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F512;</div>
+      <h3>No account, offline</h3>
+      <p>No sign-up, no login, no cloud. Everything works offline and stays on your device.</p>
+    </div>
+  </div>
+
+  <div class="pricing">
+    <strong>Honest pricing.</strong> The core app &mdash; unlimited invoices, receipts, clients, and
+    the dashboard &mdash; is free forever. FairInvoice Pro (all templates, your logo, unlimited
+    estimates, CSV export) is an optional upgrade with monthly, yearly, or a one-time lifetime
+    purchase that never renews. Prices are always shown in the App Store and in the app before you
+    pay.
+  </div>
+
+  <h2>Support &amp; FAQ</h2>
+  <p>Need help? Email <a href="mailto:dark2torch@gmail.com">dark2torch@gmail.com</a> &mdash;
+  we aim to reply within two business days. Common questions below.</p>
+
+  <details>
+    <summary>Is my business data safe?</summary>
+    <p>Yes. FairInvoice has no servers for your data and requires no account. Every invoice, client, and price is stored on your device and is never uploaded anywhere. <a href="privacy.html">Read the full Privacy Policy.</a></p>
+  </details>
+  <details>
+    <summary>Does FairInvoice sync to the cloud?</summary>
+    <p>Not in this version. FairInvoice is local-first: your data lives on your device. Because there is no cloud sync yet, we recommend keeping your own backup of anything important (for example, exported PDFs) &mdash; uninstalling the app removes its data.</p>
+  </details>
+  <details>
+    <summary>Is "unlimited invoices free" for real?</summary>
+    <p>Yes. There is no cap on invoices or receipts and no trial that expires. Pro adds polish &mdash; more templates, your logo, unlimited estimates, CSV export &mdash; and there's always a pay-once lifetime option.</p>
+  </details>
+  <details>
+    <summary>Can FairInvoice take payments from my clients?</summary>
+    <p>No, by design. Your payment instructions (bank details, payment handles) are printed on your PDF as plain text; the payment itself happens between you and your client, wherever you already get paid.</p>
+  </details>
+  <details>
+    <summary>Does it work offline?</summary>
+    <p>Entirely. Creating documents, the live preview, and the dashboard all work offline. Your data is processed on your device, so no connection is needed.</p>
+  </details>
+  <details>
+    <summary>Can I get a refund?</summary>
+    <p>Refunds for any in-app purchase are handled by Apple &mdash; visit reportaproblem.apple.com. We have no mechanism to issue refunds directly.</p>
+  </details>
+
+</main>
+
+<footer>
+  <a class="cta" href="#" title="Coming soon to the App Store">Get FairInvoice</a>
+  <p style="margin-top:24px"><a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Use</a></p>
+  <p>&copy; 2026 Moath Othman</p>
+  <p style="margin-top:16px"><a href="../" style="color:var(--muted)">← All apps</a></p>
+</footer>
+
+</body>
+</html>
