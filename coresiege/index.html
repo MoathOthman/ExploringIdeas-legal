@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reactor: Core Siege — Merge turrets. Hold the Core.</title>
+<meta name="description" content="A merge tower-defense roguelite. Build a ring of turrets, merge them up, hold the Core. No subscription, no account, and the Daily is wallet-immune.">
+<style>
+  :root {
+    --accent: #22D3C5;
+    --accent2: #0D9488;
+    --dark: #0B1020;
+    --ink: #0f172a;
+    --muted: #475569;
+    --bg: #fff;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--bg); }
+  a { color: var(--accent2); }
+  .hero {
+    background: linear-gradient(160deg, #0F766E, #0B1020);
+    color: #fff;
+    text-align: center;
+    padding: 80px 24px 88px;
+  }
+  .hero h1 { font-size: 44px; margin: 20px 0 8px; letter-spacing: -0.5px; }
+  .hero .tagline { font-size: 20px; opacity: .92; margin: 0 auto 32px; max-width: 560px; line-height: 1.4; }
+  .badge {
+    display: inline-block;
+    background: #fff;
+    color: var(--dark);
+    padding: 14px 28px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 17px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.18);
+  }
+  .pillars {
+    background: #F0FDFA;
+    border-top: 3px solid var(--accent);
+    border-bottom: 3px solid var(--accent);
+    padding: 36px 24px;
+  }
+  .pillars .row {
+    max-width: 840px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;
+  }
+  .pillar { background: #fff; border-radius: 16px; padding: 20px 24px; }
+  .pillar .label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+  .pillar p { margin: 6px 0 0; }
+  .wrap { max-width: 840px; margin: 0 auto; padding: 0 24px 72px; }
+  h2 { font-size: 28px; margin: 56px 0 16px; letter-spacing: -0.3px; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .step { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px; padding: 20px; }
+  .step h3 { margin: 0 0 6px; font-size: 17px; color: var(--accent2); }
+  .step p { margin: 0; color: var(--muted); font-size: 15px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+  th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid #E2E8F0; }
+  th { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  .fair { background: #F0FDFA; border-left: 5px solid var(--accent); border-radius: 12px; padding: 18px 22px; margin-top: 16px; }
+  footer { border-top: 1px solid #E2E8F0; padding: 32px 24px 56px; text-align: center; font-size: 14px; color: var(--muted); }
+  footer a { margin: 0 8px; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Reactor: Core Siege</h1>
+  <p class="tagline">Merge turrets into a ring. Hold the Core. Go deeper than yesterday.</p>
+  <a class="badge" href="mailto:dark2torch@gmail.com">Contact Support</a>
+</div>
+
+<div class="pillars">
+  <div class="row">
+    <div class="pillar">
+      <div class="label">Pricing</div>
+      <p><strong>No subscription.</strong> Ever. Three optional one-time purchases, that's it.</p>
+    </div>
+    <div class="pillar">
+      <div class="label">Privacy</div>
+      <p><strong>No account, no servers.</strong> Your whole game lives on your device.</p>
+    </div>
+    <div class="pillar">
+      <div class="label">Fair play</div>
+      <p><strong>The Daily is wallet-immune.</strong> Money cannot buy a better run.</p>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <h2>How it plays</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>Place</h3>
+      <p>Drag turrets from the tray onto the 12-slot ring around your reactor Core.</p>
+    </div>
+    <div class="step">
+      <h3>Merge</h3>
+      <p>Drop a turret on a matching tier to merge it into something meaner. Six tiers deep.</p>
+    </div>
+    <div class="step">
+      <h3>Hold</h3>
+      <p>Waves descend on the Core. Rockets, plasma, lasers — three roles, twelve turrets, ten relics.</p>
+    </div>
+    <div class="step">
+      <h3>Overclock</h3>
+      <p>Burn your burst cooldown at the right moment. Every tenth wave brings the Warden Core.</p>
+    </div>
+  </div>
+
+  <h2>What it costs</h2>
+  <table>
+    <tr><th>Item</th><th>Price</th><th>What it does</th></tr>
+    <tr><td>Starter Pack</td><td>$0.99</td><td>A one-time head start on your first reactors.</td></tr>
+    <tr><td><strong>Ad-Free Forever</strong></td><td>$3.99</td><td>Removes every ad, permanently. Pay once.</td></tr>
+    <tr><td>Spark Pack</td><td>$4.99</td><td>550 Sparks for permanent Prestige Tree upgrades.</td></tr>
+  </table>
+  <p style="color:var(--muted);font-size:15px;margin-top:12px;">
+    All three are optional and one-time. There is no subscription, no battle pass, and no energy timer.
+  </p>
+
+  <div class="fair">
+    <strong>The Daily Descent is wallet-immune.</strong> Everyone gets the identical board each day.
+    Nothing you buy — not one of the three purchases above — can change its outcome. Spending only
+    speeds up your own private progress. Ranking is local for now.
+  </div>
+
+  <h2>Support</h2>
+  <p>Found a bug, got stuck, or want to argue about balance? Email
+     <a href="mailto:dark2torch@gmail.com">dark2torch@gmail.com</a> — we aim to reply within two
+     business days. Telling us your device model and iOS version helps a lot.</p>
+
+  <h2>Restoring a purchase</h2>
+  <p>Purchases are tied to your Apple ID. If you reinstall or switch devices, open the store screen
+     in-game and tap <strong>Restore purchases</strong>. If it still doesn't appear, email us.</p>
+
+</div>
+
+<footer>
+  <p>
+    <a href="privacy.html">Privacy Policy</a> &middot;
+    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use (EULA)</a> &middot;
+    <a href="../index.html">All apps</a>
+  </p>
+  <p>&copy; 2026 Moath Othman</p>
+</footer>
+
+</body>
+</html>
