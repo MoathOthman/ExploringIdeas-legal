@@ -36,6 +36,11 @@
     font-size: 17px;
     box-shadow: 0 4px 16px rgba(0,0,0,.18);
   }
+  .cta-row { display: flex; gap: 14px; justify-content: center; align-items: center; flex-wrap: wrap; }
+  .badge.ghost {
+    background: transparent; color: #fff; box-shadow: none;
+    border: 1.5px solid rgba(255,255,255,.55); font-weight: 600;
+  }
   .pillars {
     background: #F0FDFA;
     border-top: 3px solid var(--accent);
@@ -68,7 +73,10 @@
 <div class="hero">
   <h1>Reactor: Core Siege</h1>
   <p class="tagline">Merge turrets into a ring. Hold the Core. Go deeper than yesterday.</p>
-  <a class="badge" href="mailto:dark2torch@gmail.com">Contact Support</a>
+  <div class="cta-row">
+    <a class="badge" href="https://apps.apple.com/app/id6790187658">Download on the App Store</a>
+    <a class="badge ghost" href="mailto:dark2torch@gmail.com">Contact Support</a>
+  </div>
 </div>
 
 <div class="pillars">
