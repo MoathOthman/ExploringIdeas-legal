@@ -32,16 +32,18 @@
 <div class="wrap">
   <p><a href="index.html">&larr; Reactor: Core Siege</a></p>
   <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: 15 July 2026</p>
+  <p class="muted">Last updated: 7 August 2026</p>
 
   <div class="summary-card">
     <strong>The short version:</strong> Reactor: Core Siege has no account and no servers.
     Your entire game — every run, turret, blueprint, upgrade and record — lives
-    <strong>only on your device</strong>. We collect nothing about you: no analytics,
-    no crash reports, no profile. The single thing that ever leaves your phone is the
-    data Google AdMob needs to show the game's ads, and buying
-    <strong>Ad-Free Forever</strong> removes the ads and that data flow entirely.
-    Everything is described in full below.
+    <strong>only on your device</strong>. We never ask who you are and never collect a
+    profile. Three things do leave your phone: <strong>anonymous usage analytics</strong>
+    and <strong>crash reports</strong> (both through Google Firebase, to see which features
+    are used and to fix bugs — never your name, your game content, or anything that
+    identifies you), and the data <strong>Google AdMob</strong> needs to show the game's
+    ads. Buying <strong>Ad-Free Forever</strong> removes the ads and that ad-data flow
+    entirely. Everything is described in full below.
   </div>
 
   <h2>What Core Siege accesses on your device</h2>
@@ -60,11 +62,27 @@
   <p>There is no sign-up, no email address, no phone number, and no social login. We never
   ask who you are, because the game never needs to know.</p>
 
-  <h2>Analytics and crash reporting — the honest disclosure</h2>
-  <p>We collect <strong>none</strong>. Core Siege sends us no usage events, no analytics,
-  and no crash reports. We genuinely do not know how you play, how far you get, or whether
-  you play at all. There is no telemetry in this app.</p>
-  <p>If that ever changes, this page will be updated before the change ships, and the change
+  <h2 id="analytics">Analytics and crash reporting — the honest disclosure</h2>
+  <p>Core Siege uses <strong>Google Firebase</strong> for two things, and only these two:</p>
+  <ul>
+    <li><strong>Anonymous usage analytics (Firebase Analytics)</strong> — we record which
+        screens and features get used and how runs end (for example, that a Daily Descent was
+        completed, or that a purchase screen was viewed) so we know what to improve. These
+        events are <strong>anonymous and aggregate</strong>: they are keyed to a random,
+        resettable Firebase instance identifier, <strong>not</strong> to your name, email, or
+        Apple ID — we never ask for those. We deliberately <strong>never send your game
+        content or any free text</strong> with an event (no run seeds, no personal data). To
+        run the numbers, Firebase records an <strong>approximate, IP-derived (city-level)
+        location</strong> and basic device and app-version info. Cross-app advertising
+        signals (Google "signals") are turned <strong>off</strong>, so this analytics data is
+        not used to build an ad profile of you.</li>
+    <li><strong>Crash reports (Firebase Crashlytics)</strong> — when the app crashes, we
+        receive a technical crash report (what went wrong, the device model, and the iOS
+        version) so we can fix it. It contains no personal data and no game content.</li>
+  </ul>
+  <p>Analytics and crash collection are <strong>disabled entirely in our internal test and
+  simulator builds</strong>, so our own testing never pollutes the data. If the way we use
+  this data ever changes, this page will be updated before the change ships, and the change
   will be noted in the App Store release notes.</p>
 
   <h2 id="advertising">Advertising</h2>
@@ -117,10 +135,16 @@
   <h2>Data we do not collect</h2>
   <p>To be explicit about what Core Siege does not do:</p>
   <ul>
-    <li>We do not have a server, so we cannot and do not store anything about you.</li>
-    <li>We do not collect analytics or usage events.</li>
-    <li>We do not collect crash reports.</li>
-    <li>We do not track your location.</li>
+    <li>We do not have a game server or database, so there is no account, profile, or save
+        that lives anywhere but your device.</li>
+    <li>We do not collect your name, email, phone number, or any identity — there is no
+        sign-up.</li>
+    <li>Our analytics never include your game content, run seeds, or any free text you
+        enter; see <a href="#analytics">Analytics and crash reporting</a> for exactly what
+        is collected.</li>
+    <li>We do not collect precise GPS location. The only location involved is the
+        approximate, IP-derived (city-level) location used by Firebase analytics and by the
+        ad SDK.</li>
     <li>We do not access your photos, contacts, calendar, microphone, or health data.</li>
     <li>We do not use device fingerprinting. The only cross-app identifier involved is the
         device advertising identifier, used solely to serve the ads described in the
