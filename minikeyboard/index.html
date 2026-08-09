@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mini Keyboard — Support</title>
+<meta name="description" content="Type on your Mac from your iPhone, in any language your phone can type. Local Wi-Fi only. Support and setup help.">
+<style>
+  :root { --accent:#7C3AED; --dark:#1e1b3a; --ink:#0f172a; --muted:#475569; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color:var(--ink); background:#fff; }
+  a { color:var(--accent); }
+  .hero { background:linear-gradient(160deg,#7C3AED,#1e1b3a); color:#fff; text-align:center; padding:72px 24px 80px; }
+  .hero h1 { font-size:42px; margin:16px 0 8px; letter-spacing:-.5px; }
+  .hero p { font-size:19px; opacity:.92; max-width:560px; margin:0 auto; }
+  .wrap { max-width:720px; margin:0 auto; padding:48px 24px 72px; }
+  h2 { font-size:24px; margin:40px 0 12px; }
+  h3 { font-size:17px; margin:24px 0 6px; }
+  .card { border:1px solid #e2e8f0; border-radius:12px; padding:18px 20px; margin:16px 0; background:#fafafa; }
+  .muted { color:var(--muted); font-size:15px; }
+  footer { border-top:1px solid #e2e8f0; padding:28px 24px 56px; text-align:center; color:var(--muted); font-size:14px; }
+  code { background:#f1f5f9; padding:2px 6px; border-radius:5px; font-size:14px; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>Mini Keyboard</h1>
+  <p>Type on your Mac from your iPhone — in any language your phone can type, as you type it.</p>
+</div>
+
+<div class="wrap">
+  <h2>Getting started</h2>
+  <p>Mini Keyboard is two apps: one on your <strong>iPhone</strong>, and a small menu-bar app on your <strong>Mac</strong>. You need both, and both devices must be on the <strong>same Wi-Fi network</strong>.</p>
+  <ol>
+    <li>Open Mini Keyboard on your Mac. It lives in the menu bar — there is no Dock icon and no window.</li>
+    <li>Grant permission when asked (see below).</li>
+    <li>Open Mini Keyboard on your iPhone and tap your Mac in the list.</li>
+    <li>Scan the QR code shown in the Mac's menu-bar popover.</li>
+    <li>Click into any app on your Mac and start typing.</li>
+  </ol>
+
+  <h2>The permission on your Mac</h2>
+  <div class="card">
+    <p>macOS lists permission to send key presses under <strong>System Settings → Privacy &amp; Security → Accessibility</strong>, even though sending key presses is all this app does. Apple groups several different permissions in that one place, which is confusing but expected.</p>
+    <p class="muted">Mini Keyboard never reads your screen and never reads what you type. It only sends the keys and pointer movements you make on your phone.</p>
+  </div>
+
+  <h3>The permission is switched on, but it still won't type</h3>
+  <p>If you have updated or reinstalled the app, macOS may be holding an entry for the older copy. Select <strong>Mini Keyboard</strong> in the Accessibility list, remove it with the <strong>–</strong> button, then add it again with <strong>+</strong> and switch it on.</p>
+
+  <h2>Troubleshooting</h2>
+
+  <h3>My iPhone can't find my Mac</h3>
+  <ul>
+    <li>Both devices must be on the <strong>same Wi-Fi network</strong>. A VPN on either device will usually break discovery.</li>
+    <li>On the Mac, check <strong>System Settings → Privacy &amp; Security → Local Network</strong> and make sure Mini Keyboard is allowed.</li>
+    <li>On the iPhone, allow <strong>Local Network</strong> access when prompted. If you declined it, enable it in <strong>Settings → Mini Keyboard</strong>.</li>
+    <li>Guest and public Wi-Fi networks often block devices from seeing each other. This is a network restriction, not an app setting.</li>
+  </ul>
+
+  <h3>It says the pairing code is out of date</h3>
+  <p>Open the Mac app's menu-bar popover and scan the QR code again. If you tapped <strong>New code</strong> on the Mac, every previously paired phone must re-scan.</p>
+
+  <h3>Does it work over the internet or mobile data?</h3>
+  <p><strong>No.</strong> Mini Keyboard works only on your local Wi-Fi network, by design. Nothing you type is sent to any server, and there is no account.</p>
+
+  <h2>Privacy</h2>
+  <p>What you type goes from your iPhone to your Mac over your own network, encrypted, and nowhere else. There is no account and no cloud sync. Full details in the <a href="privacy.html">privacy policy</a>.</p>
+
+  <h2>Still stuck?</h2>
+  <div class="card">
+    <p>Email <a href="mailto:dark2torch@gmail.com">dark2torch@gmail.com</a> and include your iPhone model, your macOS version, and what you saw. If pairing is the problem, say whether your Mac appears in the iPhone's list at all — that one detail narrows it down immediately.</p>
+  </div>
+</div>
+
+<footer>
+  Mini Keyboard · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a><br>
+  © 2026 Moaath Othman
+</footer>
+</body>
+</html>
