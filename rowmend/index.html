@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rowmend — How It Works · Mac CSV &amp; spreadsheet cleaner</title>
+<meta name="description" content="How Rowmend works: clean a messy CSV or spreadsheet on your Mac with one plain-English sentence. See the architecture, cleanup flow, and a sequence diagram of exactly what leaves your device — your rows never do.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="Rowmend — How It Works">
+<meta property="og:description" content="Clean a messy spreadsheet with one sentence. Your rows never leave your Mac.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='22'%20fill='%235b6cf0'/%3E%3Crect%20x='26'%20y='30'%20width='48'%20height='40'%20rx='5'%20fill='white'/%3E%3Crect%20x='31'%20y='38'%20width='16'%20height='6'%20rx='2'%20fill='%230fae9c'/%3E%3Crect%20x='53'%20y='38'%20width='16'%20height='6'%20rx='2'%20fill='%235b6cf0'/%3E%3Crect%20x='31'%20y='48'%20width='16'%20height='6'%20rx='2'%20fill='%230fae9c'/%3E%3Crect%20x='53'%20y='48'%20width='16'%20height='6'%20rx='2'%20fill='%23c7ccf7'/%3E%3Crect%20x='31'%20y='58'%20width='16'%20height='6'%20rx='2'%20fill='%230fae9c'/%3E%3Crect%20x='53'%20y='58'%20width='16'%20height='6'%20rx='2'%20fill='%235b6cf0'/%3E%3C/svg%3E">
+</head>
+<body>
+<style>
+  :root{
+    --paper:#f5f7fc; --surface:#ffffff; --surface-2:#eef1f9;
+    --ink:#191c2b; --muted:#5a6079; --faint:#8b90a6;
+    --line:#d5daea; --line-strong:#c2c8de;
+    --indigo:#5b6cf0; --indigo-soft:#e7e9fd;
+    --teal:#0fae9c; --teal-soft:#d6f3ee;
+    --shadow:0 1px 2px rgba(25,28,43,.05), 0 8px 30px rgba(25,28,43,.06);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper:#0d0f17; --surface:#151827; --surface-2:#1b1f31;
+      --ink:#eef0f7; --muted:#a3a9c2; --faint:#727892;
+      --line:#2a2f45; --line-strong:#3a4160;
+      --indigo:#8a97ff; --indigo-soft:#22263e;
+      --teal:#3ad0bd; --teal-soft:#123027;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 40px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#f5f7fc; --surface:#ffffff; --surface-2:#eef1f9;
+    --ink:#191c2b; --muted:#5a6079; --faint:#8b90a6;
+    --line:#d5daea; --line-strong:#c2c8de;
+    --indigo:#5b6cf0; --indigo-soft:#e7e9fd; --teal:#0fae9c; --teal-soft:#d6f3ee;
+    --shadow:0 1px 2px rgba(25,28,43,.05), 0 8px 30px rgba(25,28,43,.06);
+  }
+  :root[data-theme="dark"]{
+    --paper:#0d0f17; --surface:#151827; --surface-2:#1b1f31;
+    --ink:#eef0f7; --muted:#a3a9c2; --faint:#727892;
+    --line:#2a2f45; --line-strong:#3a4160;
+    --indigo:#8a97ff; --indigo-soft:#22263e; --teal:#3ad0bd; --teal-soft:#123027;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 40px rgba(0,0,0,.35);
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased; font-size:17px;
+  }
+  .mono{font-family:ui-monospace,"SF Mono","JetBrains Mono",Menlo,monospace}
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px}
+  a{color:inherit}
+  h1,h2,h3{line-height:1.15; text-wrap:balance; letter-spacing:-0.02em; margin:0}
+  h2{font-size:clamp(1.5rem,1.1rem + 1.4vw,2.05rem); font-weight:680}
+  h3{font-size:1.12rem; font-weight:640; letter-spacing:-0.01em}
+  p{margin:0}
+  .eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--indigo); font-weight:600}
+
+  header.hero{position:relative; overflow:hidden; border-bottom:1px solid var(--line)}
+  header.hero::before{content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(120% 90% at 88% -10%, color-mix(in srgb,var(--teal) 22%, transparent), transparent 60%),
+      radial-gradient(120% 90% at 6% 0%, color-mix(in srgb,var(--indigo) 20%, transparent), transparent 55%);
+    opacity:.9; pointer-events:none}
+  .hero .wrap{position:relative; padding:76px 24px 68px}
+  .badge{display:inline-flex; align-items:center; gap:8px; font-size:.8rem; color:var(--muted);
+    background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:5px 13px; box-shadow:var(--shadow)}
+  .badge .dot{width:7px;height:7px;border-radius:50%; background:var(--teal)}
+  h1{font-size:clamp(2.2rem,1.4rem + 3.4vw,3.5rem); font-weight:720; margin:20px 0 0}
+  .lede{font-size:clamp(1.05rem,1rem + .5vw,1.3rem); color:var(--muted); max-width:36ch; margin:16px 0 0}
+  .hero-note{margin-top:22px; display:inline-flex; align-items:center; gap:9px; font-size:.92rem; color:var(--ink)}
+  .shield{color:var(--teal); flex:none}
+
+  section{padding:64px 0; border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:0}
+  .sec-head{max-width:60ch}
+  .sec-head h2{margin-top:8px}
+  .sec-head p.sub{color:var(--muted); margin-top:12px}
+
+  .grid{display:grid; gap:16px; margin-top:28px}
+  .cols-3{grid-template-columns:repeat(3,1fr)}
+  .cols-2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:720px){.cols-3,.cols-2{grid-template-columns:1fr}}
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:20px; box-shadow:var(--shadow)}
+  .card h3{margin-bottom:6px}
+  .card p{color:var(--muted); font-size:.95rem}
+  .kicker{font-family:ui-monospace,Menlo,monospace; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); font-weight:600; display:block; margin-bottom:10px}
+
+  figure{margin:32px 0 0}
+  .figframe{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:26px 22px 8px; box-shadow:var(--shadow)}
+  .scroll{overflow-x:auto}
+  figure svg{display:block; width:100%; height:auto; min-width:560px}
+  figcaption{color:var(--muted); font-size:.9rem; margin:16px 6px 6px; text-wrap:pretty}
+  figcaption b{color:var(--ink); font-weight:640}
+
+  .dg{font-family:-apple-system,"SF Pro Text",system-ui,sans-serif}
+  .dg .box{fill:var(--surface-2); stroke:var(--line-strong); stroke-width:1.5}
+  .dg .lbl{fill:var(--ink); font-size:13px}
+  .dg .lbl.sm{font-size:11.5px; fill:var(--muted)}
+  .dg .tag{font-family:ui-monospace,Menlo,monospace; font-size:11px; fill:var(--muted)}
+  .dg .edge{stroke:var(--line-strong); stroke-width:1.6; fill:none}
+  .dg .edge-lbl{font-size:11.5px; fill:var(--muted)}
+  .dg .teal{stroke:var(--teal)}  .dg .teal-f{fill:var(--teal)}
+  .dg .indigo{stroke:var(--indigo)} .dg .indigo-f{fill:var(--indigo)}
+  .dg .zone-mac{fill:color-mix(in srgb,var(--teal) 8%, var(--surface)); stroke:var(--teal); stroke-width:1.4}
+  .dg .zone-net{fill:color-mix(in srgb,var(--indigo) 8%, var(--surface)); stroke:var(--indigo); stroke-width:1.4}
+  .dg .zone-lbl{font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase}
+  .dg .boundary{stroke:var(--indigo); stroke-width:1.6; stroke-dasharray:5 5; opacity:.8}
+  .dg .crossing{stroke:var(--indigo); stroke-width:2; stroke-dasharray:6 5; fill:none}
+  .dg .life{stroke:var(--line-strong); stroke-width:1.4; stroke-dasharray:3 4}
+  .dg .msg{stroke:var(--ink); stroke-width:1.5; fill:none}
+  .dg .head{fill:var(--surface); stroke:var(--line-strong); stroke-width:1.5}
+
+  .recipe{background:var(--surface); border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:var(--shadow); margin-top:26px}
+  .recipe .bar{display:flex; align-items:center; gap:10px; padding:14px 16px; border-bottom:1px solid var(--line); background:var(--surface-2)}
+  .recipe .bar .spark{color:var(--indigo); flex:none}
+  .recipe .bar .txt{font-size:.95rem}
+  .recipe ol{margin:0; padding:16px 20px 18px 44px; display:grid; gap:8px}
+  .recipe li{color:var(--muted); font-size:.93rem}
+  .recipe li b{color:var(--ink); font-weight:600}
+  .stat{display:inline-flex; gap:8px; align-items:center; padding:14px 20px; font-size:.9rem; color:var(--muted); border-top:1px solid var(--line)}
+  .stat .n{font-family:ui-monospace,Menlo,monospace; color:var(--teal); font-weight:600}
+
+  .price{display:flex; flex-direction:column; gap:6px}
+  .price .amt{font-size:1.6rem; font-weight:700; letter-spacing:-.02em}
+  .price .per{color:var(--faint); font-size:.85rem}
+  .pill{display:inline-block; font-family:ui-monospace,Menlo,monospace; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; padding:3px 9px; border-radius:999px; border:1px solid var(--line); color:var(--muted); background:var(--surface-2)}
+  .pill.on{color:var(--teal); border-color:color-mix(in srgb,var(--teal) 40%, var(--line))}
+
+  ul.plain{list-style:none; margin:16px 0 0; padding:0; display:grid; gap:10px}
+  ul.plain li{display:flex; gap:11px; align-items:flex-start; color:var(--muted); font-size:.97rem}
+  ul.plain li .ck{color:var(--teal); flex:none; margin-top:2px}
+
+  .cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:26px}
+  .btn{display:inline-flex; align-items:center; gap:9px; padding:13px 20px; border-radius:12px; font-weight:600; font-size:.98rem; text-decoration:none; border:1px solid var(--line); box-shadow:var(--shadow); transition:transform .12s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn.primary{background:var(--indigo); color:#fff; border-color:transparent}
+  .btn.ghost{background:var(--surface); color:var(--ink)}
+  .btn .arr{opacity:.7}
+
+  footer{padding:40px 0 56px; color:var(--faint); font-size:.85rem}
+  footer .wrap{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:center}
+  :focus-visible{outline:2px solid var(--indigo); outline-offset:3px; border-radius:4px}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge"><span class="dot"></span>Rowmend&nbsp;·&nbsp;macOS&nbsp;·&nbsp;how it works</span>
+    <h1>Clean a messy spreadsheet with one plain-English sentence.</h1>
+    <p class="lede">A Mac app that turns “fix this export” into a reviewable, repeatable pipeline — run entirely on your machine.</p>
+    <p class="hero-note">
+      <svg class="shield" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l7 3v6c0 4.5-3 8-7 11-4-3-7-6.5-7-11V5l7-3z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.5 12l2.3 2.3L15.5 9.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Your rows never leave your Mac.
+    </p>
+  </div>
+</header>
+
+<section id="what">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The idea</span>
+      <h2>Type what you want. Review the plan. Run it locally.</h2>
+      <p class="sub">Spreadsheet exports come out messy — split names, ALL-CAPS, duplicates, blank cells, ten date formats. Rowmend reads your goal in plain English, proposes a concrete sequence of transforms, and executes it over every row on-device. Nothing is auto-applied; you see and edit each step first.</p>
+    </div>
+
+    <div class="recipe" role="figure" aria-label="Example: a plain-English goal becomes a five-step recipe that removes four rows">
+      <div class="bar">
+        <svg class="spark" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l1.8 4.9L18.7 9.7l-4.9 1.8L12 16.4l-1.8-4.9L5.3 9.7l4.9-1.8L12 3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <span class="txt mono">split name, title-case, dedupe by email keeping newest, drop rows with no email</span>
+      </div>
+      <ol class="mono">
+        <li><b>1.</b> Split “name” → “First name” + “Last name”</li>
+        <li><b>2.</b> Title-case “First name” and “Last name”</li>
+        <li><b>3.</b> Standardize “email” (lowercase, trim)</li>
+        <li><b>4.</b> Dedupe by “email”, keep newest by “updated”</li>
+        <li><b>5.</b> Drop rows with empty “email”</li>
+      </ol>
+      <div class="stat"><span class="n">7&nbsp;→&nbsp;4 rows</span> · reviewed and run on-device · export CSV or XLSX</div>
+    </div>
+
+    <div class="grid cols-3">
+      <div class="card"><span class="kicker">Deterministic</span><h3>A recipe, not a black box</h3><p>Every cleanup is an ordered list of pure transforms you can reorder, toggle, undo, and replay next month — no guessing what the AI “did.”</p></div>
+      <div class="card"><span class="kicker">Private by design</span><h3>Rows stay on your Mac</h3><p>Only column headers and your sentence are ever used to build the recipe. The actual data never leaves the device.</p></div>
+      <div class="card"><span class="kicker">Mac-native</span><h3>Big files, drag &amp; drop</h3><p>SwiftUI + SwiftData, hand-rolled CSV/XLSX with zero dependencies, built for large exports and keyboard-driven review.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="architecture">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Architecture</span>
+      <h2>Where the data lives — and the one thing that ever crosses the wire.</h2>
+      <p class="sub">The whole app is on-device. An optional cloud call helps interpret a hard sentence, and it only ever sees <b>column headers + your goal</b> — never a single row of your data.</p>
+    </div>
+
+    <figure>
+      <div class="figframe"><div class="scroll">
+        <svg class="dg" viewBox="0 0 920 470" role="img" aria-label="Architecture: your spreadsheet, the transform engine, and the recipe generator all run inside a 'Your Mac' zone. Only the recipe generator makes an optional call across the boundary to a stateless proxy and Claude Haiku 4.5, carrying only headers and the goal sentence; rows never cross.">
+          <defs>
+            <marker id="ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--ink)"/></marker>
+            <marker id="ar-i" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--indigo)"/></marker>
+            <marker id="ar-t" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--teal)"/></marker>
+          </defs>
+
+          <rect class="zone-mac" x="16" y="40" width="580" height="410" rx="16"/>
+          <text class="zone-lbl teal-f" x="36" y="66">▚ Your Mac — on-device</text>
+
+          <rect class="box" x="44" y="92" width="150" height="86" rx="10"/>
+          <text class="lbl" x="119" y="122" text-anchor="middle" font-weight="600">Your spreadsheet</text>
+          <text class="lbl sm" x="119" y="142" text-anchor="middle">CSV / XLSX</text>
+          <text class="tag teal-f" x="119" y="162" text-anchor="middle">rows + cells live here</text>
+
+          <rect class="box" x="44" y="212" width="150" height="72" rx="10"/>
+          <text class="lbl" x="119" y="240" text-anchor="middle" font-weight="600">Profiler</text>
+          <text class="lbl sm" x="119" y="260" text-anchor="middle">types · nulls · dupes</text>
+
+          <rect class="box" x="240" y="150" width="176" height="96" rx="10" style="fill:color-mix(in srgb,var(--teal) 12%, var(--surface)); stroke:var(--teal)"/>
+          <text class="lbl" x="328" y="182" text-anchor="middle" font-weight="640">Transform Engine</text>
+          <text class="lbl sm" x="328" y="202" text-anchor="middle">~14 pure steps</text>
+          <text class="lbl sm" x="328" y="220" text-anchor="middle">runs the recipe over</text>
+          <text class="lbl sm" x="328" y="236" text-anchor="middle" font-weight="600">every row, locally</text>
+
+          <rect class="box" x="240" y="300" width="176" height="96" rx="10"/>
+          <text class="lbl" x="328" y="330" text-anchor="middle" font-weight="640">Recipe Generator</text>
+          <text class="lbl sm" x="328" y="350" text-anchor="middle">your sentence → steps</text>
+          <text class="tag" x="328" y="372" text-anchor="middle">built-in rules · offline</text>
+
+          <rect class="box" x="452" y="150" width="124" height="246" rx="10" style="fill:var(--surface)"/>
+          <text class="tag" x="514" y="176" text-anchor="middle" style="fill:var(--muted)">FOUNDATION</text>
+          <text class="lbl sm" x="514" y="212" text-anchor="middle">SwiftUI</text>
+          <text class="lbl sm" x="514" y="242" text-anchor="middle">SwiftData</text>
+          <text class="lbl sm" x="514" y="272" text-anchor="middle">save / replay</text>
+          <text class="lbl sm" x="514" y="302" text-anchor="middle">CoreKit</text>
+          <text class="lbl sm" x="514" y="332" text-anchor="middle">StoreKit 2</text>
+          <text class="lbl sm" x="514" y="362" text-anchor="middle">theme · paywall</text>
+
+          <path class="edge teal" marker-end="url(#ar-t)" d="M119 178 L119 208"/>
+          <path class="edge" marker-end="url(#ar)" d="M194 135 C 220 135, 224 175, 238 182"/>
+          <text class="edge-lbl" x="206" y="150">parse</text>
+          <path class="edge teal" marker-end="url(#ar-t)" d="M194 248 C 218 250, 222 210, 238 205"/>
+          <path class="edge" marker-end="url(#ar)" d="M328 298 L328 250"/>
+          <text class="edge-lbl" x="336" y="278">recipe</text>
+
+          <line class="boundary" x1="612" y1="40" x2="612" y2="450"/>
+
+          <rect class="zone-net" x="628" y="150" width="276" height="196" rx="16"/>
+          <text class="zone-lbl indigo-f" x="648" y="176">☁ Cloud — optional</text>
+          <rect class="box" x="654" y="196" width="224" height="60" rx="10"/>
+          <text class="lbl" x="766" y="222" text-anchor="middle" font-weight="600">Stateless proxy</text>
+          <text class="lbl sm" x="766" y="240" text-anchor="middle">holds the key · stores nothing</text>
+          <rect class="box" x="654" y="272" width="224" height="52" rx="10"/>
+          <text class="lbl" x="766" y="303" text-anchor="middle" font-weight="600">Claude Haiku 4.5</text>
+
+          <path class="crossing" marker-end="url(#ar-i)" d="M416 330 C 520 330, 540 226, 652 226"/>
+          <text class="tag indigo-f" x="470" y="300" font-weight="600">headers + your sentence</text>
+          <text class="tag indigo-f" x="470" y="316">— never any rows —</text>
+          <path class="edge indigo" marker-end="url(#ar-i)" d="M652 236 C 545 250, 525 350, 418 352" opacity=".65"/>
+          <text class="edge-lbl indigo-f" x="486" y="368">recipe (steps)</text>
+          <path class="edge" marker-end="url(#ar)" d="M766 256 L766 270" opacity=".6"/>
+        </svg>
+      </div></div>
+      <figcaption><b>Read the encoding once:</b> everything inside the teal zone runs on your Mac and touches your rows. Exactly one arrow crosses the dashed boundary — the optional recipe call — and its payload is only the column headers and your sentence. The built-in generator handles most cleanups with no network at all.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The flow</span>
+      <h2>From a messy file to a clean export.</h2>
+      <p class="sub">Seven steps, left to right. Only one — generating the recipe — can optionally reach the network; everything else is local.</p>
+    </div>
+
+    <figure>
+      <div class="figframe"><div class="scroll">
+        <svg class="dg" viewBox="0 0 940 210" role="img" aria-label="Flow: import a CSV or XLSX, auto-profile it, type a sentence, generate the recipe (built-in rules or optional cloud), review and edit the steps, run it locally with undo, then export.">
+          <defs><marker id="fa" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--ink)"/></marker></defs>
+          <g>
+            <rect class="box" x="8"  y="66" width="112" height="70" rx="10"/>
+            <rect class="box" x="146" y="66" width="112" height="70" rx="10"/>
+            <rect class="box" x="284" y="66" width="112" height="70" rx="10"/>
+            <rect class="box" x="422" y="66" width="112" height="70" rx="10" style="stroke:var(--indigo)"/>
+            <rect class="box" x="560" y="66" width="112" height="70" rx="10"/>
+            <rect class="box" x="698" y="66" width="112" height="70" rx="10"/>
+            <rect class="box" x="836" y="66" width="96"  height="70" rx="10" style="stroke:var(--teal)"/>
+          </g>
+          <g class="lbl" text-anchor="middle" font-weight="600" font-size="12.5">
+            <text x="64"  y="96">Import</text>
+            <text x="202" y="96">Auto-profile</text>
+            <text x="340" y="96">Type a</text>
+            <text x="478" y="96">Generate</text>
+            <text x="616" y="96">Review</text>
+            <text x="754" y="96">Run</text>
+            <text x="884" y="96">Export</text>
+          </g>
+          <g class="lbl sm" text-anchor="middle" font-size="11">
+            <text x="64"  y="114">CSV · XLSX</text>
+            <text x="202" y="114">types · nulls</text>
+            <text x="340" y="114">sentence</text>
+            <text x="478" y="114">the recipe</text>
+            <text x="616" y="114">&amp; edit steps</text>
+            <text x="754" y="114">undo · replay</text>
+            <text x="884" y="114">CSV · XLSX</text>
+          </g>
+          <text class="tag indigo-f" x="478" y="132" text-anchor="middle">rules · or cloud</text>
+          <text class="tag teal-f" x="754" y="132" text-anchor="middle">on all rows</text>
+          <g class="edge" marker-end="url(#fa)">
+            <line x1="120" y1="101" x2="144" y2="101"/>
+            <line x1="258" y1="101" x2="282" y2="101"/>
+            <line x1="396" y1="101" x2="420" y2="101"/>
+            <line x1="534" y1="101" x2="558" y2="101"/>
+            <line x1="672" y1="101" x2="696" y2="101"/>
+            <line x1="810" y1="101" x2="834" y2="101"/>
+          </g>
+          <rect x="8" y="24" width="924" height="24" rx="6" fill="color-mix(in srgb,var(--teal) 10%, var(--surface))"/>
+          <text class="zone-lbl teal-f" x="20" y="40">▚ entirely on your Mac — except the optional recipe call</text>
+        </svg>
+      </div></div>
+      <figcaption>The indigo step is the only one that <i>can</i> touch the network; the teal step is where your rows are actually transformed. You review the generated steps before anything runs.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="sequence">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Sequence</span>
+      <h2>Exactly what happens — and what leaves the device.</h2>
+      <p class="sub">A single cleanup, message by message. Watch the boundary: only step&nbsp;4 crosses it, and it carries headers and your sentence, not rows.</p>
+    </div>
+
+    <figure>
+      <div class="figframe"><div class="scroll">
+        <svg class="dg" viewBox="0 0 900 500" role="img" aria-label="Sequence diagram of one cleanup. You drop a file and type a goal to Rowmend; Rowmend parses and profiles locally; the Recipe Generator sends only headers and the goal across the boundary to the proxy and Claude, which return a recipe; Rowmend runs the recipe over all rows locally and you export. Only the headers-and-goal message crosses the on-device boundary.">
+          <defs><marker id="sm" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--ink)"/></marker>
+                <marker id="si" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--indigo)"/></marker></defs>
+
+          <rect x="470" y="30" width="430" height="470" rx="12" fill="color-mix(in srgb,var(--indigo) 6%, var(--surface))" stroke="none"/>
+          <text class="zone-lbl indigo-f" x="884" y="50" text-anchor="end">crosses the wire →</text>
+          <rect x="0" y="30" width="470" height="470" rx="12" fill="color-mix(in srgb,var(--teal) 6%, var(--surface))" stroke="none"/>
+          <text class="zone-lbl teal-f" x="16" y="50">▚ on your Mac</text>
+          <line class="boundary" x1="470" y1="30" x2="470" y2="500"/>
+
+          <g>
+            <rect class="head" x="24"  y="62" width="96" height="34" rx="8"/><text class="lbl" x="72"  y="84" text-anchor="middle" font-weight="600" font-size="12.5">You</text>
+            <rect class="head" x="168" y="62" width="120" height="34" rx="8" style="stroke:var(--teal)"/><text class="lbl" x="228" y="84" text-anchor="middle" font-weight="600" font-size="12.5">Rowmend</text>
+            <rect class="head" x="330" y="62" width="120" height="34" rx="8" style="stroke:var(--teal)"/><text class="lbl" x="390" y="84" text-anchor="middle" font-weight="600" font-size="12"> Generator</text>
+            <rect class="head" x="560" y="62" width="120" height="34" rx="8" style="stroke:var(--indigo)"/><text class="lbl" x="620" y="84" text-anchor="middle" font-weight="600" font-size="12.5">Proxy</text>
+            <rect class="head" x="740" y="62" width="130" height="34" rx="8" style="stroke:var(--indigo)"/><text class="lbl" x="805" y="84" text-anchor="middle" font-weight="600" font-size="12">Claude Haiku</text>
+          </g>
+          <g class="life"><line x1="72" y1="96" x2="72" y2="486"/><line x1="228" y1="96" x2="228" y2="486"/><line x1="390" y1="96" x2="390" y2="486"/><line x1="620" y1="96" x2="620" y2="486"/><line x1="805" y1="96" x2="805" y2="486"/></g>
+
+          <g class="edge-lbl" style="fill:var(--ink)" font-size="12">
+            <path class="msg" marker-end="url(#sm)" d="M72 128 L226 128"/>
+            <text x="80" y="122">1 · drop CSV / XLSX file</text>
+            <path class="msg teal" marker-end="url(#sm)" d="M228 156 h44 v22 h-42"/>
+            <text class="teal-f" x="282" y="164">2 · parse + profile (rows stay here)</text>
+            <path class="msg" marker-end="url(#sm)" d="M72 208 L226 208"/>
+            <text x="80" y="202">3 · “dedupe by email, keep newest…”</text>
+            <path class="msg" marker-end="url(#sm)" d="M228 240 L388 240"/>
+            <text x="236" y="234">headers + goal</text>
+            <path class="msg crossing" marker-end="url(#si)" d="M390 288 L618 288"/>
+            <text class="indigo-f" x="398" y="282" font-weight="600">4 · { headers, goal } — no rows</text>
+            <path class="msg indigo" marker-end="url(#si)" d="M620 316 L803 316"/>
+            <text class="indigo-f" x="628" y="310">forward + key</text>
+            <path class="msg indigo" marker-end="url(#si)" d="M805 348 L622 348" opacity=".8"/>
+            <text class="indigo-f" x="700" y="342" text-anchor="middle">recipe JSON</text>
+            <path class="msg crossing" marker-end="url(#si)" d="M618 376 L392 376" opacity=".8"/>
+            <text class="indigo-f" x="505" y="370" text-anchor="middle">5 · validated recipe</text>
+            <path class="msg" marker-end="url(#sm)" d="M388 404 L230 404"/>
+            <text x="236" y="398">reviewable steps</text>
+            <path class="msg teal" marker-end="url(#sm)" d="M228 432 h44 v22 h-42"/>
+            <text class="teal-f" x="282" y="440" font-weight="600">6 · run recipe over ALL rows — locally</text>
+            <path class="msg" marker-end="url(#sm)" d="M226 476 L74 476"/>
+            <text x="80" y="470">7 · cleaned table → export</text>
+          </g>
+        </svg>
+      </div></div>
+      <figcaption>Steps 1–3 and 5–7 are entirely local. Step&nbsp;4 is the <b>only</b> message that crosses to the cloud — and it carries just the column headers and your sentence. If the built-in generator resolves the sentence, step&nbsp;4 doesn’t happen at all.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="engine">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Under the hood</span>
+      <h2>A small, deterministic engine.</h2>
+    </div>
+    <div class="grid cols-2">
+      <div class="card">
+        <span class="kicker">The recipe</span>
+        <h3>Pure value types, replayable</h3>
+        <p>A recipe is an ordered list of ~14 transform steps — split / merge columns, case-normalize, trim, standardize phone (E.164), email, dates (ISO-8601), regex replace, fill blanks, filter rows, and dedupe with an exact <i>or</i> fuzzy match. Each step is pure and reversible via table snapshots, so undo, reorder, and “replay on next month’s file” all fall out for free.</p>
+      </div>
+      <div class="card">
+        <span class="kicker">Files</span>
+        <h3>CSV &amp; XLSX, zero dependencies</h3>
+        <p>An RFC&nbsp;4180 CSV parser (quoted fields, embedded commas and newlines, CRLF) and a hand-rolled XLSX reader/writer built on Apple’s <span class="mono">Compression</span> and Foundation — no third-party libraries, sandbox-safe, ready for large exports.</p>
+      </div>
+      <div class="card">
+        <span class="kicker">The AI seam</span>
+        <h3>Schema-only, by construction</h3>
+        <p>The generator sends a table <i>schema</i> — column names and types — plus your goal. There is no field on the request that can carry a cell value, and a test asserts the outbound payload contains none. A built-in rule-based generator (and, optionally, an on-device model) keeps common cleanups fully offline.</p>
+      </div>
+      <div class="card">
+        <span class="kicker">Shared foundation</span>
+        <h3>Built on CoreKit</h3>
+        <p>Theme, paywall &amp; entitlements (StoreKit&nbsp;2), onboarding, review prompts, and cross-sell come from the portfolio’s shared package — which now compiles for macOS, making Rowmend the first Mac app to use it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Pricing</span>
+      <h2>Free to try. Pay once.</h2>
+      <p class="sub">Honest, lifetime-led — no subscription required to own the tool.</p>
+    </div>
+    <div class="grid cols-3">
+      <div class="card">
+        <span class="pill">Free</span>
+        <div class="price" style="margin-top:12px"><span class="amt">$0</span><span class="per">row cap · core transforms</span></div>
+        <ul class="plain">
+          <li><span class="ck">✓</span> Split, case, trim, dedupe, filter</li>
+          <li><span class="ck">✓</span> Import &amp; export CSV / XLSX</li>
+          <li><span class="ck">✓</span> Fully on-device</li>
+        </ul>
+      </div>
+      <div class="card" style="border-color:color-mix(in srgb,var(--teal) 45%, var(--line))">
+        <span class="pill on">Lifetime · recommended</span>
+        <div class="price" style="margin-top:12px"><span class="amt">$39.99</span><span class="per">pay once, yours forever</span></div>
+        <ul class="plain">
+          <li><span class="ck">✓</span> Unlimited rows &amp; batch files</li>
+          <li><span class="ck">✓</span> All ~14 transforms + fuzzy dedupe</li>
+          <li><span class="ck">✓</span> Save &amp; replay recipes</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="pill">Yearly</span>
+        <div class="price" style="margin-top:12px"><span class="amt">$19.99</span><span class="per">per year · 1-month free trial</span></div>
+        <ul class="plain">
+          <li><span class="ck">✓</span> Everything in Lifetime</li>
+          <li><span class="ck">✓</span> Sync &amp; ongoing updates</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cta">
+      <!-- Sibling marketing asset: the free client-side web tool. Relative path holds when both deploy under the same marketing root. -->
+      <a class="btn ghost" href="tool/">Try the free CSV web tool <span class="arr">→</span></a>
+      <!-- TODO(founder): replace with the real Mac App Store URL once the app record exists. -->
+      <a class="btn primary" href="#" aria-disabled="true">Rowmend for Mac <span class="arr">— coming soon</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Rowmend — Mac-first data cleaner · <span class="mono">com.kenzieapps.rowmend</span></span>
+    <span>Clean with a sentence. Rows stay on your Mac.</span>
+  </div>
+</footer>
+</body>
+</html>
