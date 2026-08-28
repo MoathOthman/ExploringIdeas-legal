@@ -32,15 +32,17 @@
 <div class="wrap">
   <p><a href="index.html">&larr; FairInvoice</a></p>
   <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: 9 July 2026</p>
+  <p class="muted">Last updated: 28 August 2026</p>
 
   <div class="summary-card">
     <strong>The short version:</strong> FairInvoice has no account and no servers for your data.
     Every invoice, estimate, receipt, client, and business detail you enter is stored
     <strong>entirely on your device</strong> and <strong>never transmitted to us</strong>.
-    There is no login, no cloud sync, and no analytics service phoning home &mdash; this version
-    of the app <strong>collects no data at all</strong>. The only thing that ever leaves your
-    phone is a PDF <em>you</em> choose to share, sent to whoever <em>you</em> send it to.
+    There is no login and no cloud sync. The app sends us only <strong>anonymous usage
+    statistics and crash reports</strong> &mdash; never your documents, never anything linked
+    to you &mdash; and, <em>only if you allow notifications</em>, an anonymous device push
+    token. The only thing that ever leaves your phone with your business on it is a PDF
+    <em>you</em> choose to share, sent to whoever <em>you</em> send it to.
   </div>
 
   <h2>Your business data stays on your device</h2>
@@ -51,12 +53,40 @@
   <strong>never transmitted to us or anyone else</strong>. There is no FairInvoice account,
   no sign-up, no login, and no cloud sync in this version of the app.</p>
 
-  <h2>No data collected &mdash; the honest disclosure</h2>
-  <p>This version of FairInvoice transmits <strong>nothing</strong> off your device. No analytics
-  events, no crash reports to our servers, no telemetry, no identifiers. The app's App Store
-  privacy label is <strong>"Data Not Collected"</strong>, and that is literally true. If a future
-  version ever adds an optional feature that transmits anything (for example a feature-suggestion
-  form), we will update this policy first and describe exactly what it sends.</p>
+  <h2>Anonymous diagnostics &mdash; the honest disclosure</h2>
+  <p>To understand how the app is used and to catch bugs, FairInvoice sends a small set of
+  anonymous diagnostics using Google's Firebase service:</p>
+  <ul>
+    <li><strong>Usage statistics</strong> (Firebase Analytics): which screens and features are
+        used &mdash; for example "an invoice was created" or "a PDF was exported". These events
+        never contain your documents, client names, amounts, dates you entered, or any text you
+        typed.</li>
+    <li><strong>Crash reports</strong> (Firebase Crashlytics): technical stack traces when the
+        app crashes, so we can find and fix the bug.</li>
+    <li><strong>A push token</strong>: the anonymous device token described in full in the next
+        section, created <em>only if you allow notifications</em>.</li>
+  </ul>
+  <p>None of this is linked to your identity &mdash; there is no account, so we could not link
+  it even if we wanted to &mdash; and none of it is used for advertising or tracking. The app's
+  App Store privacy label reflects exactly this: Usage Data (Product Interaction), Diagnostics
+  (Crash Data), and Identifiers (Device ID) &mdash; all collected not linked to your identity
+  and not used for tracking, and nothing else. If a future version ever transmits anything
+  more, we will update this policy first and describe exactly what it sends.</p>
+
+  <h2>Notifications and the push token</h2>
+  <p><strong>What:</strong> an anonymous device push token (Apple Push Notification service /
+  Firebase Cloud Messaging) &mdash; a random identifier your device generates so notifications
+  can be delivered to it. It contains none of your data.</p>
+  <p><strong>When:</strong> only after you allow notifications, which the app only offers when
+  you start a Pro free trial. If you never allow notifications, no token is ever created and
+  nothing leaves your device.</p>
+  <p><strong>Why:</strong> the trial-ending reminder itself is created <em>on your device</em>;
+  the token additionally lets us send occasional app announcements. Notification content never
+  includes your clients, invoices, amounts, or anything you typed.</p>
+  <p><strong>Not linked to you:</strong> FairInvoice has no accounts, so the token is not tied
+  to your name, email, or identity &mdash; we could not look you up by it if we wanted to.</p>
+  <p><strong>Opting out:</strong> turn off notifications for FairInvoice in iOS Settings at any
+  time. Everything else in the app works identically without them.</p>
 
   <h2>Sharing a PDF is up to you</h2>
   <p>When you share an invoice, estimate, or receipt, the app generates a PDF on your device and
@@ -72,7 +102,7 @@
     <li>We do not use the advertising identifier (IDFA).</li>
     <li>We do not track you across apps, websites, or companies, and we do not use Apple's App
         Tracking Transparency framework because there is no tracking of any kind.</li>
-    <li>We show no ads and contain no third-party advertising or analytics SDK.</li>
+    <li>We show no ads and contain no advertising SDK.</li>
     <li>We do not access your contacts, calendar, or location. Importing a logo uses Apple's
         picker, which hands the app only the single image you choose &mdash; the app never gets
         access to your photo library.</li>
