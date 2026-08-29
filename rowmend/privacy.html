@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rowmend — Privacy Policy</title>
+<style>
+  :root { --accent: #5B6CF0; --ink: #0f172a; --muted: #475569; --bg: #fff; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--bg); }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 56px 24px 88px; }
+  h1 { font-size: 36px; margin: 0 0 4px; }
+  h2 { font-size: 20px; margin: 40px 0 8px; border-top: 1px solid #E2E8F0; padding-top: 32px; }
+  .muted { color: var(--muted); font-size: 14px; }
+  a { color: var(--accent); }
+  .summary-card {
+    background: #EEF0FE;
+    border: 1.5px solid #C7CCF7;
+    border-left: 5px solid var(--accent);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin: 24px 0 32px;
+    font-size: 16px;
+  }
+  .summary-card strong { color: var(--accent); }
+  ul { padding-left: 20px; }
+  ul li { margin-bottom: 6px; }
+  footer { margin-top: 56px; font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p><a href="index.html">&larr; Rowmend</a></p>
+  <h1>Privacy Policy</h1>
+  <p class="muted">Last updated: 21 August 2026</p>
+
+  <div class="summary-card">
+    <strong>The short version:</strong> Rowmend cleans your spreadsheets
+    <strong>entirely on your Mac</strong>. Your rows &mdash; every cell, name, email, and number
+    &mdash; are read, transformed, and exported locally and are <strong>never uploaded to us or
+    anyone else</strong>. There is no account, no cloud sync, and no analytics service phoning home
+    &mdash; this version of the app <strong>collects no data at all</strong>.
+  </div>
+
+  <h2>Your spreadsheet data stays on your Mac</h2>
+  <p>Rowmend is a local-first CSV and spreadsheet cleaner. When you open a file, Rowmend reads and
+  parses it <strong>on your Mac</strong> and holds it in memory while you work; applying a cleaning
+  recipe, previewing the before/after diff, and exporting the result all happen locally. Your data
+  rows <strong>never leave your device</strong> and are <strong>never transmitted to us or anyone
+  else</strong>. There is no Rowmend account, no sign-up, no login, and no cloud sync.</p>
+
+  <h2>How Rowmend opens and saves your files</h2>
+  <p>Rowmend only ever touches a file you explicitly choose through the standard macOS open panel
+  (or by dragging it in). To let you reopen a recent file quickly, macOS gives the app a
+  <em>security-scoped bookmark</em> &mdash; a local reference to that file's location on your own
+  disk. The bookmark is not a copy of your data and is not sent anywhere. Exports are files
+  <em>you</em> save, where <em>you</em> choose, through the standard macOS save panel.</p>
+
+  <h2>No data collected &mdash; the honest disclosure</h2>
+  <p>This version of Rowmend transmits <strong>nothing</strong> off your Mac. No analytics events,
+  no crash reports to our servers, no telemetry, no identifiers. The app's App Store privacy label
+  is <strong>"Data Not Collected,"</strong> and that is literally true.</p>
+
+  <h2>AI-assisted recipes and the "rows never leave your Mac" rule</h2>
+  <p>Rowmend turns a plain-English goal into a cleaning recipe. In this version, that suggestion
+  runs <strong>entirely on your device</strong> using a built-in, rule-based generator &mdash;
+  nothing is sent anywhere.</p>
+  <p>A future update may add an optional, AI-assisted suggestion mode. It is designed around one
+  strict rule: it would send only your <strong>column header names</strong> and the
+  <strong>goal you type</strong> &mdash; the schema of your table &mdash; to generate a recipe. It
+  would <strong>never send your data rows or cell values</strong>. If and when that mode ships, we
+  will update this policy and the app's App Store privacy label first, and describe exactly what it
+  sends. Either way, the transform engine that actually changes your data always runs locally on
+  your Mac.</p>
+
+  <h2>What Rowmend does not do</h2>
+  <p>To be explicit:</p>
+  <ul>
+    <li>We do not transmit your spreadsheets, rows, column values, or file contents to any server.</li>
+    <li>We do not use an advertising identifier and show no ads &mdash; there is no third-party
+        advertising or analytics SDK in the app.</li>
+    <li>We do not track you across apps, websites, or companies, and we do not use App Tracking
+        Transparency because there is no tracking of any kind.</li>
+    <li>We do not access your contacts, calendar, location, or photo library. Rowmend only reads the
+        specific files you open.</li>
+    <li>Rowmend may check whether our other apps are installed, to show an optional "More Apps"
+        suggestion, using Apple's <code>canOpenURL</code>. That is a local check on your own device
+        and sends nothing to us.</li>
+    <li>We do not sell or share your data &mdash; we never have it in the first place.</li>
+  </ul>
+
+  <h2>Saved recipes and preferences</h2>
+  <p>Recipes you save and your app preferences are stored on your Mac using Apple's SwiftData and the
+  system defaults. A recipe is a set of cleaning steps (and may reference your column header names by
+  text); it does <strong>not</strong> contain your data rows. This information stays on your device
+  and is never transmitted to us.</p>
+
+  <h2>Purchases</h2>
+  <p>Any optional purchase in Rowmend (Rowmend Pro) is processed by Apple through the App Store using
+  StoreKit. Rowmend never sees your payment method, Apple ID, or billing details &mdash; Apple
+  processes the payment and we never receive card data. Apple's privacy policy governs that
+  transaction.</p>
+
+  <h2>No account required</h2>
+  <p>Rowmend requires no sign-up, no email address, and no login to work. There is no Rowmend account
+  and no Rowmend server that stores your identity or your files.</p>
+
+  <h2>Children</h2>
+  <p>Rowmend is a productivity utility, is not directed at children under 13, and collects no
+  personal data from anyone of any age.</p>
+
+  <h2>Data breach risk</h2>
+  <p>Because your files and rows are processed only on your Mac and are never uploaded, there is no
+  Rowmend database of your data to breach. If your device is compromised, that is governed by Apple's
+  device security model &mdash; we recommend a strong login password and FileVault.</p>
+
+  <h2>Retention</h2>
+  <p>Rowmend keeps no copy of your data. Your saved recipes and preferences live only on your Mac and
+  are removed when you delete them or uninstall the app. The files you clean are your own; keep your
+  own backups of anything important.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If this policy ever changes we will update the date at the top of this page. Material changes
+  will be noted in the App Store release notes. Continued use of Rowmend after a change constitutes
+  acceptance of the updated policy.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this privacy policy? Email
+  <a href="mailto:dark2torch@gmail.com">dark2torch@gmail.com</a>.
+  We aim to reply within two business days.</p>
+
+  <footer>
+    <p>&copy; 2026 Moath Othman &middot; <a href="index.html">Back to Rowmend</a> &middot;
+    <a href="terms.html">Terms of Use</a></p>
+  </footer>
+</div>
+</body>
+</html>
