@@ -38,7 +38,7 @@
     <strong>The short version:</strong> FairInvoice has no account and no servers for your data.
     Every invoice, estimate, receipt, client, and business detail you enter is stored
     <strong>entirely on your device</strong> and <strong>never transmitted to us</strong>.
-    There is no login and no cloud sync. The app sends us only <strong>anonymous usage
+    There is no login. Optional iCloud Sync (off by default) keeps a copy in <em>your own</em> iCloud account &mdash; never on our servers. The app sends us only <strong>anonymous usage
     statistics and crash reports</strong> &mdash; never your documents, never anything linked
     to you &mdash; and, <em>only if you allow notifications</em>, an anonymous device push
     token. The only thing that ever leaves your phone with your business on it is a PDF
@@ -51,7 +51,15 @@
   instructions, and every document you create &mdash; is stored on your iPhone or iPad using
   Apple's SwiftData framework. This data <strong>never leaves your device</strong> and is
   <strong>never transmitted to us or anyone else</strong>. There is no FairInvoice account,
-  no sign-up, no login, and no cloud sync in this version of the app.</p>
+  no sign-up, no login, and no FairInvoice server. If you turn on iCloud Sync, your data is also stored in your personal iCloud account &mdash; see the next section.</p>
+
+  <h2>iCloud Sync (optional)</h2>
+  <p>iCloud Sync is <strong>off by default</strong>. If you turn it on (a Pro feature), FairInvoice uses Apple's CloudKit
+  <em>private database</em> to keep your invoices, clients and items identical across your iPhone, iPad and Mac.
+  That data lives in <strong>your own iCloud account</strong>, encrypted and governed by Apple's iCloud terms.
+  <strong>We have no access to it and cannot read it</strong> &mdash; it is not transmitted to us and we do not
+  consider it collected. Turning iCloud Sync off stops syncing; to remove the iCloud copy, delete FairInvoice's
+  data from iCloud in your device's Settings (Apple ID &rarr; iCloud &rarr; Manage Storage).</p>
 
   <h2>Anonymous diagnostics &mdash; the honest disclosure</h2>
   <p>To understand how the app is used and to catch bugs, FairInvoice sends a small set of
@@ -132,8 +140,8 @@
 
   <h2>Retention</h2>
   <p>Your documents, clients, items, and business profile live only on your device and are deleted
-  when you delete FairInvoice or delete them yourself. Because there is no cloud copy, we recommend
-  keeping your own backup (for example, exported PDFs) of anything important.</p>
+  when you delete FairInvoice or delete them yourself. Unless you turn on iCloud Sync there is no cloud copy,
+  so we recommend using <em>Settings &rarr; Back up</em> to export a backup file of anything important.</p>
 
   <h2>Changes to this policy</h2>
   <p>If this policy ever changes we will update the date at the top of this page. Material changes
