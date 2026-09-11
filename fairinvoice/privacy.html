@@ -75,7 +75,9 @@
         and OS details when the app crashes, so we can find and fix the bug.</li>
   </ul>
   <p>Firebase recognizes an installation by identifiers scoped to this app (a Firebase
-  installation ID and Apple's identifier for vendor). It never reads your advertising identifier:
+  installation ID and Apple's identifier for vendor), and derives an approximate location
+  (country/region/city) from your masked IP address &mdash; the app itself never uses Location
+  Services. It never reads your advertising identifier:
   FairInvoice ships Firebase <em>without</em> Google's advertising-ID and ad-conversion modules.
   None of this is linked to your identity &mdash; there is no account, so we could not link it
   even if we wanted to &mdash; and none of it is used to track you.</p>
@@ -121,14 +123,27 @@
 
   <h2>What the App Store privacy label says</h2>
   <p>FairInvoice's App Store privacy label lists exactly this, every item <strong>not linked to
-  your identity</strong> and <strong>not used for tracking</strong>: Identifiers (Device ID),
-  Usage Data (Product Interaction), Diagnostics (Crash Data and Other Diagnostic Data), Purchases
-  (Purchase History &mdash; see <em>Purchases</em> below), and Other Data (message-delivery
-  statistics from Firebase Cloud Messaging). Device ID and Product Interaction are also labelled
-  "Developer's Advertising or Marketing": that is the opt-in app announcements described above
-  &mdash; our own messages about FairInvoice, never third-party ads. If a future version ever
-  transmits anything more, we will update this policy first and describe exactly what it
-  sends.</p>
+  your identity</strong> and <strong>not used for tracking</strong>:</p>
+  <ul>
+    <li><strong>Identifiers &mdash; Device ID:</strong> App Functionality, Analytics, Developer's
+        Advertising or Marketing.</li>
+    <li><strong>Usage Data &mdash; Product Interaction:</strong> Analytics, Developer's Advertising
+        or Marketing.</li>
+    <li><strong>Diagnostics &mdash; Crash Data:</strong> App Functionality.</li>
+    <li><strong>Diagnostics &mdash; Other Diagnostic Data:</strong> App Functionality,
+        Analytics.</li>
+    <li><strong>Purchases &mdash; Purchase History:</strong> App Functionality, Analytics (see
+        <em>Purchases</em> below).</li>
+    <li><strong>Location &mdash; Coarse Location:</strong> Analytics. The app never uses Location
+        Services; Google Analytics derives an approximate location (country/region/city) from
+        your masked IP address.</li>
+    <li><strong>Other Data &mdash; Other Data Types:</strong> Analytics (message-delivery
+        statistics from Firebase Cloud Messaging).</li>
+  </ul>
+  <p>"Developer's Advertising or Marketing" on Device ID and Product Interaction is the opt-in
+  app announcements described above &mdash; our own messages about FairInvoice, never
+  third-party ads. If a future version ever transmits anything more, we will update this policy
+  first and describe exactly what it sends.</p>
 
   <h2>Sharing a PDF is up to you</h2>
   <p>When you share an invoice, estimate, or receipt, the app generates a PDF on your device and
@@ -145,7 +160,9 @@
     <li>We do not track you across apps, websites, or companies, and we do not use Apple's App
         Tracking Transparency framework because there is no tracking of any kind.</li>
     <li>We show no ads and contain no advertising SDK.</li>
-    <li>We do not access your contacts, calendar, or location. Importing a logo uses Apple's
+    <li>We do not access your contacts or calendar, and the app never uses Location Services.
+        Google Analytics derives an approximate location (country/region/city) from your masked
+        IP address. Importing a logo uses Apple's
         picker, which hands the app only the single image you choose &mdash; the app never gets
         access to your photo library.</li>
     <li>We do not sell or share any data, and your business data never reaches us in the first place.</li>
@@ -157,7 +174,9 @@
   &mdash; Apple processes the payment and we never receive card data. Apple's privacy policy
   governs that transaction. To confirm your Pro access, the app shares the App Store purchase
   record (which product, when, and an anonymous app user ID) with our subscription service,
-  RevenueCat &mdash; never your name, email, or payment method.</p>
+  RevenueCat &mdash; never your name, email, or payment method. Firebase Analytics also records
+  an anonymous in-app purchase event (which product and its price) so we can see how the app is
+  doing; it is not linked to you.</p>
 
   <h2>No account required</h2>
   <p>FairInvoice requires no sign-up, no email address, no phone number, and no social login to
