@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FairStock — Your shelves become buttons</title>
+<meta name="description" content="Print QR labels, stick them on your shelves, and count stock by pointing your camera. Unlimited items free forever, no account, no subscription. Your inventory never leaves your device.">
+<style>
+  :root {
+    --accent: #F97316;
+    --accent2: #C2410C;
+    --dark: #1F2937;
+    --ink: #1F2937;
+    --muted: #475569;
+    --bg: #fff;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--bg); }
+  a { color: var(--accent2); }
+
+  /* ── Hero ─────────────────────────────────────────────────── */
+  .hero {
+    background: linear-gradient(160deg, #FB923C, #1F2937);
+    color: #fff;
+    text-align: center;
+    padding: 80px 24px 88px;
+  }
+  .hero h1 { font-size: 44px; margin: 20px 0 8px; letter-spacing: -0.5px; }
+  .hero .tagline { font-size: 20px; opacity: .92; margin: 0 auto 32px; max-width: 520px; line-height: 1.4; }
+  .badge {
+    display: inline-block;
+    background: #fff;
+    color: var(--dark);
+    padding: 14px 28px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 17px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.18);
+  }
+
+  /* ── How it works ─────────────────────────────────────────── */
+  .wrap { max-width: 840px; margin: 0 auto; padding: 0 24px; }
+  h2 { font-size: 28px; margin: 64px 0 20px; letter-spacing: -0.3px; }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    counter-reset: steps;
+  }
+  .step {
+    border: 1.5px solid #E2E8F0;
+    border-radius: 18px;
+    padding: 24px;
+    position: relative;
+    counter-increment: steps;
+  }
+  .step::before {
+    content: counter(steps);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 800;
+    font-size: 18px;
+    border-radius: 50%;
+    margin-bottom: 12px;
+  }
+  .step h3 { margin: 0 0 6px; font-size: 17px; }
+  .step p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  /* ── Privacy badge ────────────────────────────────────────── */
+  .privacy-badge {
+    background: var(--dark);
+    color: #fff;
+    border-radius: 20px;
+    padding: 36px 40px;
+    margin: 64px 0;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .privacy-badge .icon { font-size: 48px; flex-shrink: 0; }
+  .privacy-badge h2 { margin: 0 0 8px; font-size: 24px; color: #fff; }
+  .privacy-badge p { margin: 0; color: #94a3b8; font-size: 16px; }
+
+  /* ── Features ─────────────────────────────────────────────── */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .feature { background: #F8FAFC; border-radius: 14px; padding: 20px 22px; }
+  .feature .icon { font-size: 28px; margin-bottom: 8px; }
+  .feature h3 { margin: 0 0 4px; font-size: 16px; }
+  .feature p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  /* ── Pricing block ────────────────────────────────────────── */
+  .pricing { background: #FFF7ED; border: 1.5px solid #FED7AA; border-radius: 20px; padding: 28px 32px; margin: 48px 0; }
+  .pricing strong { color: var(--accent2); }
+
+  /* ── FAQ ──────────────────────────────────────────────────── */
+  details { border-bottom: 1px solid #E2E8F0; padding: 16px 0; }
+  summary { font-weight: 700; cursor: pointer; font-size: 16px; }
+  details p { margin: 10px 0 0; color: var(--muted); }
+
+  footer { text-align: center; padding: 56px 24px; color: var(--muted); font-size: 14px; }
+  .cta { background: var(--accent); color: #fff; font-weight: 700; padding: 14px 28px; border-radius: 999px; text-decoration: none; display: inline-block; font-size: 16px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>FairStock</h1>
+  <p class="tagline">Your shelves become buttons.<br>Unlimited items free. No account. No subscription.</p>
+  <a class="badge" href="#" title="Coming soon to the App Store">Download on the App Store</a>
+</header>
+
+<main class="wrap">
+
+  <h2>Count stock by walking the room</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>Print a sheet of labels</h3>
+      <p>Pick a folder, pick a sheet, print. Standard 30-up QR labels fit the label paper you already have &mdash; free.</p>
+    </div>
+    <div class="step">
+      <h3>Stick them on the shelf</h3>
+      <p>Every label is a button. Bins, drawers, vans, storerooms &mdash; wherever the stock actually lives.</p>
+    </div>
+    <div class="step">
+      <h3>Point, tap, done</h3>
+      <p>Aim the camera at a label and the item card pops up: photo, what's on hand, a giant &minus;/+ stepper, and a red ring the moment you're below minimum.</p>
+    </div>
+  </div>
+
+  <div class="privacy-badge">
+    <div class="icon">&#x1F512;</div>
+    <div>
+      <h2>100% on-device. No account required.</h2>
+      <p>Your items, quantities, prices, and photos never travel to any server &mdash; not ours.
+      Everything is stored on your device with Apple's SwiftData, and scanning happens in the camera on the device.
+      There is no sign-up, no FairStock server, and no stock database to breach &mdash; no tracking, no account.
+      The app shares only anonymous usage statistics, crash reports and an anonymous device record for our own notification service &mdash; never your inventory.
+      See our <a href="privacy.html" style="color:#fdba74">Privacy Policy</a>.</p>
+    </div>
+  </div>
+
+  <h2>Everything you need</h2>
+  <div class="features">
+    <div class="feature">
+      <div class="icon">&#x1F4E6;</div>
+      <h3>Unlimited items, free</h3>
+      <p>No 100-item wall, no "upgrade to keep going". Folders, tags, photos, minimums, prices, SKUs and barcodes are all free.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F3F7;</div>
+      <h3>Labels for free</h3>
+      <p>Print QR label sheets straight from the app. Pro adds barcode labels, shelf tags, price labels, custom grids and your logo.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F4F7;</div>
+      <h3>Scan to open</h3>
+      <p>Point the camera at a FairStock label or any product barcode and the item card is there. Stock-take mode chains scans.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F534;</div>
+      <h3>Know what's low</h3>
+      <p>The Low tab lines up everything below minimum, sorted by how short you are. Share an order list in one tap.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x231A;</div>
+      <h3>Everywhere you are</h3>
+      <p>iPhone, iPad with a full sidebar, Apple Watch quick-count, Siri, Spotlight, widgets, and a Mac app where label printing shines.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">&#x1F4C4;</div>
+      <h3>Yours, offline, exportable</h3>
+      <p>No sign-in, works with no signal. Import your spreadsheet, export CSV any time, back up to a file. Your inventory is your data.</p>
+    </div>
+  </div>
+
+  <div class="pricing">
+    <strong>Honest pricing.</strong> The core app &mdash; unlimited items, photos, folders, the
+    Standard label sheet, scanning, the low-stock list, import and export &mdash; is free forever.
+    FairStock Pro (low-stock alerts, larger and interactive widgets, multiple sites, reports, every
+    label template, unlimited custom fields, expiry dates and check-out) is a single one-time
+    purchase that never renews. The price is always shown in the App Store and in the app before you
+    pay.
+  </div>
+
+  <h2>Support &amp; FAQ</h2>
+  <p>Need help? Email <a href="mailto:kenz@kenzapps.com">kenz@kenzapps.com</a> &mdash;
+  we aim to reply within two business days. Common questions below.</p>
+
+  <details>
+    <summary>Is my inventory safe?</summary>
+    <p>Yes. FairStock has no servers for your data and requires no account. Every item, quantity, price and photo is stored on your device and is never uploaded anywhere. <a href="privacy.html">Read the full Privacy Policy.</a></p>
+  </details>
+  <details>
+    <summary>Does FairStock sync to the cloud?</summary>
+    <p>Not in this version &mdash; there is no cloud copy at all. Use Back up in Settings to export a single backup file, and Restore to bring it onto a new device. Uninstalling the app removes its local data.</p>
+  </details>
+  <details>
+    <summary>Is "unlimited items free" for real?</summary>
+    <p>Yes. There is no cap on items, photos or folders, and no trial that expires. Pro adds automation and professional output &mdash; alerts, reports, more label templates, multiple sites &mdash; with one pay-once price.</p>
+  </details>
+  <details>
+    <summary>Do I need special label paper?</summary>
+    <p>No. The Standard sheet is laid out for common 30-up address-label paper, and single labels print on anything. Pro adds shelf tags, price labels and a custom grid for other papers.</p>
+  </details>
+  <details>
+    <summary>Does it work offline?</summary>
+    <p>Entirely. Scanning, counting, labels, reports and exports all work offline. Your data is processed on your device, so no connection is needed.</p>
+  </details>
+  <details>
+    <summary>Can I get a refund?</summary>
+    <p>Refunds for any in-app purchase are handled by Apple &mdash; visit reportaproblem.apple.com. We have no mechanism to issue refunds directly.</p>
+  </details>
+
+</main>
+
+<footer>
+  <a class="cta" href="#" title="Coming soon to the App Store">Get FairStock</a>
+  <p style="margin-top:24px"><a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Use</a></p>
+  <p>&copy; 2026 Moath Othman</p>
+  <p style="margin-top:16px"><a href="../" style="color:var(--muted)">← All apps</a></p>
+</footer>
+
+</body>
+</html>
