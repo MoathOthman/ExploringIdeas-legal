@@ -68,9 +68,11 @@
   notifications</em>:</p>
   <ul>
     <li><strong>Usage statistics</strong> (Firebase Analytics): which screens and features are
-        used &mdash; for example "an invoice was created" or "a PDF was exported". These events
-        never contain your documents, client names, amounts, dates you entered, or any text you
-        typed.</li>
+        used &mdash; for example "an invoice was created" or "a PDF was exported" &mdash; plus
+        coarse, non-identifying app settings and counts: for example your chosen currency code,
+        invoice template, whether notifications or iCloud Sync are on, your plan type, and ranges
+        such as "2&ndash;5 invoices". These never contain your documents, client names, amounts,
+        exact numbers or dates, or any text you typed.</li>
     <li><strong>Crash reports</strong> (Firebase Crashlytics): technical stack traces and device
         and OS details when the app crashes, so we can find and fix the bug.</li>
   </ul>
