@@ -130,6 +130,21 @@
   stop marketing messages, or turn off notifications for FairInvoice in iOS Settings to stop all
   notifications. Everything else in the app works identically without them.</p>
 
+  <h2>If you cancel Pro: one optional question</h2>
+  <p>From version 1.4, if you turn off FairInvoice Pro's renewal (during a free trial or later),
+  the next time you open the app it asks once why &mdash; five one-tap answers, and for
+  <em>"It didn't do what I needed"</em> or <em>"Something else"</em> an optional short note you
+  can type. You can close it without answering, and it never asks about the same subscription
+  twice.</p>
+  <p><strong>What is sent:</strong> the answer you chose, your note if you wrote one, whether it
+  was a free trial, which Pro plan, how many whole days since it started, whether your access
+  has ended yet, the app version, whether it came from a test build, and your language and
+  region setting (for example en_US). It goes to our own feedback
+  database (Google Firebase Firestore) and is <strong>not linked to you</strong>: no name, no
+  email, no Apple ID, no purchase or transaction ID, no device identifier. The chosen answer
+  (not your note) is also counted in the anonymous usage statistics. Please leave names and
+  other personal details out of the note.</p>
+
   <h2>What the App Store privacy label says</h2>
   <p>FairInvoice's App Store privacy label lists exactly this, every item <strong>not linked to
   your identity</strong> and <strong>not used for tracking</strong>:</p>
@@ -148,6 +163,8 @@
         your masked IP address.</li>
     <li><strong>Other Data &mdash; Other Data Types:</strong> Analytics (message-delivery
         statistics from Firebase Cloud Messaging).</li>
+    <li><strong>User Content &mdash; Other User Content:</strong> Analytics (the optional note
+        in the cancellation question above, from version 1.4).</li>
   </ul>
   <p>"Developer's Advertising or Marketing" on Device ID and Product Interaction is the opt-in
   app announcements described above &mdash; our own messages about FairInvoice, never
