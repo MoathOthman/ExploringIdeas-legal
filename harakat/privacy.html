@@ -111,8 +111,8 @@
   <p>Firebase recognises an installation by identifiers scoped to this app (a Firebase
   installation ID and Apple's identifier for vendor) and derives an approximate location
   (country, region, city) from your IP address; Harakat itself never uses Location Services.
-  Harakat does <em>not</em> include Google's advertising-ID or ad-measurement modules and never
-  reads the advertising identifier. <strong>Retention:</strong> Google Analytics keeps
+  Harakat does <em>not</em> include Google's advertising-ID module or Google's on-device
+  ad-conversion SDK, and never reads the advertising identifier. <strong>Retention:</strong> Google Analytics keeps
   event-level data for 2 months and user-level data for up to 14 months; Crashlytics keeps crash
   reports for 90 days. We may copy crash and usage data into our own Google BigQuery project to
   analyse it. None of it is linked to your identity &mdash; there is no account to link it to.</p>
@@ -121,20 +121,22 @@
   <p>When Harakat starts, it registers a small device record with our own server at
   <code>engage.puzzpics.com</code>. The record holds a random identifier the app creates for
   itself (not the advertising identifier and not Apple's identifier for vendor), the app and iOS
-  version, your device's language and time zone settings, whether you have turned on
+  version, your device's language, region and time zone settings, whether you have turned on
   <em>App announcements</em>, and whether notifications are allowed. Harakat does not ask for
   notification permission, so no push token is sent. The app also reports when a session starts
   and when an in-app message is shown or tapped.</p>
-  <p><strong>Why:</strong> to count active devices and to show short in-app messages about Harakat
-  and our other apps. Promotional announcements go only to devices where <em>Settings &rarr; App
-  announcements</em> is on; it is off until you turn it on. The record never contains your words,
+  <p><strong>Why:</strong> to count active devices and to show short in-app messages. Short in-app
+  messages about Harakat and our other apps may appear on any device. The <em>Settings &rarr; App
+  announcements</em> switch controls targeted promotional messages: they go only to devices where
+  it is on, and it is off until you turn it on. The record never contains your words,
   media or projects, carries no name or email, and is not sold or shared.
   <strong>Retention:</strong> kept while we run the service; ask us and we will delete it.</p>
 
   <h2>Suggestions you send us</h2>
   <p>If you use <em>Settings &rarr; Suggestions</em>, we receive what you type, the category you
   pick, your answer to the optional "what would you pay" question, whether you have Pro, the app
-  version, a random install identifier and, only if you enter it, your email address so we can
+  version, your device model, iOS version and language and region setting, a random install
+  identifier and, only if you enter it, your email address so we can
   reply. It is stored in Google Cloud Firestore (Google LLC, United States). Please don't include
   your lyrics or personal details you don't want us to have. <strong>Retention:</strong> kept until
   we have dealt with it and no longer need it; ask us and we will delete it.</p>
@@ -282,8 +284,8 @@
   </ul>
   <p>يتعرّف Firebase على نسخة التطبيق بمعرّفات خاصة بهذا التطبيق (معرّف تثبيت Firebase ومعرّف
   المطوّر من Apple)، ويستنتج موقعًا تقريبيًا (الدولة والمنطقة والمدينة) من عنوان IP؛ أما حركات
-  نفسه فلا يستخدم خدمات الموقع أبدًا. ولا يتضمن حركات وحدات Google الخاصة بمعرّف الإعلانات أو
-  قياس الإعلانات، ولا يقرأ معرّف الإعلانات. <strong>مدة الاحتفاظ:</strong> تحتفظ Google Analytics
+  نفسه فلا يستخدم خدمات الموقع أبدًا. ولا يتضمن حركات وحدة Google الخاصة بمعرّف الإعلانات ولا حزمة
+  Google لقياس تحويلات الإعلانات على الجهاز، ولا يقرأ معرّف الإعلانات. <strong>مدة الاحتفاظ:</strong> تحتفظ Google Analytics
   ببيانات الأحداث شهرين وببيانات المستخدم حتى ١٤ شهرًا، وتحتفظ Crashlytics بتقارير الأعطال ٩٠
   يومًا. وقد ننسخ بيانات الأعطال والاستخدام إلى مشروعنا على Google BigQuery لتحليلها. ولا يرتبط
   شيء من ذلك بهويتك، فلا يوجد حساب يُربط به.</p>
@@ -291,17 +293,19 @@
   <h2>خدمة الإعلانات الخاصة بنا (Engagement Center)</h2>
   <p>عند تشغيل حركات يسجّل سجلًا صغيرًا للجهاز على خادمنا <code>engage.puzzpics.com</code>. يحتوي
   السجل على معرّف عشوائي ينشئه التطبيق لنفسه (ليس معرّف الإعلانات ولا معرّف المطوّر من Apple)،
-  وإصدار التطبيق ونظام iOS، وإعدادَي اللغة والمنطقة الزمنية في جهازك، وهل فعّلت «إشعارات التطبيق»،
+  وإصدار التطبيق ونظام iOS، وإعدادات اللغة والمنطقة والمنطقة الزمنية في جهازك، وهل فعّلت «إشعارات التطبيق»،
   وهل الإشعارات مسموحة. لا يطلب حركات إذن الإشعارات، لذلك لا يُرسل أي رمز إشعارات.
   ويبلّغ التطبيق أيضًا عن بدء الجلسة وعن ظهور رسالة داخل التطبيق أو النقر عليها.</p>
-  <p><strong>السبب:</strong> عدّ الأجهزة النشطة، وعرض رسائل قصيرة داخل التطبيق عن حركات وتطبيقاتنا
-  الأخرى. الإعلانات الترويجية تصل فقط إلى الأجهزة التي فعّلت «الإعدادات ‹ إشعارات التطبيق»، وهي
-  متوقفة حتى تفعّلها أنت. لا يتضمن السجل كلماتك أو وسائطك أو مشاريعك، ولا اسمًا ولا بريدًا، ولا
+  <p><strong>السبب:</strong> عدّ الأجهزة النشطة، وعرض رسائل قصيرة داخل التطبيق. قد تظهر على أي جهاز
+  رسائل قصيرة داخل التطبيق عن حركات وتطبيقاتنا الأخرى. أما الإعلانات الترويجية الموجَّهة فيتحكم بها
+  مفتاح «الإعدادات ‹ إشعارات التطبيق»: لا تصل إلا إلى الأجهزة التي فعّلته، وهو متوقف حتى تفعّله أنت.
+  لا يتضمن السجل كلماتك أو وسائطك أو مشاريعك، ولا اسمًا ولا بريدًا، ولا
   يُباع ولا يُشارك. <strong>مدة الاحتفاظ:</strong> ما دامت الخدمة تعمل، واطلب منا حذفه فنحذفه.</p>
 
   <h2>الاقتراحات التي ترسلها لنا</h2>
   <p>إن استخدمت «الإعدادات ‹ اقتراحاتك» يصلنا ما تكتبه، والفئة التي تختارها، وإجابتك عن سؤال «كم
-  تدفع» الاختياري، وهل لديك برو، وإصدار التطبيق، ومعرّف تثبيت عشوائي، وبريدك الإلكتروني فقط إن
+  تدفع» الاختياري، وهل لديك برو، وإصدار التطبيق، وطراز جهازك وإصدار iOS وإعداد اللغة والمنطقة،
+  ومعرّف تثبيت عشوائي، وبريدك الإلكتروني فقط إن
   كتبته لنرد عليك. تُحفظ في Google Cloud Firestore (شركة Google LLC في الولايات المتحدة). رجاءً لا
   تضع فيها كلماتك أو بيانات شخصية لا تريد أن تصلنا. <strong>مدة الاحتفاظ:</strong> حتى ننتهي منها
   ولا نحتاجها، واطلب منا حذفها فنحذفها.</p>
