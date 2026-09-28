@@ -4,23 +4,103 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mini Keyboard — Privacy Policy</title>
+<meta name="description" content="The Privacy Policy for Mini Keyboard, an app by ExploringIdeas.">
+<meta property="og:title" content="Mini Keyboard — Privacy Policy">
+<meta property="og:description" content="The Privacy Policy for Mini Keyboard, an app by ExploringIdeas.">
+<meta property="og:image" content="https://apps.puzzpics.com/minikeyboard/icon.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="icon.png">
 <style>
-  :root { --accent:#7C3AED; --ink:#0f172a; --muted:#475569; }
-  body { margin:0 auto; max-width:720px; padding:48px 24px 72px; font:16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color:var(--ink); }
-  a { color:var(--accent); }
-  h1 { font-size:32px; margin-bottom:4px; }
-  h2 { font-size:20px; margin:32px 0 8px; }
-  .muted { color:var(--muted); font-size:14px; }
-  .card { border:1px solid #e2e8f0; border-radius:12px; padding:16px 20px; background:#fafafa; margin:20px 0; }
-  footer { border-top:1px solid #e2e8f0; margin-top:48px; padding-top:24px; color:var(--muted); font-size:14px; }
+  :root { --a:#A78BFA; --bg:#0b0d12; --panel:#12151d; --text:#eef1f6; --body:#c7cdd9; --muted:#a3aab6; --faint:#6d7480; --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.15); }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { -webkit-text-size-adjust:100%; }
+  body {
+    background:var(--bg); color:var(--body);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a { color:var(--a); }
+
+  /* ── top nav (site-wide) ── */
+  .top {
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; gap:16px;
+    padding:10px 20px;
+    background:color-mix(in srgb, var(--bg) 82%, transparent);
+    -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .top .back { color:var(--muted); text-decoration:none; font-size:14px; font-weight:600; }
+  .top .back:hover, .top .back:focus-visible { color:var(--text); }
+  .top .who { display:flex; align-items:center; gap:10px; margin:0 auto; font-weight:700; font-size:15px; color:var(--text); text-decoration:none; }
+  .top .who img { width:26px; height:26px; border-radius:7px; }
+  .top .who .dot { width:12px; height:12px; border-radius:50%; background:var(--a); }
+  .top .go {
+    color:var(--muted); text-decoration:none; border:1px solid var(--line2);
+    font-weight:700; font-size:13px; padding:7px 14px; border-radius:999px; white-space:nowrap;
+  }
+  .top .go:hover, .top .go:focus-visible { color:var(--text); border-color:color-mix(in srgb, var(--a) 50%, transparent); }
+
+  /* ── legal document ── */
+  .wrap { max-width:760px; margin:0 auto; padding:56px 24px 72px; }
+  .doc-kicker {
+    font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--a); margin-bottom:10px;
+  }
+  h1 { font-size:clamp(1.9rem, 1.5rem + 2vw, 2.6rem); font-weight:800; letter-spacing:-.025em; color:var(--text); line-height:1.1; }
+  h1 + p { color:var(--faint); font-size:14px; margin-top:6px; }
+  h2 {
+    font-size:19px; font-weight:750; letter-spacing:-.01em; color:var(--text);
+    margin:44px 0 10px; padding-top:30px; border-top:1px solid var(--line);
+  }
+  p + p { margin-top:12px; }
+  h2 + p, h2 + ul { margin-top:0; }
+  strong { color:var(--text); }
+  em { color:var(--text); }
+  ul, ol { padding-left:22px; margin:12px 0; }
+  li { margin-bottom:8px; }
+  li::marker { color:var(--a); }
+  code { background:rgba(255,255,255,.07); border:1px solid var(--line); padding:1px 7px; border-radius:6px; font-size:14px; color:var(--text); }
+  .muted, .updated { color:var(--muted); }
+
+  /* summary / callout boxes (all historical class names map to one look) */
+  .summary-card, .card, .highlight, .highlight-box, .medical-disclaimer {
+    background:color-mix(in srgb, var(--a) 8%, var(--panel));
+    border:1px solid color-mix(in srgb, var(--a) 28%, transparent);
+    border-left:4px solid var(--a);
+    border-radius:16px; padding:20px 24px; margin:26px 0;
+  }
+  .summary-card strong, .card strong, .highlight strong, .highlight-box strong { color:var(--a); }
+  .badge {
+    display:inline-block; font-size:12px; font-weight:700; letter-spacing:.04em;
+    color:var(--a); background:color-mix(in srgb, var(--a) 14%, transparent);
+    border:1px solid color-mix(in srgb, var(--a) 35%, transparent);
+    border-radius:999px; padding:3px 12px; margin-bottom:10px;
+  }
+
+  .smallprint { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); color:var(--faint); font-size:13.5px; }
+
+  footer { border-top:1px solid var(--line); padding:34px 24px 44px; text-align:center; color:var(--faint); font-size:13.5px; }
+  footer a { color:var(--muted); text-decoration:none; }
+  footer a:hover, footer a:focus-visible { color:var(--text); }
+  footer p + p { margin-top:8px; }
+
+  a:focus-visible, .top a:focus-visible { outline:2px solid var(--a); outline-offset:3px; border-radius:4px; }
 </style>
 </head>
 <body>
+<nav class="top">
+  <a class="back" href="../">&larr; All apps</a>
+  <a class="who" href="index.html"><img src="icon.png" alt="" width="26" height="26"><span>Mini Keyboard</span></a>
+  <a class="go" href="index.html">App page</a>
+</nav>
+<main class="wrap">
+  <p class="doc-kicker">Mini Keyboard &middot; Legal</p>
 <h1>Privacy Policy</h1>
-<p class="muted">Mini Keyboard · Last updated 9 August 2026</p>
+<p class="muted">Mini Keyboard · Last updated 25 September 2026</p>
 
 <div class="card">
-  <strong>The short version.</strong> What you type goes from your iPhone to your own Mac over your own Wi-Fi network, and nowhere else. There is no account, no cloud, and no server that sees your keystrokes. The only thing that ever leaves your devices is an anonymous diagnostic report if the app crashes.
+  <strong>The short version.</strong> What you type goes from your iPhone to your own Mac over your own Wi-Fi network, and nowhere else. There is no account, no cloud, and no server that sees your keystrokes. Two other things leave the iPhone: an anonymous report when the app crashes or a step fails, and — new in version 2.3 — an anonymous count of which steps you reached. Neither ever contains anything you typed, and you can switch the counting off inside the app.
 </div>
 
 <h2>What you type</h2>
@@ -29,7 +109,14 @@
 <h2>What we collect</h2>
 <p><strong>Crash diagnostics.</strong> The iPhone app uses Firebase Crashlytics (Google). If the app crashes or is terminated unexpectedly, it sends a diagnostic report containing the state of the program at the time — the sequence of code that was running, the device model, and the OS version. It also includes a randomly generated Firebase installation identifier so repeated reports from the same install can be grouped.</p>
 <p>These reports are <strong>not linked to your identity</strong> and are <strong>not used for tracking or advertising</strong>. They contain no keystrokes, no text you typed, no names of your devices or Macs, and no pairing secrets — the app is written to exclude those deliberately, and that exclusion is covered by an automated test.</p>
-<p><strong>No analytics.</strong> The app does not include Firebase Analytics or any other analytics SDK. Usage is not measured or reported.</p>
+<p><strong>Failure reports.</strong> From version 2.3 the iPhone app also reports failures that are not crashes — chiefly the ways pairing can go wrong. What is sent is the <em>category</em> of the failure and a small number of structured flags, never free text: for example, that a Mac's advertised name carried a Bonjour suffix, but never the name itself. This exists because a pairing bug reached real users and the only way we learned of it was someone sending a screenshot.</p>
+
+<h2>Usage counts — new in version 2.3, and you can turn it off</h2>
+<p><strong>This is a change.</strong> Every version of this app before 2.3 measured nothing, and this page previously said so. From 2.3 the iPhone app counts how far people get: whether pairing succeeded, whether any text was actually typed, whether the Key Deck was opened, whether the purchase screen was shown, and whether Pro was bought. It is a count of steps reached, nothing more.</p>
+<p>Two things carry those counts: <strong>Firebase Analytics</strong> (Google), and a small client of our own that posts to a server we operate. Each event is a fixed name with <strong>no payload</strong> — there is no field in which a keystroke, a snippet, a Mac's name or a pairing secret could travel, by accident or otherwise, and that is enforced by the app's own tests rather than by care alone.</p>
+<p>The counts are grouped by a randomly generated identifier for the installation — Firebase's app instance ID, and a random app-scoped UUID for our own client. Neither is the device's advertising identifier, neither is the iOS vendor identifier, and nothing is joined to them. They identify an install so that ten events from one phone are not read as ten users. They do not identify you, and we could not connect them to you if we wanted to.</p>
+<p><strong>To turn it off:</strong> open the app and switch off <em>Share anonymous usage</em> at the bottom of the first screen. Off is a hard stop — no request is made at all, rather than being sent and discarded. The app also tells you about this once, the first time you open version 2.3.</p>
+<p>The Mac app counts nothing and sends nothing. It has no analytics, no crash reporting and no network connection to us of any kind.</p>
 
 <h2>What we do not collect</h2>
 <ul>
@@ -37,6 +124,8 @@
   <li>No contacts, photos, location, or health data.</li>
   <li>No advertising identifiers, and no advertising.</li>
   <li>No record of which Macs you pair with, or their names.</li>
+  <li>No keystrokes, text, snippets or pairing secrets — not in crash reports, not in failure reports, not in usage counts.</li>
+  <li>No tracking across apps or websites, and no data sold or shared with data brokers.</li>
 </ul>
 
 <h2>Camera</h2>
@@ -53,12 +142,15 @@
 
 <h2>Changes</h2>
 <p>If this policy changes in a way that affects what is collected, the updated policy will be published here with a new date, and the change will be described in the app's release notes.</p>
+<p><strong>25 September 2026.</strong> Version 2.3 began counting usage and reporting non-crash failures, both described above. Earlier versions of this page stated that usage was not measured, which was true of every version before 2.3 and is no longer true. The app announces the change on first launch and offers a switch to decline it.</p>
 
 <h2>Contact</h2>
 <p>Questions about privacy: <a href="mailto:dark2torch@gmail.com">dark2torch@gmail.com</a></p>
 
+</main>
 <footer>
-  <a href="index.html">Support</a> · <a href="terms.html">Terms</a> · © 2026 Moaath Othman
+  <p><a href="index.html">Mini Keyboard</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Use</a> &middot; <a href="mailto:dark2torch@gmail.com">Contact</a></p>
+  <p>&copy; 2026 Moath Othman &middot; <a href="../">All apps</a></p>
 </footer>
 </body>
 </html>
