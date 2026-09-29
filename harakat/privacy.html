@@ -42,7 +42,7 @@
   <!-- ─────────────────────────── ENGLISH ─────────────────────────── -->
   <section id="en" lang="en" dir="ltr">
   <h1>Privacy Policy</h1>
-  <p class="muted">Harakat (حركات) for iPhone · Last updated: 28 September 2026</p>
+  <p class="muted">Harakat (حركات) for iPhone · Last updated: 29 September 2026</p>
 
   <div class="card">
     <strong>The short version:</strong> Harakat never uploads your voice or clips. Your projects,
@@ -99,9 +99,9 @@
   words or your media is sent with the download. The files are checked on the iPhone before use.
   You can delete them in Settings &rarr; Models.</p>
 
-  <h2>Anonymous usage statistics and crash reports (Google Firebase)</h2>
-  <p>To see which features are used and to fix bugs, Harakat uses two Google Firebase services
-  (Google LLC, United States):</p>
+  <h2>Anonymous usage statistics, crash reports and notifications (Google Firebase)</h2>
+  <p>To see which features are used, to fix bugs and to deliver the notifications you allow,
+  Harakat uses three Google Firebase services (Google LLC, United States):</p>
   <ul>
     <li><strong>Usage statistics</strong> (Firebase Analytics): events such as "a project was
         created", "auto-timing finished" or "a video was exported", with details limited to fixed
@@ -111,6 +111,9 @@
         event (which product and its price) is recorded too.</li>
     <li><strong>Crash reports</strong> (Firebase Crashlytics): technical stack traces and device
         and OS details when something goes wrong, so we can fix it.</li>
+    <li><strong>Notifications</strong> (Firebase Cloud Messaging): only if you allow notifications,
+        Google holds a registration token for this installation, subscribed to our announcement
+        topic, so we can send it a notification. It carries no words, media or name.</li>
   </ul>
   <p>Firebase recognises an installation by identifiers scoped to this app (a Firebase
   installation ID and Apple's identifier for vendor) and derives an approximate location
@@ -126,13 +129,20 @@
   <code>engage.puzzpics.com</code>. The record holds a random identifier the app creates for
   itself (not the advertising identifier and not Apple's identifier for vendor), the app and iOS
   version, your device's language, region and time zone settings, whether you have turned on
-  <em>App announcements</em>, and whether notifications are allowed. Harakat does not ask for
-  notification permission, so no push token is sent. The app also reports when a session starts
-  and when an in-app message is shown or tapped.</p>
+  <em>App announcements</em>, and whether notifications are allowed. Only if you allow
+  notifications, the record also holds the device's Apple push token and your announcements
+  choice, so we can send you a notification. (The Firebase Cloud Messaging token for our
+  announcement topic is held by Google, not in this record.) Once given, the device's Apple push
+  token stays in the record until you delete the app or ask us; with notifications off nothing is
+  delivered. Turn announcements off in <em>Settings &rarr; App announcements</em> or in iOS
+  Settings.
+  The app also reports when a session starts, when an in-app message is shown or tapped, and when
+  a notification is opened.</p>
   <p><strong>Why:</strong> to count active devices and to show short in-app messages. Short in-app
   messages about Harakat and our other apps may appear on any device. The <em>Settings &rarr; App
-  announcements</em> switch controls targeted promotional messages: they go only to devices where
-  it is on, and it is off until you turn it on. The record never contains your words,
+  announcements</em> switch controls targeted promotional messages and notifications: they go
+  only to devices where it is on. It comes on when you allow notifications on the screen in
+  Harakat that says so, and stays off otherwise. The record never contains your words,
   media or projects, carries no name or email, and is not sold or shared.
   <strong>Retention:</strong> kept while we run the service; ask us and we will delete it.</p>
 
@@ -191,7 +201,8 @@
     <tr><th>Recipient</th><th>What</th><th>When</th><th>Kept</th></tr>
     <tr><td>Google Firebase Analytics (US)</td><td>Anonymous usage events, purchase event</td><td>While you use the app</td><td>2 months (events), up to 14 months (user level)</td></tr>
     <tr><td>Google Firebase Crashlytics (US)</td><td>Crash reports</td><td>After a crash</td><td>90 days</td></tr>
-    <tr><td>Our server <code>engage.puzzpics.com</code></td><td>Anonymous device record, session and message events</td><td>At launch and in use</td><td>While the service runs, or until you ask</td></tr>
+    <tr><td>Our server <code>engage.puzzpics.com</code></td><td>Anonymous device record (with the Apple push token once you allow notifications), session and message events</td><td>At launch and in use</td><td>While the service runs, or until you ask</td></tr>
+    <tr><td>Google Firebase Cloud Messaging (US)</td><td>Registration token, announcement topic</td><td>Only after you allow notifications</td><td>Until you delete the app; Google expires an unused token after about 270 days</td></tr>
     <tr><td>Google Cloud Firestore (US)</td><td>Suggestions you send; promotion views and taps</td><td>Only when you send or see/tap</td><td>Until handled, or until you ask</td></tr>
     <tr><td>Our file host (GitHub or Cloudflare, US)</td><td>IP address, file requested</td><td>When you download an engine</td><td>Under the host's own log policy</td></tr>
     <tr><td>Apple</td><td>Purchases; your iCloud Backup if you use it</td><td>When you buy; when iOS backs up</td><td>Under Apple's policy</td></tr>
@@ -227,7 +238,7 @@
   <!-- ─────────────────────────── العربية ─────────────────────────── -->
   <section id="ar" lang="ar" dir="rtl">
   <h1>سياسة الخصوصية</h1>
-  <p class="muted">تطبيق حركات للآيفون · آخر تحديث: ٢٨ سبتمبر ٢٠٢٦</p>
+  <p class="muted">تطبيق حركات للآيفون · آخر تحديث: ٢٩ سبتمبر ٢٠٢٦</p>
 
   <div class="card">
     <strong>باختصار:</strong> لا يرفع حركات صوتك أو مقاطعك إلى أي خادم. مشاريعك والكلمات التي
@@ -280,9 +291,9 @@
   المعتادة وفق سياسته. لا يُرسل مع التحميل أي شيء عنك أو عن كلماتك أو وسائطك. ويُتحقق من الملفات
   على الجوال قبل استخدامها، ويمكنك حذفها من الإعدادات ‹ النماذج.</p>
 
-  <h2>إحصاءات استخدام مجهولة وتقارير أعطال (Google Firebase)</h2>
-  <p>لنعرف أي الميزات تُستخدم ولنصلح الأخطاء، يستخدم حركات خدمتين من Google Firebase (شركة Google
-  LLC في الولايات المتحدة):</p>
+  <h2>إحصاءات استخدام مجهولة وتقارير أعطال وإشعارات (Google Firebase)</h2>
+  <p>لنعرف أي الميزات تُستخدم ولنصلح الأخطاء ولنوصل الإشعارات التي تسمح بها، يستخدم حركات ثلاث خدمات
+  من Google Firebase (شركة Google LLC في الولايات المتحدة):</p>
   <ul>
     <li><strong>إحصاءات الاستخدام</strong> (Firebase Analytics): أحداث مثل «أُنشئ مشروع» أو «انتهى
         التوقيت التلقائي» أو «صُدّر فيديو»، وتفاصيلها مقصورة على اختيارات ونطاقات ثابتة (مثل اسم
@@ -291,6 +302,9 @@
         كتبته. ويُسجَّل أيضًا حدث شراء مجهول (أي منتج وسعره).</li>
     <li><strong>تقارير الأعطال</strong> (Firebase Crashlytics): بيانات تقنية عن موضع الخطأ والجهاز
         ونظام التشغيل حين يتعطل التطبيق، لنصلح المشكلة.</li>
+    <li><strong>الإشعارات</strong> (Firebase Cloud Messaging): فقط إن سمحت بالإشعارات، تحتفظ Google
+        برمز تسجيل لهذا التثبيت مشترك في موضوع إعلاناتنا، لنتمكن من إرسال إشعار إليه. ولا يحمل كلماتك
+        أو وسائطك أو اسمك.</li>
   </ul>
   <p>يتعرّف Firebase على نسخة التطبيق بمعرّفات خاصة بهذا التطبيق (معرّف تثبيت Firebase ومعرّف
   المطوّر من Apple)، ويستنتج موقعًا تقريبيًا (الدولة والمنطقة والمدينة) من عنوان IP؛ أما حركات
@@ -304,11 +318,16 @@
   <p>عند تشغيل حركات يسجّل سجلًا صغيرًا للجهاز على خادمنا <code>engage.puzzpics.com</code>. يحتوي
   السجل على معرّف عشوائي ينشئه التطبيق لنفسه (ليس معرّف الإعلانات ولا معرّف المطوّر من Apple)،
   وإصدار التطبيق ونظام iOS، وإعدادات اللغة والمنطقة والمنطقة الزمنية في جهازك، وهل فعّلت «إشعارات التطبيق»،
-  وهل الإشعارات مسموحة. لا يطلب حركات إذن الإشعارات، لذلك لا يُرسل أي رمز إشعارات.
-  ويبلّغ التطبيق أيضًا عن بدء الجلسة وعن ظهور رسالة داخل التطبيق أو النقر عليها.</p>
+  وهل الإشعارات مسموحة. وفقط إن سمحت بالإشعارات، يحمل السجل أيضًا رمز الإشعارات الذي تعطيه Apple
+  لجهازك واختيارك للإعلانات، لنتمكن من إرسال إشعار إليك. (أما رمز Firebase Cloud Messaging لموضوع
+  إعلاناتنا فتحتفظ به Google، لا هذا السجل.) ومتى أُعطي رمز Apple يبقى في السجل حتى تحذف التطبيق أو
+  تطلب منا حذفه؛ وإن أوقفت الإشعارات فلا يصلك شيء. أوقف الإعلانات من «الإعدادات ‹ إشعارات التطبيق» أو
+  من إعدادات iOS.
+  ويبلّغ التطبيق أيضًا عن بدء الجلسة، وعن ظهور رسالة داخل التطبيق أو النقر عليها، وعن فتح إشعار.</p>
   <p><strong>السبب:</strong> عدّ الأجهزة النشطة، وعرض رسائل قصيرة داخل التطبيق. قد تظهر على أي جهاز
   رسائل قصيرة داخل التطبيق عن حركات وتطبيقاتنا الأخرى. أما الإعلانات الترويجية الموجَّهة فيتحكم بها
-  مفتاح «الإعدادات ‹ إشعارات التطبيق»: لا تصل إلا إلى الأجهزة التي فعّلته، وهو متوقف حتى تفعّله أنت.
+  مفتاح «الإعدادات ‹ إشعارات التطبيق»، ومعها الإشعارات: لا تصل إلا إلى الأجهزة التي فعّلته. ويعمل حين
+  تسمح بالإشعارات في الشاشة داخل حركات التي تذكر ذلك، ويبقى متوقفًا في غير ذلك.
   لا يتضمن السجل كلماتك أو وسائطك أو مشاريعك، ولا اسمًا ولا بريدًا، ولا
   يُباع ولا يُشارك. <strong>مدة الاحتفاظ:</strong> ما دامت الخدمة تعمل، واطلب منا حذفه فنحذفه.</p>
 
@@ -365,7 +384,8 @@
     <tr><th>الجهة</th><th>ماذا</th><th>متى</th><th>مدة الاحتفاظ</th></tr>
     <tr><td>Google Firebase Analytics (الولايات المتحدة)</td><td>أحداث استخدام مجهولة، وحدث الشراء</td><td>أثناء استخدام التطبيق</td><td>شهران للأحداث، وحتى ١٤ شهرًا لبيانات المستخدم</td></tr>
     <tr><td>Google Firebase Crashlytics (الولايات المتحدة)</td><td>تقارير الأعطال</td><td>بعد حدوث عطل</td><td>٩٠ يومًا</td></tr>
-    <tr><td>خادمنا <code>engage.puzzpics.com</code></td><td>سجل جهاز مجهول، وأحداث الجلسات والرسائل</td><td>عند التشغيل وأثناء الاستخدام</td><td>ما دامت الخدمة تعمل، أو حتى تطلب الحذف</td></tr>
+    <tr><td>خادمنا <code>engage.puzzpics.com</code></td><td>سجل جهاز مجهول (ومعه رمز Apple للإشعارات بعد أن تسمح بها)، وأحداث الجلسات والرسائل</td><td>عند التشغيل وأثناء الاستخدام</td><td>ما دامت الخدمة تعمل، أو حتى تطلب الحذف</td></tr>
+    <tr><td>Google Firebase Cloud Messaging (الولايات المتحدة)</td><td>رمز التسجيل، وموضوع الإعلانات</td><td>فقط بعد أن تسمح بالإشعارات</td><td>حتى تحذف التطبيق؛ وتُنهي Google صلاحية الرمز غير المستخدم بعد نحو ٢٧٠ يومًا</td></tr>
     <tr><td>Google Cloud Firestore (الولايات المتحدة)</td><td>الاقتراحات التي ترسلها، وظهور الترويج والنقر عليه</td><td>فقط عند الإرسال أو الظهور أو النقر</td><td>حتى ننتهي منها، أو حتى تطلب الحذف</td></tr>
     <tr><td>خادم الملفات (GitHub أو Cloudflare، الولايات المتحدة)</td><td>عنوان IP، والملف المطلوب</td><td>عند تحميل المحرّك</td><td>وفق سياسة السجلات لدى الخادم</td></tr>
     <tr><td>Apple</td><td>المشتريات، ونسخة iCloud الاحتياطية إن كنت تستخدمها</td><td>عند الشراء، وعند النسخ الاحتياطي</td><td>وفق سياسة Apple</td></tr>
