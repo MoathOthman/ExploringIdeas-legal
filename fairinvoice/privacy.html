@@ -32,7 +32,7 @@
 <div class="wrap">
   <p><a href="index.html">&larr; FairInvoice</a></p>
   <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: 26 September 2026</p>
+  <p class="muted">Last updated: 3 October 2026</p>
 
   <div class="summary-card">
     <strong>The short version:</strong> FairInvoice has no account and no servers for your data.
@@ -130,6 +130,26 @@
   stop marketing messages, or turn off notifications for FairInvoice in iOS Settings to stop all
   notifications. Everything else in the app works identically without them.</p>
 
+  <h2>On-device AI and Scan Lines (from 1.5)</h2>
+  <p>From version 1.5, FairInvoice can draft an invoice or estimate from a sentence you type or
+  dictate (<em>Describe It</em>), read the lines of a supplier receipt, quote or materials list
+  from a photo (<em>Scan Lines</em>), and word a payment reminder (<em>Write a Reminder</em>).
+  These features appear only on devices where Apple Intelligence is available and switched on.</p>
+  <ul>
+    <li><strong>Everything happens on your device.</strong> Your words, your photos and the
+        drafts are processed by Apple's on-device model and Apple's on-device text recognition.
+        Nothing is uploaded &mdash; not to us, and not to any AI service. A draft is only a
+        suggestion: nothing is saved or sent until you review it and choose to.</li>
+    <li><strong>The camera</strong> is used only when you tap <em>Take Photo</em> in Scan Lines
+        (iPhone and iPad; the Mac app never uses the camera). <em>Choose Photo</em> uses Apple's
+        picker, which hands the app only the image you pick. The photo is kept in memory for that
+        one scan, then discarded &mdash; it is never saved or sent.</li>
+    <li><strong>Usage statistics</strong> record only anonymous feature-usage codes, such as
+        that a draft was started or finished, whether it worked, and rough counts like
+        &ldquo;2&ndash;5 lines&rdquo; &mdash; never what you typed, what was in the photo, or what
+        the AI wrote.</li>
+  </ul>
+
   <h2>If you cancel Pro: one optional question</h2>
   <p>From version 1.5, if you turn off FairInvoice Pro's renewal (during a free trial or later),
   the next time you open the app it asks once why &mdash; five one-tap answers, and for
@@ -147,9 +167,22 @@
   <p>When version 1.5 is released, the App Store privacy label will also list <strong>User Content
   &mdash; Other User Content</strong> (Analytics) for this optional note.</p>
 
+  <h2>Send Feedback (from 1.5)</h2>
+  <p>From version 1.5, Settings &rsaquo; <em>Send Feedback</em> lets you write to us. Nothing is
+  sent unless you fill in the form and tap Send. We then receive what you typed (up to 1,000
+  characters), the category you picked, the price you said you would pay (only if you entered
+  one), and <strong>the email address you enter</strong>, which the form requires so we can
+  reply. The same record includes whether Pro is active, a random install identifier, your device
+  model, the operating-system and app version, and your language/region setting. It is stored in
+  our own feedback database (Google Firebase Firestore) and used only to read and answer your
+  message. Because it carries your email, this feedback is <strong>linked to you</strong>; please
+  leave client details and other sensitive information out of it. To have it deleted, email us
+  from the same address.</p>
+
   <h2>What the App Store privacy label says</h2>
-  <p>FairInvoice's App Store privacy label lists exactly this, every item <strong>not linked to
-  your identity</strong> and <strong>not used for tracking</strong>:</p>
+  <p>FairInvoice's App Store privacy label lists exactly this. Nothing is <strong>used for
+  tracking</strong>. Every item is <strong>not linked to your identity</strong>, except the two
+  Send Feedback items at the end of this list:</p>
   <ul>
     <li><strong>Identifiers &mdash; Device ID:</strong> App Functionality, Analytics, Developer's
         Advertising or Marketing.</li>
@@ -165,6 +198,11 @@
         your masked IP address.</li>
     <li><strong>Other Data &mdash; Other Data Types:</strong> Analytics (message-delivery
         statistics from Firebase Cloud Messaging).</li>
+    <li><strong>User Content &mdash; Other User Content:</strong> Analytics (anonymous
+        feature-usage codes, and the optional note you may add when you turn off Pro's renewal).</li>
+    <li><strong>Contact Info &mdash; Email Address</strong> and <strong>User Content &mdash;
+        Customer Support:</strong> App Functionality, <strong>linked to you</strong> &mdash; only
+        when you choose to send feedback, so we can reply (see <em>Send Feedback</em> above).</li>
   </ul>
   <p>"Developer's Advertising or Marketing" on Device ID and Product Interaction is the opt-in
   app announcements described above &mdash; our own messages about FairInvoice, never
