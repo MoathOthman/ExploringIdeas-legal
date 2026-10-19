@@ -32,7 +32,7 @@
 <div class="wrap">
   <p><a href="index.html">&larr; FairInvoice</a></p>
   <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: 3 October 2026</p>
+  <p class="muted">Last updated: 19 October 2026</p>
 
   <div class="summary-card">
     <strong>The short version:</strong> FairInvoice has no account and no servers for your data.
@@ -49,8 +49,9 @@
   <h2>Your business data stays on your device</h2>
   <p>FairInvoice is a local-first invoice, estimate, and receipt maker. Everything you enter
   &mdash; your business profile, logo, clients, line items, prices, tax rates, payment
-  instructions, and every document you create &mdash; is stored on your iPhone or iPad using
-  Apple's SwiftData framework. This data <strong>never leaves your device</strong> and is
+  instructions, and every document you create &mdash; is stored on your device: on iPhone, iPad
+  and Mac using Apple's SwiftData framework, and on Android in a database inside the app (see
+  <a href="#android">FairInvoice for Android</a>). This data <strong>never leaves your device</strong> and is
   <strong>never transmitted to us or anyone else</strong>. There is no FairInvoice account,
   no sign-up, no login, and no FairInvoice server. If you turn on iCloud Sync, your data is also stored in your personal iCloud account &mdash; see the next section.</p>
 
@@ -84,7 +85,9 @@
   None of this is linked to your identity &mdash; there is no account, so we could not link it
   even if we wanted to &mdash; and none of it is used to track you.</p>
 
-  <h2>Our own notification service (Engagement Center)</h2>
+  <h2>Our own notification service (Engagement Center) &mdash; iPhone, iPad and Mac</h2>
+  <p>This section applies to the Apple versions of FairInvoice only. The Android app does not use
+  this service.</p>
   <p><strong>What:</strong> each time FairInvoice launches, it registers a small device record
   with our own server at <code>engage.puzzpics.com</code>. The record contains a random
   identifier the app creates for itself (not your advertising identifier and not Apple's
@@ -247,6 +250,78 @@
   work. There is no FairInvoice account and no FairInvoice server that stores your identity, your
   clients, or your paperwork.</p>
 
+  <h2 id="android">FairInvoice for Android</h2>
+  <p>This section covers the FairInvoice app from Google Play. Everything above applies to it
+  too, except where this section says otherwise. In short, the Android app works the same way:
+  your business data stays on your phone, there is no account and no FairInvoice server holding
+  your documents, and the only things it sends are anonymous diagnostics, purchase records and,
+  if you allow notifications, a push token. The iPhone-only features described above &mdash;
+  iCloud Sync, the on-device AI and Scan Lines, the cancellation question, the in-app feedback
+  form and our Engagement Center &mdash; are not part of the Android app.</p>
+  <ul>
+    <li><strong>What stays on your phone.</strong> Your business profile, logo, clients, saved
+        items, invoices, estimates, receipts, payments and signatures are stored in a database on
+        your device and are never sent to us.</li>
+    <li><strong>Android backup.</strong> If backup is turned on in your phone's settings, Android
+        may include FairInvoice's data in your device backup in your own Google account, so it can
+        be restored on your next phone. That backup is made and kept by Google under your Google
+        account's terms; we have no access to it. You can turn it off in your phone's backup
+        settings.</li>
+    <li><strong>Backup files.</strong> A <code>.fairinvoice</code> backup you export is saved
+        where you choose and stays there. A backup made on an iPhone can be restored on
+        Android.</li>
+    <li><strong>Logo.</strong> You pick your logo with the Android photo picker, which gives
+        FairInvoice only that one image. The app has no photo or storage permission.</li>
+  </ul>
+  <p><strong>Anonymous diagnostics.</strong> The Android app uses the same Google Firebase services
+  described above: Firebase Analytics (which features are used, as counts and fixed labels &mdash;
+  never your documents, client names, amounts, dates or anything you typed) and Firebase
+  Crashlytics (crash reports with device and OS details). Firebase recognizes an installation by a
+  Firebase installation ID and derives an approximate location (country, region or city) from your
+  IP address; the app never asks for or uses your location. On Android, Firebase also reads the
+  Google Play install referrer to count where installs come from.</p>
+  <p><strong>No ads, no advertising ID.</strong> FairInvoice for Android contains no ads and does
+  not read your device's advertising ID: the permission to read it is removed from the app and
+  Firebase's advertising-ID collection is switched off. Analytics data is not used for ad
+  personalization.</p>
+  <p><strong>Notifications and the push token.</strong> Payment reminders and tax-date reminders are
+  scheduled on your phone and need no network. On Android 13 and later, FairInvoice asks for
+  notification permission once when you first reach the home screen (never during the welcome
+  screens), and again if you turn reminders on. If you allow notifications, the app registers a
+  push token with Google's Firebase Cloud Messaging so we can send an occasional message about the
+  app. The token identifies the app installation, not you, and push messages never contain your
+  business data. You can turn notifications off at any time in your phone's settings, which stops
+  messages from being shown; the token itself is removed when you uninstall the app.</p>
+  <p><strong>Purchases.</strong> FairInvoice Pro on Android is a single one-time purchase made
+  through Google Play. Google handles payment; we never see your card or payment details. We use
+  RevenueCat to confirm the purchase and unlock Pro. RevenueCat receives the Google Play purchase
+  record and an anonymous ID it creates for the installation &mdash; not your name or email.
+  Because there is no account, a purchase on one store does not carry over to the other: Pro bought
+  on iPhone does not unlock Pro on Android, and the reverse. A Google Play purchase can be restored
+  on any Android device signed in to the same Google account.</p>
+  <p><strong>Feedback.</strong> <em>Send Feedback</em> in Settings opens your own email app with a
+  message addressed to <a href="mailto:kenz@kenzapps.com">kenz@kenzapps.com</a>, prefilled with the
+  app version and Android version only. Nothing is sent until you send it from your email app. If
+  you do, we receive your message and your email address and use them only to reply.</p>
+  <p><strong>Android permissions.</strong> Internet and network state (Firebase diagnostics,
+  RevenueCat, Google Play Billing); notifications (reminders and the occasional message, asked as
+  described above); Google Play billing (the Pro purchase); run at startup, keep awake and
+  foreground service (used by Android's WorkManager to deliver scheduled reminders after a
+  restart); receive push messages (Firebase Cloud Messaging). FairInvoice for Android does not
+  request location, contacts, camera, microphone, photos, storage or the advertising ID.</p>
+
+  <h2 id="deleting-your-data">Deleting your data</h2>
+  <p>FairInvoice has no account, so there is nothing to close. Deleting the app (on any platform)
+  deletes everything it stored on your device. Your own backup files, your iCloud data (if you
+  used iCloud Sync) and your Google account backup are yours to delete in those services.</p>
+  <p>For the anonymous diagnostics and purchase records held by our service providers (Google
+  Firebase and RevenueCat), and for any feedback you sent us, email
+  <a href="mailto:kenz@kenzapps.com">kenz@kenzapps.com</a> with the subject
+  &ldquo;FairInvoice data deletion&rdquo;. Because this data is tied to random installation IDs and
+  not to your identity, tell us anything that helps us find it &mdash; for example the date and
+  store of a purchase, or the address you sent feedback from. We delete what we can match and
+  confirm by email. Diagnostics we cannot match expire under our providers' retention settings.</p>
+
   <h2>Children</h2>
   <p>FairInvoice is a business utility, is not directed at children under 13, and collects no
   personal data from anyone of any age.</p>
@@ -254,8 +329,8 @@
   <h2>Data breach risk</h2>
   <p>Because your invoices and clients are stored only on your device and are never uploaded,
   there is no FairInvoice database of your business to breach. If your device is compromised,
-  that is governed by Apple's device security model &mdash; we recommend using a strong passcode
-  and Face ID / Touch ID.</p>
+  that is governed by your device's own security &mdash; we recommend using a strong passcode
+  and your device's biometric lock.</p>
 
   <h2>Retention</h2>
   <p>Your documents, clients, items, and business profile live only on your device and are deleted
@@ -264,7 +339,7 @@
 
   <h2>Changes to this policy</h2>
   <p>If this policy ever changes we will update the date at the top of this page. Material changes
-  will be noted in the App Store release notes. Continued use of FairInvoice after a change
+  will be noted in the App Store or Google Play release notes. Continued use of FairInvoice after a change
   constitutes acceptance of the updated terms.</p>
 
   <h2>Contact</h2>
