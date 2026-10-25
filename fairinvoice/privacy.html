@@ -32,16 +32,16 @@
 <div class="wrap">
   <p><a href="index.html">&larr; FairInvoice</a></p>
   <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: 19 October 2026</p>
+  <p class="muted">Last updated: 25 October 2026</p>
 
   <div class="summary-card">
     <strong>The short version:</strong> FairInvoice has no account and no servers for your data.
-    Every invoice, estimate, receipt, client, and business detail you enter is stored
+    Every invoice, estimate, receipt, client, business detail and job-site photo you add is stored
     <strong>entirely on your device</strong> and <strong>never transmitted to us</strong>.
     There is no login. Optional iCloud Sync (off by default) keeps a copy in <em>your own</em> iCloud account &mdash; never on our servers.
     What the app does send us is small and anonymous: <strong>usage statistics, crash reports,
     and a device record for our own notification service</strong> &mdash; never your documents,
-    never anything linked to you, never used to track you. Announcements are opt-in. The only
+    never anything linked to you, never used to track you. Push announcements are on by default, and you can turn them off in Settings. The only
     thing that ever leaves your phone with your business on it is a PDF <em>you</em> choose to
     share, sent to whoever <em>you</em> send it to.
   </div>
@@ -49,7 +49,7 @@
   <h2>Your business data stays on your device</h2>
   <p>FairInvoice is a local-first invoice, estimate, and receipt maker. Everything you enter
   &mdash; your business profile, logo, clients, line items, prices, tax rates, payment
-  instructions, and every document you create &mdash; is stored on your device: on iPhone, iPad
+  instructions, every document you create and any job-site photos you attach &mdash; is stored on your device: on iPhone, iPad
   and Mac using Apple's SwiftData framework, and on Android in a database inside the app (see
   <a href="#android">FairInvoice for Android</a>). This data <strong>never leaves your device</strong> and is
   <strong>never transmitted to us or anyone else</strong>. There is no FairInvoice account,
@@ -57,7 +57,7 @@
 
   <h2>iCloud Sync (optional)</h2>
   <p>iCloud Sync is <strong>off by default</strong>. If you turn it on (a Pro feature), FairInvoice uses Apple's CloudKit
-  <em>private database</em> to keep your invoices, clients and items identical across your iPhone, iPad and Mac.
+  <em>private database</em> to keep your invoices, clients, items and job-site photos identical across your iPhone, iPad and Mac.
   That data lives in <strong>your own iCloud account</strong>, encrypted and governed by Apple's iCloud terms.
   <strong>We have no access to it and cannot read it</strong> &mdash; it is not transmitted to us and we do not
   consider it collected. Turning iCloud Sync off stops syncing; to remove the iCloud copy, delete FairInvoice's
@@ -85,13 +85,13 @@
   None of this is linked to your identity &mdash; there is no account, so we could not link it
   even if we wanted to &mdash; and none of it is used to track you.</p>
 
-  <h2>Our own notification service (Engagement Center) &mdash; iPhone, iPad and Mac</h2>
-  <p>This section applies to the Apple versions of FairInvoice only. The Android app does not use
-  this service.</p>
+  <h2>Our own notification service (Engagement Center)</h2>
+  <p>This section applies to FairInvoice on iPhone, iPad and Mac and, from version 1.1.0, on
+  Android. Android differences are noted in <a href="#android">FairInvoice for Android</a>.</p>
   <p><strong>What:</strong> each time FairInvoice launches, it registers a small device record
   with our own server at <code>engage.puzzpics.com</code>. The record contains a random
   identifier the app creates for itself (not your advertising identifier and not Apple's
-  identifier for vendor), the app and iOS version, your device's language and time zone
+  identifier for vendor), the app and iOS or Android version, your device's language and time zone
   settings, and whether you have turned on <em>App announcements</em>. If you allow
   notifications, the device's push token is added to it. The app also tells this server when a
   session starts and when a notification is opened &mdash; each with a timestamp and, for a
@@ -100,10 +100,25 @@
   record never contains your clients, invoices, amounts, or anything you typed.</p>
   <p><strong>Why:</strong> to deliver notifications, to count how many devices use the app, and
   to choose which devices receive an app announcement &mdash; which is marketing, and we say so.
-  <strong>Marketing messages are opt-in:</strong> you receive announcements only if you choose to
-  &mdash; by allowing notifications on the &ldquo;Hear about what&rsquo;s new&rdquo; screen described
-  below, or by turning on <em>Settings &rarr; App announcements</em>. Until you do, they are off, and
-  you can switch them off again at any time in Settings.</p>
+  <strong>Push announcements are on by default:</strong> they are occasional news about
+  FairInvoice, never about your clients or invoices, and they can only reach you if you also allow
+  notifications. You can switch them off at any time in <em>Settings &rarr; App announcements</em>,
+  and that choice is kept.</p>
+  <p><strong>In-app messages (from 1.6, iPhone and iPad):</strong> the app can also show an
+  occasional message of ours inside FairInvoice &mdash; for example a new feature, or another of
+  our apps. To find out whether there is one, it asks this server at most every six hours,
+  sending the app's name and the same random identifier. A message appears at most once per
+  session and never during the intro, over the paywall, while you are editing a document or over
+  any other screen that is open, and you close it with one tap. When a message is shown, tapped
+  or closed, the app tells the server, with the same random identifier, a timestamp and the
+  campaign it belonged to. These messages are not push notifications, so <em>App announcements</em>
+  does not control them; they are never third-party ads. The Mac app does not show them.</p>
+  <p><strong>Service status (from 1.6, iPhone and iPad):</strong> the app also checks a public
+  status page on the same server (<code>/api/status/fairinvoice</code>) for maintenance and
+  outage notices &mdash; when it opens and, while it is open, at most once a minute. That request
+  contains no identifier: only the app's name. If there is a notice, it appears as a banner, and
+  an outage or a maintenance in progress is also shown once as a short sheet. The Mac app does
+  not make this request.</p>
   <p><strong>Not linked to you, not tracking:</strong> the record carries no name, email, or
   account, so we cannot tell who you are from it. It is our own first-party service: we do not
   sell it, share it with data brokers or ad networks, or combine it with data from other
@@ -113,18 +128,27 @@
   <p><strong>What:</strong> an anonymous device push token (Apple Push Notification service /
   Firebase Cloud Messaging) &mdash; a random identifier your device generates so notifications
   can be delivered to it. It contains none of your data.</p>
-  <p><strong>When:</strong> only after you allow notifications. The app asks in four places: when
-  you start a Pro free trial; when you switch on payment reminders or quarterly tax reminders in
-  Settings; and, if you use the free version, at most once, after you save your third document
-  &mdash; a short screen (&ldquo;Hear about what&rsquo;s new&rdquo;) first explains that these are
-  occasional news about FairInvoice, and you can decline. Because that screen asks whether you want
-  that news, allowing notifications there also turns on App announcements; you can switch them off
-  at any time in Settings. Allowing notifications for a free trial or for payment or tax reminders
-  never turns announcements on. If you never allow notifications, no push
+  <p><strong>When:</strong> only after you allow notifications. The app asks:</p>
+  <ul>
+    <li><strong>once on the home screen</strong>, right after the short intro the first time you
+        open the app (someone who was never asked sees it the first time they open an update)
+        &mdash; a short screen (&ldquo;Hear about what&rsquo;s new&rdquo;) first explains that these
+        are occasional news about FairInvoice, and you can decline. If you close it without
+        answering, it can appear once more after you save your third document. On the Mac it
+        appears only then. People on a Pro free trial get the trial screen below instead;</li>
+    <li>when you turn on <em>App announcements</em> in Settings and have not answered yet (unless
+        you are on a Pro free trial);</li>
+    <li>when you start a Pro free trial, so the app can remind you before the trial ends;</li>
+    <li>when you switch on payment reminders, quarterly tax dates or the weekly summary in
+        Settings.</li>
+  </ul>
+  <p>App announcements are on by default, so allowing notifications on any of these screens lets
+  them reach you; you can switch them off at any time in Settings. If you never allow notifications, no push
   token is ever created &mdash; but the anonymous diagnostics and the Engagement Center device
   record described above are still sent.</p>
-  <p><strong>Why:</strong> reminders themselves are created <em>on your device</em>; the token
-  lets us deliver notifications to it, including app announcements if you have turned them on.
+  <p><strong>Why:</strong> reminders themselves &mdash; payment reminders, tax dates and the weekly
+  summary &mdash; are created <em>on your device</em>; the token
+  lets us deliver notifications to it, including app announcements unless you have turned them off.
   Notification content never includes your clients, invoices, amounts, or anything you
   typed.</p>
   <p><strong>Not linked to you:</strong> FairInvoice has no accounts, so the token is not tied
@@ -132,6 +156,38 @@
   <p><strong>Opting out:</strong> turn off <em>App announcements</em> in FairInvoice's Settings to
   stop marketing messages, or turn off notifications for FairInvoice in iOS Settings to stop all
   notifications. Everything else in the app works identically without them.</p>
+
+  <h2>Weekly summary and your year in invoices (from 1.6)</h2>
+  <ul>
+    <li><strong>Weekly summary</strong> is off unless you turn it on (Settings &rarr; Reminders).
+        On the day you pick, a notification shows that week's totals &mdash; what you were paid,
+        how many invoices you sent and what is still outstanding. It is worked out and scheduled
+        <em>on your device</em> from your own data; nothing is sent to us or anyone else to make
+        it, and it never names a client.</li>
+    <li><strong>Your year in invoices:</strong> from 26 December to the end of February, the
+        Dashboard can show a recap of your year &mdash; invoices sent, clients served, your busiest
+        month and similar counts. It is computed on your device and nothing is sent. If the weekly
+        summary is on, one notification on 2 January says the recap is ready.</li>
+    <li><strong>Sharing the recap is up to you.</strong> Only if you tap <em>Share</em> does the
+        app make an image, on your device, and hand it to the share sheet. By default the image
+        shows counts only &mdash; no amounts, no client names and no business name; amounts and
+        your business name appear only if you switch them on for that share. Your top client is
+        shown inside the app only, never on the image. If you choose <em>Save Image</em>, iOS asks
+        once for permission to add to your photo library: FairInvoice can only add the image you
+        chose and never reads your photos.</li>
+  </ul>
+
+  <h2>Job-site photos (from 1.6)</h2>
+  <p>From version 1.6 you can attach photos of the job to an invoice or estimate (a Pro feature).
+  Photos you attach to a document stay on your device (and in your own iCloud if Sync is on) and
+  appear only on PDFs you choose to share. Location data is removed when a photo is added. They
+  are included in your FairInvoice backup files unless you choose <em>Back Up Without
+  Photos</em>.</p>
+  <p>The camera is used only when you tap <em>Take Photo</em>: to read a receipt in Scan Lines
+  (that photo is never saved or sent) or to attach a job-site photo to an invoice or estimate.
+  <em>Choose Photo</em> uses the system photo picker (Photos on iPhone, iPad and Mac; the Android
+  photo picker), which hands over only the images you choose; the app never gets access to your
+  photo library.</p>
 
   <h2>On-device AI and Scan Lines (from 1.5)</h2>
   <p>From version 1.5, FairInvoice can draft an invoice or estimate from a sentence you type or
@@ -143,9 +199,11 @@
         drafts are processed by Apple's on-device model and Apple's on-device text recognition.
         Nothing is uploaded &mdash; not to us, and not to any AI service. A draft is only a
         suggestion: nothing is saved or sent until you review it and choose to.</li>
-    <li><strong>The camera</strong> is used only when you tap <em>Take Photo</em> in Scan Lines
-        (iPhone and iPad; the Mac app never uses the camera). <em>Choose Photo</em> uses Apple's
-        picker, which hands the app only the image you pick. The photo is kept in memory for that
+    <li><strong>The camera</strong> is used only when you tap <em>Take Photo</em> &mdash; here in
+        Scan Lines, or to attach a job-site photo (see <em>Job-site photos</em>) &mdash; on iPhone
+        and iPad; the Mac app never uses the camera. Scan Lines is on Apple devices only (it is not
+        part of the Android app), so here <em>Choose Photo</em> uses Apple's picker, which hands the
+        app only the image you pick. A Scan Lines photo is kept in memory for that
         one scan, then discarded &mdash; it is never saved or sent.</li>
     <li><strong>Usage statistics</strong> record only anonymous feature-usage codes, such as
         that a draft was started or finished, whether it worked, and rough counts like
@@ -207,17 +265,21 @@
         Customer Support:</strong> App Functionality, <strong>linked to you</strong> &mdash; only
         when you choose to send feedback, so we can reply (see <em>Send Feedback</em> above).</li>
   </ul>
-  <p>"Developer's Advertising or Marketing" on Device ID and Product Interaction is the opt-in
-  app announcements described above &mdash; our own messages about FairInvoice, never
-  third-party ads. If a future version ever transmits anything more, we will update this policy
-  first and describe exactly what it sends.</p>
+  <p>"Developer's Advertising or Marketing" on Device ID and Product Interaction is the app
+  announcements (on by default; switch them off in Settings) and the in-app messages described above &mdash; our own messages about
+  FairInvoice and our other apps, never third-party ads. Version 1.6 adds nothing to this list:
+  the weekly summary, the year recap and job-site photos stay on your device (or in your own
+  iCloud), the in-app message events are the Device ID and Product Interaction items above, and
+  the status check carries no identifier. If a future version ever transmits anything more, we
+  will update this policy first and describe exactly what it sends.</p>
 
   <h2>Sharing a PDF is up to you</h2>
   <p>When you share an invoice, estimate, or receipt, the app generates a PDF on your device and
   hands it to the standard iOS share sheet. Where it goes from there &mdash; email, messages,
   files &mdash; is your choice and happens through the app you pick. Any payment instructions you
   type (bank details, payment handles) are rendered as plain text on your own PDF; FairInvoice
-  never processes or transmits payments.</p>
+  never processes or transmits payments. Job-site photos you attached are part of that PDF
+  unless you switch off <em>Show photos on PDF</em> for that document.</p>
 
   <h2>What FairInvoice does not do</h2>
   <p>To be explicit:</p>
@@ -229,9 +291,10 @@
     <li>We show no ads and contain no advertising SDK.</li>
     <li>We do not access your contacts or calendar, and the app never uses Location Services.
         Google Analytics derives an approximate location (country/region/city) from your masked
-        IP address. Importing a logo uses Apple's
-        picker, which hands the app only the single image you choose &mdash; the app never gets
-        access to your photo library.</li>
+        IP address. Importing a logo or attaching job-site photos uses the system photo picker
+        (Photos on iPhone, iPad and Mac; the Android photo picker), which hands the app only the
+        images you choose &mdash; the app never gets access to your photo library. Saving a
+        year-recap image can only add that image to your photos; it never reads them.</li>
     <li>We do not sell or share any data, and your business data never reaches us in the first place.</li>
   </ul>
 
@@ -254,24 +317,33 @@
   <p>This section covers the FairInvoice app from Google Play. Everything above applies to it
   too, except where this section says otherwise. In short, the Android app works the same way:
   your business data stays on your phone, there is no account and no FairInvoice server holding
-  your documents, and the only things it sends are anonymous diagnostics, purchase records and,
-  if you allow notifications, a push token. The iPhone-only features described above &mdash;
-  iCloud Sync, the on-device AI and Scan Lines, the cancellation question, the in-app feedback
-  form and our Engagement Center &mdash; are not part of the Android app.</p>
+  your documents, and the only things it sends are anonymous diagnostics, purchase records, a
+  device record and app events for our own notification service and, if you allow notifications,
+  a push token. The iPhone-only features described above &mdash; iCloud Sync, the on-device AI and
+  Scan Lines, the cancellation question and the in-app feedback form &mdash; are not part of the
+  Android app.</p>
   <ul>
     <li><strong>What stays on your phone.</strong> Your business profile, logo, clients, saved
         items, invoices, estimates, receipts, payments and signatures are stored in a database on
         your device and are never sent to us.</li>
     <li><strong>Android backup.</strong> If backup is turned on in your phone's settings, Android
         may include FairInvoice's data in your device backup in your own Google account, so it can
-        be restored on your next phone. That backup is made and kept by Google under your Google
-        account's terms; we have no access to it. You can turn it off in your phone's backup
-        settings.</li>
+        be restored on your next phone. Job-site photos are excluded from Google's automatic backup
+        (Android Auto Backup and device-to-device transfer): only their captions and records travel
+        in the device backup. The photos themselves are in the FairInvoice backup file you choose
+        to save. That backup is made and kept by Google under your Google account's terms; we have
+        no access to it. You can turn it off in your phone's backup settings.</li>
     <li><strong>Backup files.</strong> A <code>.fairinvoice</code> backup you export is saved
         where you choose and stays there. A backup made on an iPhone can be restored on
         Android.</li>
     <li><strong>Logo.</strong> You pick your logo with the Android photo picker, which gives
         FairInvoice only that one image. The app has no photo or storage permission.</li>
+    <li><strong>Job-site photos (from 1.1.0).</strong> Job photos stay on your phone and are
+        excluded from Google's device backup; they are included in FairInvoice backup files unless
+        you choose <em>Back Up Without Photos</em>. Location data is removed when a photo is added.
+        You add them with the Android photo picker, which hands over only the images you choose,
+        or by taking a photo with your camera app; FairInvoice has no camera or photo permission.
+        They appear only on PDFs you choose to share.</li>
   </ul>
   <p><strong>Anonymous diagnostics.</strong> The Android app uses the same Google Firebase services
   described above: Firebase Analytics (which features are used, as counts and fixed labels &mdash;
@@ -284,14 +356,34 @@
   not read your device's advertising ID: the permission to read it is removed from the app and
   Firebase's advertising-ID collection is switched off. Analytics data is not used for ad
   personalization.</p>
-  <p><strong>Notifications and the push token.</strong> Payment reminders and tax-date reminders are
-  scheduled on your phone and need no network. On Android 13 and later, FairInvoice asks for
-  notification permission once when you first reach the home screen (never during the welcome
-  screens), and again if you turn reminders on. If you allow notifications, the app registers a
-  push token with Google's Firebase Cloud Messaging so we can send an occasional message about the
-  app. The token identifies the app installation, not you, and push messages never contain your
-  business data. You can turn notifications off at any time in your phone's settings, which stops
-  messages from being shown; the token itself is removed when you uninstall the app.</p>
+  <p><strong>Reminders and the weekly summary.</strong> Reminders and the optional weekly summary
+  are created on your device. The weekly summary is a local notification, built on this device
+  from your own data; it shows totals only, never a client name, and is never sent to us or
+  through any server. On a locked screen it shows only its title. <em>Your year in invoices</em>
+  works as described above: it is computed on your phone, and an image is made only if you tap
+  <em>Share</em>. Saving or sharing it needs no photo permission.</p>
+  <p><strong>When FairInvoice asks.</strong> Once on the home screen, right after the welcome
+  screens the first time you open the app (never during them), and when you turn on a reminder,
+  the weekly summary or <em>App announcements</em> in Settings. On Android 12 and earlier, which
+  has no notification permission, notifications are already allowed, so this screen does not
+  appear while announcements are on. <em>App announcements</em> are on by default, and you can
+  switch them off at any time in Settings.</p>
+  <p><strong>The push token.</strong> If you allow notifications, the app registers a push token
+  with Google's Firebase Cloud Messaging. It identifies the app installation, not you, and is
+  deleted if you take back FairInvoice's notification permission (Android 13 and later; on
+  earlier versions it is removed when you uninstall the app).
+  <strong>Push announcements are on by default:</strong> they reach you only once notifications
+  are allowed, and you can switch them off at any time in <em>Settings &rarr; App announcements</em>.
+  Push messages never contain your business data.</p>
+  <p><strong>Our Engagement Center on Android (from 1.1.0).</strong> As described above, the app
+  registers a device record with <code>engage.puzzpics.com</code> &mdash; a random identifier the app
+  creates (not your advertising ID, not Android's device ID and not a Firebase ID), the app and
+  Android version, your language and time-zone settings, whether notifications are allowed and
+  whether <em>App announcements</em> is on, plus the Firebase Cloud Messaging token if you allowed
+  notifications &mdash; and tells it when a session starts and when one of our messages is opened,
+  shown, tapped or closed. It can show an occasional in-app message, at most once per session and
+  never the first time you use the app, and checks the public status page, which carries no
+  identifier. The random identifier is not part of Android's device backup.</p>
   <p><strong>Purchases.</strong> FairInvoice Pro on Android is a single one-time purchase made
   through Google Play. Google handles payment; we never see your card or payment details. We use
   RevenueCat to confirm the purchase and unlock Pro. RevenueCat receives the Google Play purchase
@@ -304,8 +396,9 @@
   app version and Android version only. Nothing is sent until you send it from your email app. If
   you do, we receive your message and your email address and use them only to reply.</p>
   <p><strong>Android permissions.</strong> Internet and network state (Firebase diagnostics,
-  RevenueCat, Google Play Billing); notifications (reminders and the occasional message, asked as
-  described above); Google Play billing (the Pro purchase); run at startup, keep awake and
+  RevenueCat, Google Play Billing, our Engagement Center and status check); notifications
+  (reminders, the weekly summary and the occasional message, asked as described above); Google
+  Play billing (the Pro purchase); run at startup, keep awake and
   foreground service (used by Android's WorkManager to deliver scheduled reminders after a
   restart); receive push messages (Firebase Cloud Messaging). FairInvoice for Android does not
   request location, contacts, camera, microphone, photos, storage or the advertising ID.</p>
@@ -333,7 +426,7 @@
   and your device's biometric lock.</p>
 
   <h2>Retention</h2>
-  <p>Your documents, clients, items, and business profile live only on your device and are deleted
+  <p>Your documents, clients, items, job-site photos and business profile live only on your device and are deleted
   when you delete FairInvoice or delete them yourself. Unless you turn on iCloud Sync there is no cloud copy,
   so we recommend using <em>Settings &rarr; Back up</em> to export a backup file of anything important.</p>
 
