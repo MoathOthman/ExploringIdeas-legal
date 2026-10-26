@@ -3,92 +3,177 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ClearSpend — Privacy Policy</title>
+<title>Ownspend — Privacy Policy</title>
+<meta name="description" content="The Privacy Policy for Ownspend, an app by ExploringIdeas.">
+<meta property="og:title" content="Ownspend — Privacy Policy">
+<meta property="og:description" content="The Privacy Policy for Ownspend, an app by ExploringIdeas.">
+<meta property="og:image" content="https://apps.puzzpics.com/clearspend/icon.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="icon.png">
 <style>
-  :root { --amber:#F59E0B; --amber2:#7A4B00; --amber-light:#FFF8EC; --ink:#0B0B0F; --muted:#5A5E66; --bg:#fff; }
-  * { box-sizing:border-box; }
-  body { margin:0; font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:var(--bg); }
-  .wrap { max-width:720px; margin:0 auto; padding:48px 24px 80px; }
-  h1 { font-size:36px; margin:0 0 4px; font-weight:800; }
-  h2 { font-size:20px; margin:40px 0 10px; color:var(--amber2); }
-  h3 { font-size:16px; margin:24px 0 6px; }
-  .muted { color:var(--muted); }
-  a { color:var(--amber2); }
-  table { border-collapse:collapse; width:100%; margin:16px 0; font-size:14px; }
-  th, td { border:1px solid #F0E3CC; padding:9px 12px; text-align:left; vertical-align:top; }
-  th { background:var(--amber-light); color:var(--amber2); font-weight:700; }
-  .summary-card {
-    background:var(--amber-light); border:1.5px solid #FDE7BD;
-    border-radius:16px; padding:20px 24px; margin:28px 0;
+  :root { --a:#F59E0B; --bg:#0b0d12; --panel:#12151d; --text:#eef1f6; --body:#c7cdd9; --muted:#a3aab6; --faint:#6d7480; --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.15); }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { -webkit-text-size-adjust:100%; }
+  body {
+    background:var(--bg); color:var(--body);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
   }
-  .summary-card strong { color:var(--amber2); }
+  a { color:var(--a); }
+
+  /* ── top nav (site-wide) ── */
+  .top {
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; gap:16px;
+    padding:10px 20px;
+    background:color-mix(in srgb, var(--bg) 82%, transparent);
+    -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .top .back { color:var(--muted); text-decoration:none; font-size:14px; font-weight:600; }
+  .top .back:hover, .top .back:focus-visible { color:var(--text); }
+  .top .who { display:flex; align-items:center; gap:10px; margin:0 auto; font-weight:700; font-size:15px; color:var(--text); text-decoration:none; }
+  .top .who img { width:26px; height:26px; border-radius:7px; }
+  .top .who .dot { width:12px; height:12px; border-radius:50%; background:var(--a); }
+  .top .go {
+    color:var(--muted); text-decoration:none; border:1px solid var(--line2);
+    font-weight:700; font-size:13px; padding:7px 14px; border-radius:999px; white-space:nowrap;
+  }
+  .top .go:hover, .top .go:focus-visible { color:var(--text); border-color:color-mix(in srgb, var(--a) 50%, transparent); }
+
+  /* ── legal document ── */
+  .wrap { max-width:760px; margin:0 auto; padding:56px 24px 72px; }
+  .doc-kicker {
+    font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--a); margin-bottom:10px;
+  }
+  h1 { font-size:clamp(1.9rem, 1.5rem + 2vw, 2.6rem); font-weight:800; letter-spacing:-.025em; color:var(--text); line-height:1.1; }
+  h1 + p { color:var(--faint); font-size:14px; margin-top:6px; }
+  h2 {
+    font-size:19px; font-weight:750; letter-spacing:-.01em; color:var(--text);
+    margin:44px 0 10px; padding-top:30px; border-top:1px solid var(--line);
+  }
+  h3 { font-size:16px; font-weight:750; color:var(--text); margin:26px 0 8px; }
+  p + p { margin-top:12px; }
+  h2 + p, h2 + ul, h3 + p, h3 + ul { margin-top:0; }
+  strong { color:var(--text); }
+  em { color:var(--text); }
+  ul, ol { padding-left:22px; margin:12px 0; }
+  li { margin-bottom:8px; }
+  li::marker { color:var(--a); }
+  code { background:rgba(255,255,255,.07); border:1px solid var(--line); padding:1px 7px; border-radius:6px; font-size:14px; color:var(--text); }
+  .muted, .updated { color:var(--muted); }
+
+  /* summary / callout boxes (all historical class names map to one look) */
+  .summary-card, .card, .highlight, .highlight-box, .medical-disclaimer, .disclaimer {
+    background:color-mix(in srgb, var(--a) 8%, var(--panel));
+    border:1px solid color-mix(in srgb, var(--a) 28%, transparent);
+    border-left:4px solid var(--a);
+    border-radius:16px; padding:20px 24px; margin:26px 0;
+  }
+  .summary-card strong, .card strong, .highlight strong, .highlight-box strong, .disclaimer strong { color:var(--a); }
+  /* a callout may carry its own heading — it must not take the section-divider h2 look */
+  .summary-card h2, .card h2, .highlight h2, .highlight-box h2, .medical-disclaimer h2, .disclaimer h2 {
+    margin:0 0 8px; padding-top:0; border-top:0; font-size:17px; color:var(--a);
+  }
   .badge {
-    display:inline-flex; align-items:center; gap:8px;
-    background:var(--amber); color:#1A1200;
-    font-weight:700; font-size:13px; padding:7px 16px; border-radius:999px;
-    margin-bottom:12px;
+    display:inline-block; font-size:12px; font-weight:700; letter-spacing:.04em;
+    color:var(--a); background:color-mix(in srgb, var(--a) 14%, transparent);
+    border:1px solid color-mix(in srgb, var(--a) 35%, transparent);
+    border-radius:999px; padding:3px 12px; margin-bottom:10px;
   }
-  .disclaimer {
-    background:var(--amber-light); border:1.5px solid #FDE7BD;
-    border-radius:14px; padding:20px 24px; margin:40px 0 0;
-  }
-  .disclaimer h2 { margin-top:0; }
-  footer { margin-top:48px; padding-top:24px; border-top:1px solid #F3F4F6; font-size:13px; color:var(--muted); }
+
+  /* tables (first legal page in the set to use them; wide content scrolls itself) */
+  .tablebox { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:18px 0; }
+  table { border-collapse:collapse; width:100%; min-width:520px; font-size:14.5px; }
+  th, td { border:1px solid var(--line2); padding:11px 14px; text-align:left; vertical-align:top; }
+  th { background:color-mix(in srgb, var(--a) 12%, var(--panel)); color:var(--text); font-weight:700; }
+  td { color:var(--body); }
+  td strong { color:var(--text); }
+
+  .smallprint { margin-top:44px; padding-top:22px; border-top:1px solid var(--line); color:var(--faint); font-size:13.5px; }
+
+  footer { border-top:1px solid var(--line); padding:34px 24px 44px; text-align:center; color:var(--faint); font-size:13.5px; }
+  footer a { color:var(--muted); text-decoration:none; }
+  footer a:hover, footer a:focus-visible { color:var(--text); }
+  footer p + p { margin-top:8px; }
+
+  a:focus-visible, .top a:focus-visible { outline:2px solid var(--a); outline-offset:3px; border-radius:4px; }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <p><a href="index.html">&larr; ClearSpend</a></p>
-  <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: 30 June 2026 &mdash; ClearSpend v1.1 (Shared Wallet)</p>
+<nav class="top">
+  <a class="back" href="../">&larr; All apps</a>
+  <a class="who" href="index.html"><img src="icon.png" alt="" width="26" height="26"><span>Ownspend</span></a>
+  <a class="go" href="index.html">App page</a>
+</nav>
+<main class="wrap">
+  <p class="doc-kicker">Ownspend &middot; Legal</p>
+<h1>Privacy Policy</h1>
+  <p class="muted">Last updated: 26 October 2026</p>
 
   <div class="summary-card">
     <span class="badge">Local-first by default. Sharing is your choice.</span><br>
-    <strong>The short version:</strong> If you use ClearSpend on your own, nothing changes
-    and nothing is collected &mdash; you create no account and your transactions, budgets,
-    categories, and wallets live only on your device (or in your own private iCloud).
+    <strong>The short version:</strong> If you use Ownspend on your own, you create no
+    account and your transactions, budgets, categories, and wallets live only on your device.
+    A few things do leave it, and none of them is your money: anonymous crash reports, a
+    device record used to send app reminders and news, counters for our own &ldquo;more from
+    us&rdquo; cards, and &mdash; only if you send it &mdash; whatever you write in the feedback
+    form. Sections 5, 8 and 9 say exactly what each one contains.
     <strong>Shared Wallet is a separate, opt-in feature.</strong> Only when you choose to
     share a wallet with another person do we sync <em>that one wallet's</em> records to a
     secure cloud so you and the person you invited can co-manage it. Your personal wallets,
     budgets, and goals still never leave your device &mdash; even if you also use a Shared
     Wallet.
+    <strong>On Android</strong> the app sends even less: no crash reports, no analytics, no
+    reminder device record and no &ldquo;more from us&rdquo; counters. Section 4.9 lists
+    exactly what Ownspend for Android sends, and how to delete your account
+    (<a href="https://apps.puzzpics.com/clearspend/delete-account/">apps.puzzpics.com/clearspend/delete-account</a>).
   </div>
 
-  <h2>1. Two ways to use ClearSpend</h2>
-  <p>ClearSpend has two modes, and they have very different privacy footprints:</p>
-  <table>
+  <h2>1. Two ways to use Ownspend</h2>
+  <p>Ownspend has two modes, and they have very different privacy footprints:</p>
+  <div class="tablebox"><table>
     <tr><th>Mode</th><th>Account?</th><th>Where your data lives</th></tr>
     <tr>
       <td><strong>Solo</strong> (the default for everyone)</td>
       <td>No account. No sign-in.</td>
-      <td>On your device only, in Apple&rsquo;s local SwiftData store. Optionally in your own
-        private iCloud if you turn on iCloud sync.</td>
+      <td>On your device only &mdash; in Apple&rsquo;s local SwiftData store on iPhone, iPad
+        and Mac, and in a private on-device database on Android.</td>
     </tr>
     <tr>
-      <td><strong>Shared Wallet</strong> (opt-in, paid)</td>
+      <td><strong>Shared Wallet</strong> (opt-in, free)</td>
       <td>Yes &mdash; you sign in to identify you and the person you invite.</td>
       <td>The shared wallet&rsquo;s records sync to Google Cloud (Firebase) so both members
         can see one live set of records. Everything else stays on your device.</td>
     </tr>
-  </table>
+  </table></div>
   <p>You are in Solo mode unless you deliberately create or accept a Shared Wallet invite.
     You never see a sign-in screen until that moment.</p>
 
-  <h2>2. Solo mode &mdash; no account, nothing collected</h2>
+  <h2>2. Solo mode &mdash; no account, and none of your money leaves the device</h2>
+  <p>Solo mode means no account and no sync of your finances. It does not mean the app is
+    silent: a small amount of non-financial data is sent for crash reporting, notifications
+    and product measurement, and it is itemised in sections 5 and 8. Nothing in any of
+    it is a transaction, an amount, a note, a merchant, a category, a budget or a goal. This
+    section describes iPhone, iPad and Mac. The Android app has no crash reporting,
+    notification device record or product counters at all (section 4.9).</p>
   <ul>
-    <li>No account creation, no sign-in, and no server contact for your data.</li>
+    <li>No account creation, no sign-in, and no server contact for your financial data.</li>
     <li>Your transactions, categories, budgets, goals, and wallets are stored locally on your
       device using Apple&rsquo;s SwiftData framework.</li>
-    <li>The cloud-sync code (Firebase) is not even started for a solo user &mdash; it is
-      loaded only the first time you opt into sharing.</li>
-    <li>If you enable <strong>iCloud sync</strong>, your data syncs through <em>your own</em>
-      Apple iCloud private database (CloudKit). It moves between your Apple devices under your
-      Apple ID; ClearSpend cannot read your CloudKit data, and it is not sent to us or to any
-      third party.</li>
+    <li>The cloud <em>sync</em> services (Firebase Authentication, Firestore sync, Functions,
+      Storage and Cloud Messaging) are not started for a solo user &mdash; they are loaded only
+      the first time you opt into sharing. Crash reporting (section 5), the notification device
+      record (section 8) and the product counters (section 5) are separate from sync and do
+      run for everyone.</li>
+    <li>There is <strong>no iCloud sync</strong> and no cross-device sync of your personal
+      data. Your records stay on the device you entered them on; use the in-app CSV/JSON
+      export if you want to move them yourself.</li>
   </ul>
 
   <h2>3. No bank linking, ever</h2>
-  <p>ClearSpend does not connect to your bank, does not use Plaid or any aggregator, and never
+  <p>Ownspend does not connect to your bank, does not use Plaid or any aggregator, and never
     asks for banking credentials or card numbers. You enter your transactions yourself. This is
     true in both Solo and Shared modes.</p>
 
@@ -101,7 +186,9 @@
   <ul>
     <li>Sharing needs real accounts so two people can be told apart and invited securely.
       You sign in with <strong>Sign in with Apple</strong> (primary on iPhone),
-      <strong>Sign in with Google</strong>, or <strong>email and password</strong>.</li>
+      or <strong>Sign in with Google</strong>. On <strong>Android</strong>, Shared Wallet uses
+      <strong>Sign in with Google</strong> only: we receive your Google account&rsquo;s name,
+      email address and a Firebase user ID (section 4.9).</li>
     <li>With Sign in with Apple you may use <strong>Hide My Email</strong>, in which case we
       receive Apple&rsquo;s private relay address instead of your real one.</li>
     <li>Sign-in happens only when you start or accept a share. Solo users never sign in.</li>
@@ -114,11 +201,20 @@
       transactions (amounts, notes, dates, income/expense flags), its categories, budgets, and
       goals. These are the records you and your partner intentionally share.</li>
     <li><strong>Account identity</strong> &mdash; the user identifier created by Sign in with
-      Apple / Google / email (a Firebase user ID), and the email address returned by your
+      Apple or Google (a Firebase user ID), and the email address returned by your
       sign-in provider (which may be an Apple private-relay address). Used to authenticate you
       and manage who belongs to the share.</li>
     <li><strong>Membership records</strong> &mdash; who the members of the share are, their
       roles (owner or member), display name, and when they joined.</li>
+    <li><strong>The place an expense happened, if you added one</strong> &mdash; a
+      transaction can carry a place name and, if you tapped &ldquo;Use my location&rdquo;, the
+      exact coordinates of where you were. On a shared wallet those sync to the other member
+      along with the rest of the transaction, which is why the App Store label lists Precise
+      Location as linked to you. See section 4.8 for how location works and how to avoid it
+      entirely.</li>
+    <li><strong>Receipt photos in the shared wallet</strong> &mdash; if you attach a receipt
+      photo to a shared expense, the image is uploaded to Firebase Storage so the other member
+      can see it. Receipts on your personal wallets are never uploaded.</li>
     <li><strong>Device notification token (optional)</strong> &mdash; if, and only if, you turn
       on &ldquo;partner added a transaction&rdquo; push notifications, a Firebase Cloud
       Messaging token is stored so we can deliver those notifications to your device. If you
@@ -129,8 +225,11 @@
   <ul>
     <li>Your <strong>personal</strong> wallets and their transactions, categories, budgets,
       and goals &mdash; never uploaded.</li>
-    <li>App settings, onboarding state, streaks, and your purchase/subscription status.</li>
-    <li>Receipt photos, if that feature is present, stay on your device in this version.</li>
+    <li>App settings, onboarding state, and streaks. (Your purchase status is <em>not</em>
+      purely on-device &mdash; see section 7.)</li>
+    <li>Receipt photos attached to expenses in your <strong>personal</strong> wallets. (A
+      receipt attached to an expense in a <strong>shared</strong> wallet is uploaded to Firebase
+      Storage so the other member can see it &mdash; see 4.2.)</li>
   </ul>
   <p>The privacy boundary is at the wallet level: shared wallets sync; personal wallets do not.</p>
 
@@ -165,65 +264,264 @@
     <li><strong>Leaving a share:</strong> when you leave, you keep a local copy of the records
       you last synced; the cloud share continues for the remaining member unless it too is
       deleted.</li>
-    <li><strong>Deleting your account:</strong> Settings &rarr; delete account removes your
+    <li><strong>Deleting your account:</strong> Settings &rarr; delete account (on Android:
+      Settings &rarr; Account &rarr; Delete account, in the Shared wallet section) removes your
       membership from every share. If you are the sole owner of a share, that share is scheduled
-      for deletion after the 30-day grace period.</li>
-    <li><strong>Lapsed subscription:</strong> if the Household subscription lapses, the shared
-      wallet becomes read-only and exportable &mdash; it is never deleted or held hostage.
-      Re-subscribing restores editing.</li>
+      for deletion after the 30-day grace period. Your sign-in account is deleted straight away.
+      The wallets and transactions on your phone are <strong>not</strong> deleted: shared wallets
+      become personal wallets on that phone. Step-by-step instructions, including what to do if
+      you no longer have the app, are at
+      <a href="https://apps.puzzpics.com/clearspend/delete-account/">apps.puzzpics.com/clearspend/delete-account</a>.</li>
   </ul>
 
   <h3>4.7 Getting your data out (portability)</h3>
   <p>Either member can export the shared wallet&rsquo;s records to CSV or JSON at any time,
     from within the app. A user can always walk away with a copy of any data they could see.</p>
 
-  <h2>5. Analytics and crash reporting</h2>
-  <p>ClearSpend contains no third-party analytics SDK and no third-party crash-reporting SDK,
-    in Solo or Shared mode. We do not build advertising or behavioral profiles. (Apple&rsquo;s
-    own optional crash reports, if you have opted into them at the OS level, are handled by
-    Apple under Apple&rsquo;s privacy policy, not by us.)</p>
+  <h3>4.8 Location</h3>
+  <p>Ownspend can tag an expense with where you spent, so you can see it on a map. This is
+    <strong>entirely optional and never automatic</strong>:</p>
+  <ul>
+    <li>Location is requested <strong>only when you tap &ldquo;Use my location&rdquo;</strong>
+      while adding an expense &mdash; never at launch, never in the background, and never
+      speculatively. iOS asks your permission the first time you tap it.</li>
+    <li>We ask for <strong>While Using the App</strong> permission only. We never ask for
+      &ldquo;Always&rdquo;, and Ownspend cannot read your location when it is not open.</li>
+    <li>We keep the <strong>exact coordinates</strong>, not an approximate area, because the
+      point of the feature is to show the spot on a map. We also store a place name looked up
+      from those coordinates.</li>
+    <li>On a personal wallet the coordinates <strong>stay on your device</strong>, like the rest
+      of your records. On a <strong>shared</strong> wallet they sync to the other member with
+      the transaction &mdash; so treat tagging a shared expense as telling that person where you
+      were.</li>
+    <li>You can decline, and everything else keeps working: the place field is just a text box
+      you can type into, and you can revoke the permission in iOS Settings at any time.</li>
+    <li>You can change or clear the place on a saved transaction — open it and tap Edit.
+      Clearing the place name also drops the coordinates: the pin describes the place text, so
+      emptying one removes the other. On a shared wallet the removal is sent to the other member
+      too, so their copy loses the pin as well.</li>
+  </ul>
+  <p>Ownspend for Android has no location feature and never asks for location permission. If
+    the other member of a shared wallet tagged an expense on an iPhone, the Android app shows
+    that place and keeps it unchanged when you edit the expense.</p>
+
+  <h3>4.9 Ownspend on Android</h3>
+  <p>The Android app follows the same rules, with a smaller footprint. This is everything it
+    sends anywhere:</p>
+  <ul>
+    <li><strong>Solo use sends nothing about your money.</strong> Your wallets, transactions,
+      categories, budgets and goals stay in a private database on your phone. Firebase is not
+      even started until you choose to create or join a shared wallet. The Android app has
+      <strong>no</strong> crash reporting, analytics, advertising SDK, advertising ID,
+      Engagement Center device record or &ldquo;more from us&rdquo; counters.</li>
+    <li><strong>Purchases.</strong> Pro on Android is a one-time purchase processed by
+      <strong>Google Play</strong> (Google Play Billing). Google Play holds the purchase under your
+      Google account; we never see payment details, and there is no RevenueCat on Android.</li>
+    <li><strong>Feedback form</strong> (only if you send it): the same contents as on iPhone
+      (section 5) &mdash; your message and its category, the email address you give for our
+      reply, what you indicated you would pay, a random install identifier, whether you have Pro,
+      and your device model, Android version, language and app version.</li>
+    <li><strong>Shared Wallet</strong> (only if you create or join one):
+      <ul>
+        <li><strong>Sign in with Google</strong> through <strong>Firebase Authentication</strong>.
+          Firebase stores your Google account&rsquo;s email address and name and creates a Firebase
+          user ID. On the phone, the app keeps your user ID, name and email so it can show who
+          is signed in.</li>
+        <li><strong>Cloud Firestore</strong> stores the shared wallet&rsquo;s records (amounts,
+          dates, notes, income/expense, categories, budgets and goals) and the membership: each
+          member&rsquo;s user ID, display name (your Google name, or the part of your email
+          before the &ldquo;@&rdquo;), role and join date. Every change is stored with your user
+          ID and a random identifier for this installation, so changes from two phones can be
+          merged in the right order. The Android app does not upload receipt photos.</li>
+        <li><strong>Firebase Cloud Messaging</strong>: after you create or join a share, Android
+          asks whether Ownspend may show notifications. If you allow them, the app stores a
+          notification token and your currency code on your membership record, so you can be
+          told when the other member adds a transaction. Firebase Cloud Messaging also creates a
+          Firebase installation ID for this phone. If you don&rsquo;t allow notifications, no
+          token is stored. The token is removed when you leave your last share or delete your
+          account.</li>
+        <li><strong>Cloud Functions</strong> run invites, joining, leaving and deleting shares.
+          Like every Google service, they see your device&rsquo;s IP address when the app
+          connects.</li>
+        <li><strong>The person you invite sees the shared wallet</strong>: every transaction,
+          category, budget and goal in it, your display name, and who added each change.
+          Nothing from your personal wallets is ever shared.</li>
+      </ul></li>
+    <li><strong>Encryption.</strong> Everything above is sent over encrypted connections
+      (HTTPS/TLS).</li>
+    <li><strong>Backups.</strong> Android&rsquo;s own backup and phone-to-phone transfer carry
+      your on-device records as before. They never carry your Shared Wallet sign-in, notification
+      token or Firebase identifiers: on a new phone you sign in again.</li>
+    <li><strong>Retention and deletion</strong> are the same as section 4.6. That includes the
+      30-day grace period before a deleted shared wallet is erased from our cloud, and the fact
+      that the data on your phone stays until you delete it or uninstall the app.</li>
+  </ul>
+
+  <h2>5. Analytics, crash reporting and product measurement</h2>
+  <p><strong>Crash reporting.</strong> Ownspend uses <strong>Firebase Crashlytics</strong>
+    so that a crash on any device &mdash; solo or shared &mdash; can be diagnosed and fixed. A
+    crash report contains a stack trace, your device model, the OS version and an app-generated
+    installation identifier. It never contains your transactions, amounts, notes, categories,
+    wallets, or anything you typed into the app.</p>
+  <p><strong>Usage analytics.</strong> Firebase Analytics is present in the app but
+    <strong>collection is switched off when the app launches</strong> and stays off unless it is
+    enabled by a remote configuration flag. If it is ever switched on, it records anonymous
+    events about how features are used &mdash; never your financial data, and never anything
+    that identifies you personally. We do not build advertising or behavioral profiles.</p>
+  <p><strong>Product measurement.</strong> Two small first-party counters write to our own
+    Google Firestore project. Neither ever receives a transaction, amount, note, merchant,
+    category, budget or goal.</p>
+  <ul>
+    <li><strong>&ldquo;More from us&rdquo; counters.</strong> The Settings screen shows cards
+      for our other apps. When those cards appear, when you tap one, and when the app later
+      notices you installed one, we record which app was shown or tapped, where on screen, your
+      install identifier (section 9), and your app version, build, OS version and language.
+      This measures whether advertising our own apps works. <strong>It happens without any
+      action from you beyond opening Settings</strong>, and it is why the App Store label lists
+      Product Interaction. It is still not cross-app tracking in Apple&rsquo;s sense: nothing is
+      shared with another company and nothing is joined to data from anyone else&rsquo;s apps.</li>
+    <li><strong>Feedback form.</strong> If you use Settings &rarr; Suggest a feature, we receive
+      what you wrote and its category, whether you are a Pro user, what you indicated you would
+      pay, your install identifier, and your device model, OS version and language. It also
+      includes <strong>your email address, which the form now requires</strong> — we changed it
+      so that a bug report can actually be answered, having previously received reports we had
+      no way to reply to. We use it to reply to you and for nothing else. The whole thing is
+      sent only when you choose to send it; if you would rather not give an address, do not use
+      the form.</li>
+  </ul>
 
   <h2>6. Advertising and tracking</h2>
   <p>There are no ads, no advertising SDKs, and no cross-app or cross-site tracking in
-    ClearSpend. We do not use the advertising identifier (IDFA), so the App Tracking
+    Ownspend. We do not use the advertising identifier (IDFA), so the App Tracking
     Transparency prompt does not apply.</p>
 
   <h2>7. Purchases</h2>
-  <p>Pro (one-time) and Household (subscription) purchases are processed by Apple through the
-    App Store using StoreKit 2, with RevenueCat managing entitlement status. We never see your
+  <p>Pro purchases &mdash; a one-time lifetime unlock, or a monthly or yearly subscription
+    &mdash; are processed by Apple through the App Store using StoreKit 2, with RevenueCat
+    managing entitlement status. We never see your
     card number or payment details; Apple handles payment.</p>
+  <p>Your purchase status does leave the device, so we should be exact about it. The RevenueCat
+    SDK starts with the app for every user and checks whether this install has Pro. If you have
+    signed in for Shared Wallet, RevenueCat also notifies our server when your entitlement
+    changes, and we store the result against your account, because the shared-wallet features
+    you get depend on it: whether you are entitled and to what tier, when it expires, which
+    product it was, and whether the purchase was a real one or an Apple test purchase. What we
+    store is the entitlement, never a card number, and never what you bought elsewhere. Your Pro flag
+    is also included if you send feedback (section 5).</p>
 
   <h2>8. Notifications</h2>
   <ul>
-    <li>Solo mode uses only local, on-device notifications (for example, budget reminders).</li>
-    <li>Shared Wallet &ldquo;partner added a transaction&rdquo; push notifications are strictly
-      opt-in and are delivered via Firebase Cloud Messaging. If you do not opt in, no push token
-      is collected (see 4.2).</li>
+    <li><strong>Local reminders</strong> (for example, budget reminders) are scheduled on your
+      device by iOS and involve no server at all.</li>
+    <li><strong>Shared Wallet &ldquo;partner added a transaction&rdquo;</strong> push
+      notifications are opt-in and delivered via Firebase Cloud Messaging. If you do not opt
+      in, no Firebase token is collected (see 4.2).</li>
+    <li><strong>Reminders and app news from us.</strong> Ownspend registers a device record
+      with <strong>Engagement Center</strong>, a notification service
+      we run ourselves at <code>engage.puzzpics.com</code> &mdash; it is our own server, not an
+      advertising network. It lets us send you an occasional nudge to log what you spent, or
+      tell you about a new feature. The record holds: a randomly generated device identifier
+      (section 9), the Apple push token, your platform, OS version, app version, language,
+      time zone, whether you allowed notifications, and whether you opted in to marketing
+      messages. <strong>It never contains your transactions, amounts, notes, merchants,
+      categories, budgets, or anything you typed into the app</strong>, and no push we send
+      ever carries a figure.
+      <br><br>
+      To be exact about when this happens: the record is created when the app starts, not when
+      you accept notifications. If you decline notifications, or are never asked, the record
+      still exists &mdash; it simply carries no push token, and is marked as not authorised, so
+      nothing can be sent to you. Allowing notifications adds the token that makes delivery
+      possible. Turn notifications off in iOS Settings, or marketing messages off in the app,
+      and we stop sending; email us (section 14) to have the record itself deleted.
+      <br><br>
+      One related thing this sends: if you <em>tap</em> one of our notifications, the app tells
+      Engagement Center that a notification was opened, with the device identifier, the time,
+      and which message it was. That is how we know whether a message was worth sending. It
+      carries nothing else, and nothing about your finances.</li>
   </ul>
 
   <h2>9. Device identifiers</h2>
-  <p>We do not collect the advertising identifier (IDFA) or use the device vendor identifier
-    (IDFV) to track you. The only identifier associated with your cloud data is the
-    account-derived Firebase user ID created when you sign in for Shared Wallet.</p>
+  <p>We do not collect the advertising identifier (IDFA), and we do not use the device vendor
+    identifier (IDFV) to track you. We do not track you across other companies&rsquo; apps or
+    websites, and we never join your data with anyone else&rsquo;s (section 6). The one thing
+    worth naming, because &ldquo;no cross-app anything&rdquo; would overstate it: the
+    &ldquo;more from us&rdquo; cards ask iOS whether <em>our own</em> other apps are installed on
+    this device, so we do not advertise something you already have and can tell whether a
+    recommendation worked. That is a yes/no question about our apps only. Several identifiers
+    exist, and each is limited to one job. The ones we create
+    and use directly are:</p>
+  <ul>
+    <li><strong>Notification device identifier</strong> &mdash; a random identifier the app
+      generates for itself the first time it registers with Engagement Center (section 8), and
+      stores on your device. It is not derived from your hardware, your Apple ID, or any Apple
+      identifier, and it is not shared with anyone. Because it persists and is how a
+      notification reaches your particular device, we declare it on the App Store as a Device
+      ID that is linked to you and used for developer marketing &mdash; even though we never
+      join it to data from other companies. Deleting the app discards it.</li>
+    <li><strong>Install identifier</strong> &mdash; a second random identifier the app
+      generates for itself and stores on your device. It accompanies the product counters and
+      the feedback form described in section 5, so that a suggestion and the person who sent
+      it can be matched to a reply, and so a count is not double-counted. It never touches your
+      finances, and it is a different value from the notification identifier above. It is not
+      anonymous in every case, though, and we would rather say so than imply otherwise: the
+      feedback form requires an email address, and that address and this identifier sit in the
+      same record — which makes the other records carrying it associable with you. That
+      is exactly why we declare it on the App Store as linked to your identity. Deleting the app
+      discards it.</li>
+    <li><strong>Firebase user ID</strong> &mdash; account-derived, created when you sign in for
+      Shared Wallet, and the identifier associated with your cloud data.</li>
+    <li><strong>Crash installation identifier</strong> &mdash; app-generated, carried by crash
+      reports only, described in section 5.</li>
+  </ul>
+  <p>Two more are created by services we use rather than by us. RevenueCat mints an app-user id
+    when the app starts, so it can tell whether this install has Pro; it begins anonymous, but
+    if you sign in for Shared Wallet the app links it to your account id, so from then on it is
+    not anonymous. And if you turn on Shared Wallet notifications, Firebase Cloud Messaging
+    issues a delivery token. Both are covered by those providers&rsquo; own terms, listed in
+    section 12.</p>
 
   <h2>10. Children</h2>
-  <p>ClearSpend is rated 4+ but is a personal-finance tool that is not directed to children
+  <p>Ownspend is rated 4+ but is a personal-finance tool that is not directed to children
     under 13. Shared Wallet requires an account and is intended for adults; see the age
     requirement in the Terms of Use.</p>
 
   <h2>11. Legal bases and your rights (GDPR / CCPA)</h2>
   <ul>
-    <li><strong>Solo users:</strong> we do not collect or process personal data, so most of
-      this section simply does not apply &mdash; there is nothing on a server to access,
-      correct, or delete.</li>
+    <li><strong>Solo users:</strong> none of your financial data reaches a server, so for
+      your transactions, budgets, wallets and goals there is genuinely nothing for us to
+      access, correct or delete &mdash; they exist only on your device, and deleting the app
+      deletes them. We do hold the limited non-financial records described in sections 5 and 8
+      (the notification device record, the product counters, any feedback you sent, and crash
+      reports). Those are personal data, and the basis differs by purpose rather than being one
+      blanket claim:
+      <ul>
+        <li><strong>Consent</strong> for anything promotional. Notification permission is asked
+          for in iOS, marketing messages are a separate switch inside the app, and turning
+          either off withdraws that consent. Declining means nothing is ever sent to you. Note
+          that the device record itself is created before any of those choices are offered, so
+          we do not claim your notification permission as consent for storing it &mdash; that
+          record exists because it is necessary for the notification feature to function at all,
+          and you can have it deleted on request (section 14).</li>
+        <li><strong>Legitimate interest</strong> for keeping the app working and knowing whether
+          it is useful: crash reports, the &ldquo;more from us&rdquo; counters, and holding the
+          device record itself so the notification feature can function. You have the right to
+          <strong>object</strong> to anything we do on this basis &mdash; see the rights bullet
+          below; if you object we will stop and delete the records.</li>
+        <li><strong>Consent</strong> again for feedback, which exists only because you chose to
+          send it.</li>
+      </ul>
+      You can ask us to delete any of it by emailing us (section 14).</li>
     <li><strong>Shared Wallet users, legal bases (GDPR):</strong> we process shared-wallet data
       to provide the sharing service you requested &mdash; the lawful basis is
       <strong>performance of a contract</strong> (delivering the Shared Wallet feature you
       signed up for) and, for optional push notifications, <strong>your consent</strong>. You
       may withdraw consent to notifications at any time in settings.</li>
-    <li><strong>Your rights:</strong> access, correction, deletion, and portability. Deletion
-      and export are available in-app (sections 4.6&ndash;4.7); for anything else, email us
-      (section 14).</li>
+    <li><strong>Your rights:</strong> access, correction, deletion, portability, and &mdash;
+      because some of the above rests on legitimate interest &mdash; the right to
+      <strong>object</strong> to that processing, and to withdraw consent where consent is the
+      basis. Deletion and export of your own records are available in-app (sections
+      4.6&ndash;4.7); for anything else, including objection and deletion of the device record
+      or feedback, email us (section 14) and we will act on it.</li>
     <li><strong>Controller/processor:</strong> for shared-wallet data, Moath Othman (the
       developer) is the data controller and Google (Firebase) acts as a processor /
       sub-processor under a data processing agreement.</li>
@@ -235,30 +533,44 @@
     rights depend on where you live.</p>
 
   <h2>12. Sub-processors and third-party services</h2>
-  <p>Solo mode uses only Apple frameworks on your device. Shared Wallet relies on the following
-    third parties, each of which processes data under its own terms:</p>
-  <table>
-    <tr><th>Provider</th><th>What it does for ClearSpend</th><th>Applies to</th></tr>
+  <p>Apart from crash reporting (section 5) and notifications (section 8), solo mode uses
+    only Apple frameworks on your device. The services below process data for Ownspend; all
+    but Engagement Center are third parties operating under their own terms &mdash; Engagement
+    Center is infrastructure we run ourselves.</p>
+  <div class="tablebox"><table>
+    <tr><th>Provider</th><th>What it does for Ownspend</th><th>Applies to</th></tr>
     <tr>
-      <td><strong>Google &mdash; Firebase / Google Cloud</strong> (Authentication, Cloud
-        Firestore, Cloud Functions, Cloud Messaging)</td>
-      <td>Stores and syncs the shared wallet&rsquo;s records; authenticates members; delivers
-        opt-in push notifications; runs the secure invite/membership logic.</td>
-      <td>Shared Wallet only</td>
+      <td><strong>Google &mdash; Firebase / Google Cloud</strong> (Crashlytics, Authentication,
+        Cloud Firestore, Cloud Functions, Cloud Storage, Cloud Messaging)</td>
+      <td>Receives crash reports and the product-measurement counters and feedback described in
+        section 5 (all users); and, for Shared Wallet only, stores and syncs the shared
+        wallet&rsquo;s records, receipt photos and any place you tagged, authenticates members,
+        delivers opt-in push notifications, and runs the secure invite/membership logic.</td>
+      <td>Crash reports + product measurement: all users. Sync: Shared Wallet only</td>
     </tr>
     <tr>
-      <td><strong>Apple</strong> (Sign in with Apple, StoreKit, iCloud/CloudKit,
-        notifications)</td>
-      <td>Sign-in, in-app purchases, optional iCloud sync of your own solo data, delivery of
-        local notifications.</td>
+      <td><strong>Engagement Center</strong> (<code>engage.puzzpics.com</code>) &mdash; operated
+        by us, not a third party</td>
+      <td>Stores the device record described in section 8 and sends reminders and app news via
+        Apple Push Notification service. Never receives your financial data.</td>
+      <td>Everyone (delivery only if you allow notifications)</td>
+    </tr>
+    <tr>
+      <td><strong>Apple</strong> (Sign in with Apple, StoreKit, notifications)</td>
+      <td>Sign-in, in-app purchases, delivery of local notifications.</td>
       <td>Both modes</td>
     </tr>
     <tr>
       <td><strong>RevenueCat</strong></td>
-      <td>Manages subscription/entitlement status for Pro and Household.</td>
+      <td>Manages purchase and entitlement status for Pro.</td>
       <td>Both modes (purchases)</td>
     </tr>
-  </table>
+    <tr>
+      <td><strong>Google Play</strong> (Android only: Google Play Billing, Sign in with Google)</td>
+      <td>Processes the Android Pro purchase, and provides your Google sign-in for Shared Wallet.</td>
+      <td>Android: purchases (both modes); sign-in (Shared Wallet only)</td>
+    </tr>
+  </table></div>
   <p>Google&rsquo;s handling of the data it processes for us is governed by the Google Cloud /
     Firebase Data Processing terms. Their privacy policies:
     <a href="https://firebase.google.com/support/privacy">Firebase</a>,
@@ -267,27 +579,29 @@
 
   <h2>13. Changes to this policy</h2>
   <p>If we change what data is collected, we update the &ldquo;Last updated&rdquo; date and note
-    it in the App Store release notes. A material increase in data collection ships only with an
-    app update, never silently &mdash; and the App Store privacy label is updated in that same
-    release.</p>
+    it in the App Store release notes, and the App Store privacy label is updated in that same
+    release. One honest exception to &ldquo;only with an app update&rdquo;: as section 5
+    describes, usage analytics are switched off at launch and could be switched on by a remote
+    configuration flag without shipping a new build. If we ever turn that on we will say so here
+    and in the label first.</p>
 
   <h2>14. Contact</h2>
   <p>Questions or requests (including data deletion or export help): email
     <a href="mailto:kenz@kenzapps.com">kenz@kenzapps.com</a>. We usually reply within a
-    business day or two.</p>
+    business day or two. To delete your Shared Wallet account, follow
+    <a href="https://apps.puzzpics.com/clearspend/delete-account/">apps.puzzpics.com/clearspend/delete-account</a>. It works in the
+    app on iPhone and Android, or by email if you no longer have the app.</p>
 
   <div class="disclaimer">
     <h2>A note on financial guidance</h2>
-    <p>ClearSpend is a personal budgeting and expense-tracking tool, not financial, investment,
+    <p>Ownspend is a personal budgeting and expense-tracking tool, not financial, investment,
       or tax advice. For guidance specific to your situation, talk to a qualified financial
       professional.</p>
   </div>
-
-  <footer>
-    &copy; 2026 Moath Othman &middot;
-    <a href="index.html">Back to ClearSpend</a> &middot;
-    <a href="terms.html">Terms of Use</a>
-  </footer>
-</div>
+</main>
+<footer>
+  <p><a href="index.html">Ownspend</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Use</a> &middot; <a href="mailto:kenz@kenzapps.com">Contact</a></p>
+  <p>&copy; 2026 Moath Othman &middot; <a href="../">All apps</a></p>
+</footer>
 </body>
 </html>
