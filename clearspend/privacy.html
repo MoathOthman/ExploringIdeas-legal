@@ -258,9 +258,12 @@
 
   <h3>4.6 Retention and deletion of shared data</h3>
   <ul>
-    <li>Shared records are retained while the share is active. When a wallet is deleted, or you
-      delete your account, the affected data enters a <strong>30-day recovery window</strong>
-      and is then permanently deleted from our cloud by a scheduled process.</li>
+    <li>Shared records are retained while the share is active. When a shared wallet is deleted,
+      or you delete your account while you are its only member, it enters a
+      <strong>30-day recovery window</strong>. It is then permanently deleted from our cloud by a
+      scheduled process that runs once a day, so about 30 to 31 days after deletion. In a share
+      that continues with another member, the records you added stay, still carrying your user
+      ID and a random install ID, until that share is deleted.</li>
     <li><strong>Leaving a share:</strong> when you leave, you keep a local copy of the records
       you last synced; the cloud share continues for the remaining member unless it too is
       deleted.</li>
@@ -338,8 +341,8 @@
           notification token and your currency code on your membership record, so you can be
           told when the other member adds a transaction. Firebase Cloud Messaging also creates a
           Firebase installation ID for this phone. If you don&rsquo;t allow notifications, no
-          token is stored. The token is removed when you leave your last share or delete your
-          account.</li>
+          token is stored. The token is removed from a share when you leave it, and from the
+          phone when you leave your last share or delete your account.</li>
         <li><strong>Cloud Functions</strong> run invites, joining, leaving and deleting shares.
           Like every Google service, they see your device&rsquo;s IP address when the app
           connects.</li>
@@ -579,8 +582,8 @@
 
   <h2>13. Changes to this policy</h2>
   <p>If we change what data is collected, we update the &ldquo;Last updated&rdquo; date and note
-    it in the App Store release notes, and the App Store privacy label is updated in that same
-    release. One honest exception to &ldquo;only with an app update&rdquo;: as section 5
+    it in the App Store release notes. The App Store privacy label and the Google Play Data
+    safety section are updated in that same release. One honest exception to &ldquo;only with an app update&rdquo;: as section 5
     describes, usage analytics are switched off at launch and could be switched on by a remote
     configuration flag without shipping a new build. If we ever turn that on we will say so here
     and in the label first.</p>
