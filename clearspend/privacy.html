@@ -332,16 +332,18 @@
           is signed in.</li>
         <li><strong>Cloud Firestore</strong> stores the shared wallet&rsquo;s records (amounts,
           dates, notes, income/expense, categories, budgets and goals) and the membership: each
-          member&rsquo;s user ID, display name (your Google name, or the part of your email
-          before the &ldquo;@&rdquo;), role and join date. Every change is stored with your user
+          member&rsquo;s user ID, display name (a name you choose in the app, otherwise your Google name or the part of
+          your email before the &ldquo;@&rdquo;), role, join date, who invited you, and your
+          currency code (so amounts show in the owner&rsquo;s currency). Every change is stored with your user
           ID and a random identifier for this installation, so changes from two phones can be
           merged in the right order. The Android app does not upload receipt photos.</li>
         <li><strong>Firebase Cloud Messaging</strong>: after you create or join a share, Android
           asks whether Ownspend may show notifications. If you allow them, the app stores a
-          notification token and your currency code on your membership record, so you can be
-          told when the other member adds a transaction. Firebase Cloud Messaging also creates a
-          Firebase installation ID for this phone. If you don&rsquo;t allow notifications, no
-          token is stored. The token is removed from a share when you leave it, and from the
+          notification token on your membership record, so you can be told when the other
+          member adds a transaction. Firebase Cloud Messaging also creates a
+          Firebase installation ID for this phone. If you never allow notifications, no token
+          is stored; if you turn them off later, a token stored earlier stays on your
+          membership record until you leave the share or delete your account. The token is removed from a share when you leave it, and from the
           phone when you leave your last share or delete your account.</li>
         <li><strong>Cloud Functions</strong> run invites, joining, leaving and deleting shares.
           Like every Google service, they see your device&rsquo;s IP address when the app
