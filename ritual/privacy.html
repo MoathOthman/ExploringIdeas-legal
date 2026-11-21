@@ -143,10 +143,10 @@
 <div class="container">
   <div class="eyebrow">Legal</div>
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: October 2026</p>
+  <p class="updated">Last updated: November 2026</p>
 
   <div class="highlight-box">
-    <p>The short version: Ritual has no account and no Ritual server that stores your habits. Your habit names, notes, completions, streaks and settings live on your device and are never sent to us. What does leave the device is limited and spelled out in full below: anonymous usage events and crash reports (fixed event names and counts &mdash; never a habit name), and a device record that makes notifications deliverable. We never sell your data.</p>
+    <p>The short version: Ritual has no account and no Ritual server that stores your habits. Your habit names, notes, completions, streaks and settings live on your device and are never sent to us. What does leave the device is limited and spelled out in full below: anonymous usage events and crash reports (fixed event names and counts &mdash; never a habit name), a device record that makes notifications deliverable, and &mdash; only if you choose to send it &mdash; feedback with the email address you give us. We never sell your data.</p>
   </div>
 
   <h2>No account required</h2>
@@ -168,7 +168,7 @@
   <h2>Analytics and crash reporting &mdash; the honest disclosure</h2>
   <p>Ritual uses <strong>Google Firebase Analytics</strong> and <strong>Firebase Crashlytics</strong> to understand whether the app works and which features are actually used. Here is exactly what that means:</p>
   <ul>
-    <li><strong>Usage events</strong> &mdash; anonymous events with fixed, pre-declared names such as "a habit was created", "a habit was completed", "the heatmap was viewed", "a reminder was set", "a streak milestone was reached", "an export was triggered", "the paywall was shown", "a purchase completed". Where an event carries a value at all, it is a number, such as a streak length.</li>
+    <li><strong>Usage events</strong> &mdash; anonymous events with fixed, pre-declared names such as "a habit was created", "a habit was completed", "a row was woven", "a reward was earned", "a suggestion was shown", "the heatmap was viewed", "a reminder was set", "a streak milestone was reached", "an export was triggered", "the paywall was shown", "a purchase completed". Where an event carries a value at all, it is a number, such as a streak length.</li>
     <li><strong>Crash reports</strong> &mdash; if the app crashes, a report containing the stack trace, your device model and your operating-system version is sent so we can fix the bug. Diagnostic breadcrumbs record which screen you were on and the error code of a failed operation &mdash; never what was on the screen.</li>
   </ul>
   <p>These events <strong>never include your habit names, descriptions, notes, completion dates, or anything that identifies you personally</strong>. Keeping habit content out of analytics is not a promise we make casually: it is enforced in the codebase by an automated test suite that fails the build if a habit name can reach an analytics, breadcrumb, or crash-reporting call.</p>
@@ -184,13 +184,16 @@
   <h2>On-device AI (Describe a Habit, Build a Routine)</h2>
   <p>On devices that support Apple Intelligence, Ritual can draft a habit or a routine from a sentence you type. This runs entirely on your device using Apple's on-device model. What you type and what the model returns are not sent to us, to Apple's servers by Ritual, or to any other company, and they are not included in analytics. Nothing is saved until you review the draft and save it yourself.</p>
 
+  <h2>Loom rewards, suggestions and posters</h2>
+  <p>Ritual's woven cloth, earned rewards (darning needles and patterns) and Loom suggestions are worked out on your device from your own habits. Needles you spend are stored with your habits (and synced through your own iCloud only if you turned iCloud sync on); which suggestions you have seen is stored only on that device. Wallpapers and posters are generated on your device and go only where you choose to save or share them. None of this is sent to us.</p>
+
   <h2>Notifications</h2>
   <p>Ritual uses two different kinds of notification, and it is worth separating them.</p>
   <ul>
-    <li><strong>Habit reminders are local.</strong> The reminders you set on a habit are scheduled by iOS on your own device. Their text and times never leave your phone and are never sent to us or to any push server.</li>
+    <li><strong>Habit reminders are local.</strong> The reminders you set on a habit are scheduled by the operating system on your own device. Their text and times never leave your device and are never sent to us or to any push server.</li>
     <li><strong>App announcements are remote, and strictly opt-in.</strong> Ritual also supports remote push notifications (for example, a note that a new version has shipped), delivered through <strong>Firebase Cloud Messaging</strong>. Your device is subscribed only if you allow notifications on the screen that says announcements are included, or turn on the "App announcements" switch in Settings &mdash; and turning that switch off stops them at any time. Allowing notifications anywhere else (for example, just for your habit reminders) never subscribes you. Announcements are the same message sent to everyone subscribed &mdash; they never contain personal content.</li>
   </ul>
-  <p>To make any notification deliverable, Ritual registers a device record with our own notification service at <code>engage.puzzpics.com</code>. That record contains: a random identifier generated by the app for this install (not your Apple ID, and not your device's advertising or vendor identifier), the app slug "ritual", your platform, your iOS version, the Ritual version, your locale and time-zone identifiers, whether you granted notification permission, your announcement opt-in choice, and &mdash; once iOS has issued one, which only happens after you allow notifications &mdash; the push token. The same service records a handful of fixed engagement events: that a session started, that an announcement was opened, and whether an in-app message was shown, tapped, or dismissed.</p>
+  <p>To make any notification deliverable, Ritual registers a device record with our own notification service at <code>engage.puzzpics.com</code>. That record contains: a random identifier generated by the app for this install (not your Apple ID, and not your device's advertising or vendor identifier), the app slug "ritual", your platform, your operating-system version, the Ritual version, your locale and time-zone identifiers, whether you granted notification permission, your announcement opt-in choice, and &mdash; once iOS has issued one, which only happens after you allow notifications &mdash; the push token. The same service records a handful of fixed engagement events: that a session started, that an announcement was opened, and whether an in-app message was shown, tapped, or dismissed.</p>
   <p>None of this contains habit data of any kind. There are no habit names, no notes, no completion dates, and no free text in any of it.</p>
 
   <h2>Advertising and tracking</h2>
