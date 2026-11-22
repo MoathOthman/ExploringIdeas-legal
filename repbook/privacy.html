@@ -38,10 +38,11 @@
     <strong>The short version:</strong> GymLedger has no account and no servers for your data.
     Every workout you log &mdash; exercises, sets, reps, weights, routines, and bodyweight &mdash;
     is stored <strong>entirely on your device</strong> and <strong>never transmitted to us</strong>.
-    There is no login and no cloud sync. The only data that ever leaves your phone is anonymous,
-    aggregate usage statistics; if you choose to use the "Suggest a Feature" form, what you type in
-    it <strong>together with the email address that form asks for</strong>, so we can reply; and, if
-    you allow notifications, an anonymous push token. That's it &mdash; described in full below.
+    There is no login and no cloud sync. What does leave your phone: anonymous usage statistics
+    and an anonymous device record; if you choose to use the "Suggest a Feature" form, what you
+    type in it <strong>together with the email address that form asks for</strong>, so we can
+    reply; if you allow notifications, an anonymous push token; and the purchase status check
+    described under Purchases. Each is described in full below.
   </div>
 
   <h2>Your workout data stays on your device</h2>
@@ -52,8 +53,9 @@
   no login, and no cloud sync in this version of the app.</p>
 
   <h2>Anonymous analytics &mdash; the honest disclosure</h2>
-  <p>Your training data never leaves your device. Three things in GymLedger do send something, and
-  this is all of them:</p>
+  <p>Your training data never leaves your device. Three things in GymLedger send something to
+  services we run; the purchase status check, which goes to RevenueCat, is described under
+  Purchases:</p>
   <ul>
     <li><strong>"Suggest a Feature" form</strong> &mdash; if you tap it and submit a suggestion, we
         receive the text you typed and <strong>the email address the form asks for</strong>. The
@@ -122,8 +124,8 @@
   iOS asks for your permission first, and GymLedger then does two things: it <strong>saves each
   finished workout</strong> to Apple Health as a strength-training workout (start time, end time
   and duration), so it appears in Fitness, and it <strong>reads your bodyweight</strong> from
-  Apple Health so the app can show your bodyweight trend (the permission sheet also lists workouts,
-  so the app can recognise the ones it saved). All of this happens on
+  Apple Health so the app can show your bodyweight trend. (The permission sheet also lists reading
+  workouts; the app does not read them today.) All of this happens on
   your device. Health data is <strong>never sent to us</strong> or to anyone else, is never used
   for advertising or marketing, and is not included in analytics, notifications or the suggestion
   form. You can withdraw access at any time in the Health app under Sharing &rarr; Apps &rarr;
@@ -134,10 +136,13 @@
   GymLedger never sees your payment method, Apple ID, or billing details &mdash; Apple processes the
   payment and we never receive card data. Apple's privacy policy governs that transaction.</p>
   <p>To know whether GymLedger Pro is unlocked on your device, the app uses
-  <strong>RevenueCat</strong>, a purchase-management service. RevenueCat receives Apple's purchase
-  receipt and a random, anonymous app user identifier, and returns your purchase status (which
-  product, whether it is active, and when it renews or expires). It does not receive your name,
-  email, Apple ID or payment details, and it never receives your workouts.</p>
+  <strong>RevenueCat</strong>, a purchase-management service. This happens on every launch, whether or not you buy anything. RevenueCat receives
+  a random, anonymous app user identifier, Apple's purchase receipt if there is one, and technical
+  details about the device and app: Apple's identifier for our apps on your device (IDFV, which is
+  not the advertising identifier), device model, iOS version, app version, language and App Store
+  country. It returns your purchase status (which product, whether it is active, and when it
+  renews or expires). It does not receive your name, email, Apple ID or payment details, and it
+  never receives your workouts.</p>
 
   <h2>No account required</h2>
   <p>GymLedger requires no sign-up, no email address, no phone number, and no social login to work.
@@ -151,9 +156,10 @@
 
   <h2>Data breach risk</h2>
   <p>Because your workout data is stored only on your device and is never uploaded, there is no
-  GymLedger database of your training log to breach. The only records we hold are the feedback
+  GymLedger database of your training log to breach. The records we hold are the feedback
   messages people chose to send (which include an email address) and the anonymous device records
-  described above, both in Google Cloud databases that only we can read. If your device is compromised, that is governed by
+  described above, both in Google Cloud databases that only we can read; RevenueCat holds the
+  purchase status records described under Purchases. If your device is compromised, that is governed by
   Apple's device security model &mdash; we recommend using a strong passcode and Face ID / Touch ID.</p>
 
   <h2>Retention</h2>
