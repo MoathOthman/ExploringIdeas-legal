@@ -32,15 +32,16 @@
 <div class="wrap">
   <p><a href="index.html">&larr; GymLedger</a></p>
   <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: 5 July 2026</p>
+  <p class="muted">Last updated: 22 November 2026</p>
 
   <div class="summary-card">
     <strong>The short version:</strong> GymLedger has no account and no servers for your data.
     Every workout you log &mdash; exercises, sets, reps, weights, routines, and bodyweight &mdash;
     is stored <strong>entirely on your device</strong> and <strong>never transmitted to us</strong>.
     There is no login and no cloud sync. The only data that ever leaves your phone is anonymous,
-    aggregate usage statistics and, if you choose to use the "Suggest a Feature" form, whatever you
-    type into it. That's it &mdash; described in full below.
+    aggregate usage statistics; if you choose to use the "Suggest a Feature" form, what you type in
+    it <strong>together with the email address that form asks for</strong>, so we can reply; and, if
+    you allow notifications, an anonymous push token. That's it &mdash; described in full below.
   </div>
 
   <h2>Your workout data stays on your device</h2>
@@ -51,63 +52,116 @@
   no login, and no cloud sync in this version of the app.</p>
 
   <h2>Anonymous analytics &mdash; the honest disclosure</h2>
-  <p>GymLedger sends a small amount of <strong>anonymous, aggregate analytics only</strong>. There are
-  exactly two features that transmit anything off your device:</p>
+  <p>Your training data never leaves your device. Three things in GymLedger do send something, and
+  this is all of them:</p>
   <ul>
     <li><strong>"Suggest a Feature" form</strong> &mdash; if you tap it and submit a suggestion, we
-        receive the text you typed and, <em>only if you choose to enter it</em>, an optional email
-        address so we can follow up. You are never required to enter an email.</li>
+        receive the text you typed and <strong>the email address the form asks for</strong>. The
+        email is <strong>required to send the form</strong>, because a suggestion we cannot reply to
+        helps neither of us. Nothing is sent unless you press Send, and the form is entirely
+        optional &mdash; you never have to open it.</li>
     <li><strong>In-app cross-promotion of our other apps</strong> &mdash; when the app shows you one
         of our other apps, it records that this happened so we can understand which promotions are
         useful.</li>
+    <li><strong>Our own notification service</strong> &mdash; described in the next section. It is
+        the one that sends something <em>without</em> you doing anything.</li>
   </ul>
-  <p>Each of these events carries a <strong>random, anonymous install identifier</strong> (a random
-  value generated on first launch that is <strong>not tied to your identity</strong>, your Apple ID,
-  your name, or any personal information), plus the app's slug and version and the type of event.
-  For a feature suggestion it also carries the suggestion text you typed and your optional email if
-  you provided one. That is the complete list of what is transmitted.</p>
+  <p>Each of these carries a <strong>random, anonymous install identifier</strong> (a random value
+  generated on first launch that is not your Apple ID, your name, or any account), plus the app's
+  version and the type of event. A feature suggestion also carries the text you typed, the email
+  address you entered, the category you picked, the price you said you would pay (only if you
+  entered one), whether a purchase is active, and your device model, iOS version and
+  language/region. It is stored in a Google Cloud Firestore database that we control, used only to
+  answer you and to decide what to build. Please do not put sensitive information in it; to have a
+  record deleted, email us at the address under Contact.</p>
+  <p><strong>The feedback form is the one place where what we hold is linked to you</strong>,
+  because an email address can identify you. Everything else on this page is anonymous.</p>
+
+  <h2>Our own notification service, and notifications</h2>
+  <p><strong>What:</strong> a device record held by our own service (not a third party), containing
+  a random app-scoped device identifier, the platform, your iOS version, the app version, your
+  language and time zone, whether you have allowed notifications, and whether app announcements are
+  on. Alongside it we record that a session started, and that you opened a notification.</p>
+  <p><strong>When:</strong> on launch, <em>whether or not you allow notifications</em>. It is not
+  tied to notification permission, and we say so rather than implying the app is silent until you
+  opt in. The record never contains your workouts, sets, reps, weights, routines or bodyweight.</p>
+  <p><strong>Why:</strong> to deliver announcements, to count how many devices use the app, and to
+  choose which devices receive one &mdash; which is marketing, and we say so. <strong>Marketing
+  messages are opt-in:</strong> you receive announcements only if app announcements are turned on.
+  The screen that asks for notification permission says that allowing notifications also turns app
+  announcements on; you can switch them off at any time in GymLedger under Settings &rarr;
+  Notifications &rarr; App announcements, and workout reminders are a separate switch that stays off
+  until you turn it on.</p>
+  <p><strong>The push token:</strong> if you allow notifications, your device generates an
+  anonymous push registration token (a random identifier, not your name, email or Apple ID) which
+  is added to that record so a notification can be delivered. If you never allow notifications, no
+  token is ever created &mdash; but the device record above is still sent. The message text is
+  written by us and carries no personal data.</p>
+  <p><strong>Not linked to you, not tracking:</strong> the device record carries no name, email or
+  account, so we cannot tell who you are from it. It is our own first-party service: we do not sell
+  it, share it with data brokers or ad networks, or combine it with data from other companies' apps
+  or websites. <strong>Opting out:</strong> turn off app announcements to stop marketing messages,
+  or turn off notifications for GymLedger in iOS Settings to stop all notifications.</p>
 
   <h2>What GymLedger does not do</h2>
   <p>To be explicit:</p>
   <ul>
-    <li>We do not transmit your workouts, sets, reps, weights, routines, or bodyweight to any server.</li>
+    <li>We do not transmit your workouts, sets, reps, weights, routines, or bodyweight to any
+        server &mdash; not in analytics, not in a notification, and not in the suggestion form.</li>
     <li>We do not use the advertising identifier (IDFA).</li>
     <li>We do not track you across apps, websites, or companies, and we do not use Apple's App
         Tracking Transparency framework because there is no cross-app tracking.</li>
     <li>We show no ads and contain no third-party advertising SDK.</li>
     <li>We do not access your contacts, calendar, photos, or location.</li>
-    <li>We do not use HealthKit or handle any Apple Health data in this version (see below).</li>
+    <li>We do not send any Apple Health data off your device (see below).</li>
     <li>We do not sell or share your data &mdash; there is nothing personal to sell.</li>
   </ul>
 
   <h2>Apple Health (HealthKit)</h2>
-  <p>This version of GymLedger does <strong>not</strong> integrate with Apple Health / HealthKit and
-  does not read or write any health or fitness data outside the app. HealthKit support is something
-  we may add in a future version; if we do, we will update this policy before that feature ships and
-  explain exactly what health data is used and how.</p>
+  <p>Apple Health is <strong>optional and off until you turn it on</strong>. If you connect it,
+  iOS asks for your permission first, and GymLedger then does two things: it <strong>saves each
+  finished workout</strong> to Apple Health as a strength-training workout (start time, end time
+  and duration), so it appears in Fitness, and it <strong>reads your bodyweight</strong> from
+  Apple Health so the app can show your bodyweight trend (the permission sheet also lists workouts,
+  so the app can recognise the ones it saved). All of this happens on
+  your device. Health data is <strong>never sent to us</strong> or to anyone else, is never used
+  for advertising or marketing, and is not included in analytics, notifications or the suggestion
+  form. You can withdraw access at any time in the Health app under Sharing &rarr; Apps &rarr;
+  GymLedger, or in iOS Settings &rarr; Privacy &amp; Security &rarr; Health.</p>
 
   <h2>Purchases</h2>
   <p>Any optional purchase in GymLedger is processed by Apple through the App Store using StoreKit.
   GymLedger never sees your payment method, Apple ID, or billing details &mdash; Apple processes the
   payment and we never receive card data. Apple's privacy policy governs that transaction.</p>
+  <p>To know whether GymLedger Pro is unlocked on your device, the app uses
+  <strong>RevenueCat</strong>, a purchase-management service. RevenueCat receives Apple's purchase
+  receipt and a random, anonymous app user identifier, and returns your purchase status (which
+  product, whether it is active, and when it renews or expires). It does not receive your name,
+  email, Apple ID or payment details, and it never receives your workouts.</p>
 
   <h2>No account required</h2>
   <p>GymLedger requires no sign-up, no email address, no phone number, and no social login to work.
+  The one exception is optional: the "Suggest a Feature" form asks for an email so we can reply.
   There is no GymLedger account and no GymLedger server that stores your identity or your training log.</p>
 
   <h2>Children</h2>
-  <p>GymLedger is not directed at children under 13 and collects no personal data from anyone of any age.</p>
+  <p>GymLedger is not directed at children under 13 and we do not knowingly collect personal data
+  from children. The only personal data the app can collect from anyone is an email address, and
+  only if that person chooses to send us feedback.</p>
 
   <h2>Data breach risk</h2>
   <p>Because your workout data is stored only on your device and is never uploaded, there is no
-  GymLedger database of your training log to breach. If your device is compromised, that is governed by
+  GymLedger database of your training log to breach. The only records we hold are the feedback
+  messages people chose to send (which include an email address) and the anonymous device records
+  described above, both in Google Cloud databases that only we can read. If your device is compromised, that is governed by
   Apple's device security model &mdash; we recommend using a strong passcode and Face ID / Touch ID.</p>
 
   <h2>Retention</h2>
   <p>Your workouts, routines, history, and bodyweight entries live only on your device and are
-  deleted when you delete GymLedger or clear them yourself. The anonymous analytics events described
-  above are retained only for as long as needed to improve the app and prioritize features, and carry
-  no information that identifies you.</p>
+  deleted when you delete GymLedger or clear them yourself. The anonymous events described above
+  are retained only for as long as needed to improve the app and prioritise features, and carry
+  nothing that identifies you. Feedback you sent is kept until we no longer need it to answer you
+  or plan the app, or until you ask us to delete it &mdash; email us at the address under Contact.</p>
 
   <h2>Changes to this policy</h2>
   <p>If this policy ever changes we will update the date at the top of this page. Material changes
@@ -118,6 +172,7 @@
   <p>Questions about this privacy policy? Email
   <a href="mailto:kenz@kenzapps.com">kenz@kenzapps.com</a>.
   We aim to reply within two business days.</p>
+
 
   <footer>
     <p>&copy; 2026 Moath Othman &middot; <a href="index.html">Back to GymLedger</a></p>
