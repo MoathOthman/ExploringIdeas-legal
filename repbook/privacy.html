@@ -41,8 +41,8 @@
     There is no login and no cloud sync. What does leave your phone: anonymous usage statistics
     and an anonymous device record; if you choose to use the "Suggest a Feature" form, what you
     type in it <strong>together with the email address that form asks for</strong>, so we can
-    reply; if you allow notifications, an anonymous push token; and the purchase status check
-    described under Purchases. Each is described in full below.
+    reply; if you allow notifications, an anonymous push token, which also goes to Apple's and Google's
+    notification delivery services; and the purchase status check described under Purchases. Each is described in full below.
   </div>
 
   <h2>Your workout data stays on your device</h2>
@@ -83,27 +83,36 @@
   <p><strong>What:</strong> a device record held by our own service (not a third party), containing
   a random app-scoped device identifier, the platform, your iOS version, the app version, your
   language and time zone, whether you have allowed notifications, and whether app announcements are
-  on. Alongside it we record that a session started, and that you opened a notification.</p>
+  on. Alongside it we record that a session started, that you opened a notification, and, when the
+  app shows you an in-app announcement, that it was shown, tapped or closed, with that
+  announcement's identifier.</p>
   <p><strong>When:</strong> on launch, <em>whether or not you allow notifications</em>. It is not
   tied to notification permission, and we say so rather than implying the app is silent until you
   opt in. The record never contains your workouts, sets, reps, weights, routines or bodyweight.</p>
   <p><strong>Why:</strong> to deliver announcements, to count how many devices use the app, and to
-  choose which devices receive one &mdash; which is marketing, and we say so. <strong>Marketing
-  messages are opt-in:</strong> you receive announcements only if app announcements are turned on.
+  choose which devices receive one &mdash; which is marketing, and we say so. <strong>Push
+  announcements are opt-in:</strong> you receive announcement notifications only if app
+  announcements are turned on. Separately, the app may occasionally show an announcement on screen
+  while you are using it (for example about a new feature or one of our other apps); that switch
+  does not control those, and you can close one with a tap.
   The screen that asks for notification permission says that allowing notifications also turns app
   announcements on; you can switch them off at any time in GymLedger under Settings &rarr;
   Notifications &rarr; App announcements, and workout reminders are a separate switch that stays off
   until you turn it on.</p>
   <p><strong>The push token:</strong> if you allow notifications, your device generates an
   anonymous push registration token (a random identifier, not your name, email or Apple ID) which
-  is added to that record so a notification can be delivered. If you never allow notifications, no
-  token is ever created &mdash; but the device record above is still sent. The message text is
+  is added to that record so a notification can be delivered. Delivery itself goes through Apple's
+  push service and Google's Firebase Cloud Messaging, so once you allow notifications Google
+  receives the push token and a random Firebase installation identifier. We use Firebase for
+  message delivery only; no Google analytics or advertising SDK is included. If you never allow
+  notifications, no token is ever created &mdash; but the device record above is still sent. The message text is
   written by us and carries no personal data.</p>
   <p><strong>Not linked to you, not tracking:</strong> the device record carries no name, email or
   account, so we cannot tell who you are from it. It is our own first-party service: we do not sell
   it, share it with data brokers or ad networks, or combine it with data from other companies' apps
-  or websites. <strong>Opting out:</strong> turn off app announcements to stop marketing messages,
-  or turn off notifications for GymLedger in iOS Settings to stop all notifications.</p>
+  or websites. <strong>Opting out:</strong> turn off app announcements to stop announcement
+  notifications, or turn off notifications for GymLedger in iOS Settings to stop all
+  notifications.</p>
 
   <h2>What GymLedger does not do</h2>
   <p>To be explicit:</p>
@@ -158,8 +167,10 @@
   <p>Because your workout data is stored only on your device and is never uploaded, there is no
   GymLedger database of your training log to breach. The records we hold are the feedback
   messages people chose to send (which include an email address) and the anonymous device records
-  described above, both in Google Cloud databases that only we can read; RevenueCat holds the
-  purchase status records described under Purchases. If your device is compromised, that is governed by
+  described above. Feedback messages and cross-promotion counts are in a Google Cloud database
+  that only we can read; the device records are on a server we operate ourselves. RevenueCat
+  holds the purchase status records described under Purchases, and Apple and Google hold the
+  push token for delivery. If your device is compromised, that is governed by
   Apple's device security model &mdash; we recommend using a strong passcode and Face ID / Touch ID.</p>
 
   <h2>Retention</h2>
