@@ -97,10 +97,10 @@
 <main class="wrap">
   <p class="doc-kicker">Mini Keyboard &middot; Legal</p>
 <h1>Privacy Policy</h1>
-<p class="muted">Mini Keyboard · Last updated 25 September 2026</p>
+<p class="muted">Mini Keyboard · Last updated 23 November 2026</p>
 
 <div class="card">
-  <strong>The short version.</strong> What you type goes from your iPhone to your own Mac over your own Wi-Fi network, and nowhere else. There is no account, no cloud, and no server that sees your keystrokes. Two other things leave the iPhone: an anonymous report when the app crashes or a step fails, and — new in version 2.3 — an anonymous count of which steps you reached. Neither ever contains anything you typed, and you can switch the counting off inside the app.
+  <strong>The short version.</strong> What you type goes from your iPhone to your own Mac over your own Wi-Fi network, and nowhere else. There is no account, no cloud, and no server that sees your keystrokes. Three other things leave the iPhone: an anonymous report when the app crashes or a step fails; an anonymous count of which steps you reached (new in version 2.3), which you can switch off inside the app; and — new in version 2.4, only if you buy Pro — Apple's record of that purchase. None of them ever contains anything you typed.
 </div>
 
 <h2>What you type</h2>
@@ -116,7 +116,11 @@
 <p>Two things carry those counts: <strong>Firebase Analytics</strong> (Google), and a small client of our own that posts to a server we operate. Each event is a fixed name with <strong>no payload</strong> — there is no field in which a keystroke, a snippet, a Mac's name or a pairing secret could travel, by accident or otherwise, and that is enforced by the app's own tests rather than by care alone.</p>
 <p>The counts are grouped by a randomly generated identifier for the installation — Firebase's app instance ID, and a random app-scoped UUID for our own client. Neither is the device's advertising identifier, neither is the iOS vendor identifier, and nothing is joined to them. They identify an install so that ten events from one phone are not read as ten users. They do not identify you, and we could not connect them to you if we wanted to.</p>
 <p><strong>To turn it off:</strong> open the app and switch off <em>Share anonymous usage</em> at the bottom of the first screen. Off is a hard stop — no request is made at all, rather than being sent and discarded. The app also tells you about this once, the first time you open version 2.3.</p>
-<p>The Mac app counts nothing and sends nothing. It has no analytics, no crash reporting and no network connection to us of any kind.</p>
+<h2>Purchases — new in version 2.4</h2>
+<p>Buying or restoring Mini Keyboard Pro happens entirely through Apple: Apple takes the payment, and the app checks with Apple whether you own Pro. That has not changed.</p>
+<p>From version 2.4 the iPhone app also passes Apple's record of a Pro purchase or restore to <strong>RevenueCat</strong>, a purchase-records service, so that we can see sales in our own reports. What it receives is the transaction Apple issued — which product, when, the price and the storefront country — under a randomly generated identifier for the installation. There is no account to attach it to; the app does not give RevenueCat a name, an email address, your device's advertising identifier or its vendor identifier; and it contains nothing you typed. RevenueCat does not decide whether you have Pro — Apple does.</p>
+<p>This is a record of a sale rather than a count of how you use the app, so the <em>Share anonymous usage</em> switch does not cover it. If you never buy Pro, nothing is sent. To have RevenueCat's record of your purchase deleted, email us at the address below.</p>
+<p>The Mac app counts nothing and sends nothing. It has no analytics, no crash reporting, no purchases and no network connection to us of any kind.</p>
 
 <h2>What we do not collect</h2>
 <ul>
@@ -142,6 +146,7 @@
 
 <h2>Changes</h2>
 <p>If this policy changes in a way that affects what is collected, the updated policy will be published here with a new date, and the change will be described in the app's release notes.</p>
+<p><strong>23 November 2026.</strong> Version 2.4 began passing Apple's record of a Pro purchase or restore to RevenueCat, described under Purchases above. Nothing changed for people who do not buy Pro.</p>
 <p><strong>25 September 2026.</strong> Version 2.3 began counting usage and reporting non-crash failures, both described above. Earlier versions of this page stated that usage was not measured, which was true of every version before 2.3 and is no longer true. The app announces the change on first launch and offers a switch to decline it.</p>
 
 <h2>Contact</h2>
