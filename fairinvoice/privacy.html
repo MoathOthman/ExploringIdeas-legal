@@ -32,16 +32,16 @@
 <div class="wrap">
   <p><a href="index.html">&larr; FairInvoice</a></p>
   <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: 13 November 2026</p>
+  <p class="muted">Last updated: 24 November 2026</p>
 
   <div class="summary-card">
-    <strong>The short version:</strong> FairInvoice has no account and no servers for your data.
+    <strong>The short version:</strong> An account is optional. Without one, nothing about you leaves your device except the anonymous diagnostics below. FairInvoice has no servers for your data.
     Every invoice, estimate, receipt, client, business detail and job-site photo you add is stored
     <strong>entirely on your device</strong> and <strong>never transmitted to us</strong>.
-    There is no login. Optional iCloud Sync (off by default) keeps a copy in <em>your own</em> iCloud account &mdash; never on our servers.
+    Signing in to the optional account <strong>never uploads or syncs your invoices</strong>. Optional iCloud Sync (off by default) keeps a copy in <em>your own</em> iCloud account &mdash; never on our servers.
     What the app does send us is small and anonymous: <strong>usage statistics, crash reports,
     and a device record for our own notification service</strong> &mdash; never your documents,
-    not linked to you (except feedback you choose to send from Settings), never used to track you.
+    not linked to you (except feedback you choose to send from Settings, and the <a href="#account">optional account</a> if you create one), never used to track you.
     Push announcements are on by default once you have seen the &ldquo;Hear about what&rsquo;s new&rdquo;
     screen (see <a href="#announcements">App announcements</a>), and you can turn them off in Settings. The only
     thing that ever leaves your phone with your business on it is a PDF <em>you</em> choose to
@@ -54,8 +54,9 @@
   instructions, every document you create and any job-site photos you attach &mdash; is stored on your device: on iPhone, iPad
   and Mac using Apple's SwiftData framework, and on Android in a database inside the app (see
   <a href="#android">FairInvoice for Android</a>). This data <strong>never leaves your device</strong> and is
-  <strong>never transmitted to us or anyone else</strong>. There is no FairInvoice account,
-  no sign-up, no login, and no FairInvoice server. If you turn on iCloud Sync, your data is also stored in your personal iCloud account &mdash; see the next section.</p>
+  <strong>never transmitted to us or anyone else</strong>. Signing in to the
+  <a href="#account">optional account</a> <strong>never uploads or syncs your invoices</strong>, clients or
+  business details, and there is no FairInvoice server that stores them. If you turn on iCloud Sync, your data is also stored in your personal iCloud account &mdash; see the next section.</p>
 
   <h2>iCloud Sync (optional)</h2>
   <p>iCloud Sync is <strong>off by default</strong>. If you turn it on (a Pro feature), FairInvoice uses Apple's CloudKit
@@ -84,8 +85,8 @@
   (country/region/city) from your masked IP address &mdash; the app itself never uses Location
   Services. It never reads your advertising identifier:
   FairInvoice ships Firebase <em>without</em> Google's advertising-ID and ad-conversion modules.
-  None of these diagnostics are linked to you &mdash; there is no account, so we could not link
-  them even if we wanted to &mdash; and none of it is used to track you. The one thing the app
+  None of these diagnostics are linked to you &mdash; they are never linked to your account, even if
+  you create one &mdash; and none of it is used to track you. The one thing the app
   sends that <em>is</em> linked to you is feedback you choose to send from Settings, because it
   carries the email address you enter (see <a href="#feedback">Send Feedback</a>).</p>
 
@@ -177,8 +178,8 @@
   (turning them on never asks for permission), and you can switch them off in <em>Settings &rarr;
   Reminders &rarr; Invoice follow-ups</em>. The anonymous usage statistics record only that a
   follow-up was scheduled, shown or answered, as fixed codes.</p>
-  <p><strong>Not linked to you:</strong> FairInvoice has no accounts, so the token is not tied
-  to your name, email, or identity &mdash; we could not look you up by it if we wanted to.</p>
+  <p><strong>Not linked to you:</strong> the token is never connected to the optional account, so it
+  is not tied to your name, email, or identity &mdash; we could not look you up by it if we wanted to.</p>
   <p><strong>Opting out:</strong> turn off <em>App announcements</em> in FairInvoice's Settings to
   stop marketing messages, or turn off notifications for FairInvoice in iOS Settings to stop all
   notifications. Everything else in the app works identically without them.</p>
@@ -266,8 +267,8 @@
 
   <h2>What the App Store privacy label says</h2>
   <p>FairInvoice's App Store privacy label lists exactly this. Nothing is <strong>used for
-  tracking</strong>. Every item is <strong>not linked to your identity</strong>, except the two
-  Send Feedback items at the end of this list:</p>
+  tracking</strong>. Every item is <strong>not linked to your identity</strong>, except the
+  Send Feedback items and the optional account items at the end of this list:</p>
   <ul>
     <li><strong>Identifiers &mdash; Device ID:</strong> App Functionality, Analytics, Developer's
         Advertising or Marketing.</li>
@@ -277,7 +278,8 @@
     <li><strong>Diagnostics &mdash; Other Diagnostic Data:</strong> App Functionality,
         Analytics.</li>
     <li><strong>Purchases &mdash; Purchase History:</strong> App Functionality, Analytics (see
-        <em>Purchases</em> below).</li>
+        <em>Purchases</em> below). Declared as <strong>linked to you</strong> because, if you sign
+        in to the optional account, your purchase is linked to it.</li>
     <li><strong>Location &mdash; Coarse Location:</strong> Analytics. The app never uses Location
         Services; Google Analytics derives an approximate location (country/region/city) from
         your masked IP address.</li>
@@ -287,15 +289,19 @@
         feature-usage codes, and the optional note you may add when you turn off Pro's renewal).</li>
     <li><strong>Contact Info &mdash; Email Address</strong> and <strong>User Content &mdash;
         Customer Support:</strong> App Functionality, <strong>linked to you</strong> &mdash; only
-        when you choose to send feedback, so we can reply (see <em>Send Feedback</em> above).</li>
+        when you choose to send feedback, so we can reply (see <em>Send Feedback</em> above), or,
+        for the email address, when you create the <a href="#account">optional account</a>.</li>
+    <li><strong>Identifiers &mdash; User ID:</strong> App Functionality, <strong>linked to
+        you</strong> &mdash; only if you create the <a href="#account">optional account</a>.</li>
   </ul>
   <p>"Developer's Advertising or Marketing" on Device ID and Product Interaction is the app
   announcements (see <a href="#announcements">App announcements</a>; switch them off in Settings) and the in-app messages described above &mdash; our own messages about
   FairInvoice and our other apps, never third-party ads. Version 1.6 adds nothing to this list:
   the weekly summary, the year recap and job-site photos stay on your device (or in your own
   iCloud), the in-app message events are the Device ID and Product Interaction items above, and
-  the status check carries no identifier. Version 1.7 adds nothing either: the invoice
-  follow-ups are local notifications made on your device, and their usage statistics are the
+  the status check carries no identifier. Version 1.7 adds the <a href="#account">optional
+  account</a> (its User ID and email address, and Purchase History linked to it, only if you
+  create one); the invoice follow-ups are local notifications made on your device, and their usage statistics are the
   anonymous feature-usage codes above. If a future version ever transmits anything more, we
   will update this policy first and describe exactly what it sends.</p>
 
@@ -333,20 +339,60 @@
   &mdash; Apple processes the payment and we never receive card data. Apple's privacy policy
   governs that transaction. To confirm your Pro access, the app shares the App Store purchase
   record (which product, when, and an anonymous app user ID) with our subscription service,
-  RevenueCat &mdash; never your name, email, or payment method. Firebase Analytics also records
+  RevenueCat &mdash; never your name, email, or payment method. If you sign in to the
+  <a href="#account">optional account</a>, RevenueCat keeps your purchase under the ID
+  <code>fairinvoice:&lt;id&gt;</code> instead, still without your email. Firebase Analytics also records
   an anonymous in-app purchase event (which product and its price) so we can see how the app is
   doing; it is not linked to you.</p>
 
-  <h2>No account required</h2>
-  <p>FairInvoice requires no sign-up, no email address, no phone number, and no social login to
-  work. There is no FairInvoice account and no FairInvoice server that stores your identity, your
-  clients, or your paperwork.</p>
+  <h2 id="account">Optional account (from 1.7; Android 1.2.1)</h2>
+  <p>FairInvoice works fully without an account, and buying or restoring Pro never needs one.
+  Nothing asks you to sign in. If you choose to, you can create an email account in
+  <em>Settings &rarr; Account &amp; purchases</em> (or on <a href="#web">FairInvoice on the web</a>).
+  Its only purpose is to let you use your Pro purchase on the web and on your other devices.</p>
+  <ul>
+    <li><strong>What is collected:</strong> your email address; your password, which is handled
+        by Google Firebase Authentication &mdash; we never see it; a Firebase user ID; the
+        verification and sign-in metadata Firebase keeps (including the IP address a sign-in came
+        from); and the RevenueCat customer ID <code>fairinvoice:&lt;id&gt;</code>, which links
+        your Pro purchase history to the account.</li>
+    <li><strong>What is never collected:</strong> signing in <strong>never uploads or syncs your
+        invoices</strong>, estimates, receipts, clients, photos or business details. They stay on
+        your device (and in your own iCloud, if you use iCloud Sync). The account is never linked
+        to the anonymous diagnostics, the notification service or the push token described on
+        this page, and RevenueCat never receives your email.</li>
+    <li><strong>Who processes it:</strong> Google Firebase (Authentication and Cloud Functions,
+        which check and delete the account) and RevenueCat (purchase records).</li>
+    <li><strong>Shared with Ownspend:</strong> the same sign-in also works in Ownspend, our
+        budgeting app, because both apps use one sign-in service. Deleting the account deletes
+        the sign-in for both apps. Each app keeps its own Pro purchase.</li>
+    <li><strong>How long:</strong> the account is kept until you delete it.</li>
+    <li><strong>Deleting it:</strong> in the app, <em>Settings &rarr; Account &amp; purchases
+        &rarr; Delete account</em> (iPhone, iPad, Mac and Android), or on the web in FairInvoice's
+        Settings. Instructions are also at
+        <a href="https://apps.puzzpics.com/fairinvoice/delete-account.html">apps.puzzpics.com/fairinvoice/delete-account.html</a>.
+        Deleting removes the Firebase sign-in (email, password and user ID) and its server
+        record. What remains: your App Store or Google Play billing records, kept by Apple or
+        Google, and RevenueCat's purchase record under the pseudonymous
+        <code>fairinvoice:&lt;id&gt;</code>, no longer connected to any email. To have that
+        RevenueCat record removed too, email
+        <a href="mailto:kenz@kenzapps.com">kenz@kenzapps.com</a>. The data on your devices is
+        not touched.</li>
+  </ul>
+
+  <h2 id="web">FairInvoice on the web</h2>
+  <p>FairInvoice on the web (<code>fairinvoice.puzzpics.com</code>) keeps the documents you make
+  there in your browser's local storage on that computer; they are not uploaded to us. Clearing
+  your browser's site data deletes them. The site is hosted on our own server, and like any web
+  server it keeps standard request logs that may record your IP address, browser and the pages
+  requested, used only to run and secure the site. Signing in on the web uses the optional
+  account above and only checks whether your account holds FairInvoice Pro.</p>
 
   <h2 id="android">FairInvoice for Android</h2>
   <p>This section covers the FairInvoice app from Google Play. Everything above applies to it
   too, except where this section says otherwise. In short, the Android app works the same way:
-  your business data stays on your phone, there is no account and no FairInvoice server holding
-  your documents, and the only things it sends are anonymous diagnostics, purchase records, a
+  your business data stays on your phone, an account is optional and there is no FairInvoice
+  server holding your documents, and the only things it sends are anonymous diagnostics, purchase records, a
   device record and app events for our own notification service and, if you allow notifications,
   a push token. The iPhone-only features described above &mdash; iCloud Sync, the on-device AI and
   Scan Lines, the cancellation question and the in-app feedback form &mdash; are not part of the
@@ -417,8 +463,15 @@
   through Google Play. Google handles payment; we never see your card or payment details. We use
   RevenueCat to confirm the purchase and unlock Pro. RevenueCat receives the Google Play purchase
   record and an anonymous ID it creates for the installation &mdash; not your name or email.
-  Because there is no account, a purchase on one store does not carry over to the other: Pro bought
-  on iPhone does not unlock Pro on Android, and the reverse. A Google Play purchase can be restored
+  Without an account, a purchase on one store does not carry over to the other: Pro bought
+  on iPhone does not unlock Pro on Android, and the reverse. If you sign in to the
+  <a href="#account">optional account</a> and link your purchase, it also unlocks Pro where you
+  sign in with that account.</p>
+  <p><strong>Optional account (from 1.2.1).</strong> The Android app offers the same optional
+  account described in <a href="#account">Optional account</a>, with the same data, processors,
+  shared Ownspend sign-in, retention and deletion: <em>Settings &rarr; Account &amp; purchases
+  &rarr; Delete account</em>, or the web page linked there. Signing in never uploads or syncs
+  your invoices, and the account is never linked to the anonymous diagnostics. A Google Play purchase can be restored
   on any Android device signed in to the same Google account.</p>
   <p><strong>Feedback.</strong> <em>Send Feedback</em> in Settings opens your own email app with a
   message addressed to <a href="mailto:kenz@kenzapps.com">kenz@kenzapps.com</a>, prefilled with the
@@ -433,7 +486,8 @@
   request location, contacts, camera, microphone, photos, storage or the advertising ID.</p>
 
   <h2 id="deleting-your-data">Deleting your data</h2>
-  <p>FairInvoice has no account, so there is nothing to close. Deleting the app (on any platform)
+  <p>If you created the optional account, delete it as described in
+  <a href="#account">Optional account</a>; without one there is no account to close. Deleting the app (on any platform)
   deletes everything it stored on your device. Your own backup files, your iCloud data (if you
   used iCloud Sync) and your Google account backup are yours to delete in those services.</p>
   <p>For the anonymous diagnostics and purchase records held by our service providers (Google
@@ -458,7 +512,8 @@
   <h2>Retention</h2>
   <p>Your documents, clients, items, job-site photos and business profile live only on your device and are deleted
   when you delete FairInvoice or delete them yourself. Unless you turn on iCloud Sync there is no cloud copy,
-  so we recommend using <em>Settings &rarr; Back up</em> to export a backup file of anything important.</p>
+  so we recommend using <em>Settings &rarr; Back up</em> to export a backup file of anything important.
+  The optional account is kept until you delete it (see <a href="#account">Optional account</a>).</p>
 
   <h2>Changes to this policy</h2>
   <p>If this policy ever changes we will update the date at the top of this page. Material changes
